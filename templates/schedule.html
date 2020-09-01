@@ -7,8 +7,14 @@
 {% endblock %}
 
 {% block tabs %}
-{{ components.tabs([("calendar", "Calendar", "active"),
-        ("day", "Example Day", "")]) }}
+{{ components.tabs([
+  ("calendar", "Calendar", "active"),
+  ("day", "Monday", ""),
+  ("day", "Tuesday", ""),
+  ("day", "Wednesday", ""),
+  ("day", "Thursday", ""),
+  ])
+}}
 {% endblock %}
 
 {% block content %}
