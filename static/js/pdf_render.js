@@ -6,28 +6,39 @@
   let totalPagesCount = 0;
 
   let viewport = null;
+  let scale = 2;
 
   /**
    * render one page
    * @param page
    */
-  function renderPage(page) {
-    let pdfViewport = page.getViewport(1);
+  // function renderPage(page) {
+  //   let pdfViewport = page.getViewport(1);
+  //
+  //   const container =
+  //     viewport.children[page.pageIndex - cursorIndex * pageMode];
+  //   pdfViewport = page.getViewport(
+  //     (2 * container.offsetWidth) / pdfViewport.width
+  //   );
+  //   const canvas = container.children[0];
+  //   const context = canvas.getContext("2d");
+  //   canvas.height = pdfViewport.height;
+  //   canvas.width = pdfViewport.width;
+  //
+  //   page.render({
+  //     canvasContext: context,
+  //     viewport: pdfViewport,
+  //   });
+  // }
+  // var thePdf = null;
 
-    const container =
-      viewport.children[page.pageIndex - cursorIndex * pageMode];
-    pdfViewport = page.getViewport(
-      (2 * container.offsetWidth) / pdfViewport.width
-    );
-    const canvas = container.children[0];
-    const context = canvas.getContext("2d");
-    canvas.height = pdfViewport.height;
-    canvas.width = pdfViewport.width;
-
-    page.render({
-      canvasContext: context,
-      viewport: pdfViewport,
-    });
+  function renderPage(pageNumber, canvas) {
+      pdfInstance.getPage(pageNumber).then(function(page) {
+        viewport = page.getViewport(scale);
+        canvas.height = viewport.height;
+        canvas.width = viewport.width;
+        page.render({canvasContext: canvas.getContext('2d'), viewport: viewport});
+      });
   }
 
   /**
@@ -87,11 +98,19 @@
   window.initPDFViewer = function (pdfURL, selector) {
     selector = selector || "#pdf_view";
     viewport = document.querySelector(selector);
+    // viewer = document.getElementById('pdf-view');
 
-    pdfjsLib.getDocument(pdfURL).then((pdf) => {
+    pdfjsLib.getDocument(pdfURL).promise.then((pdf) => {
       pdfInstance = pdf;
-      totalPagesCount = 1;
-      render();
+      thePdf = pdf;
+      // totalPagesCount = 1;
+      // render();
+      for(page = 1; page <= pdf.numPages; page++) {
+        canvas = document.createElement("canvas");
+        canvas.className = 'pdf-page-canvas';
+        viewport.appendChild(canvas);
+        renderPage(page, canvas);
+      }
     });
   };
 })();
