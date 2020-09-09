@@ -144,7 +144,9 @@ def format_paper(v):
             "recs": [],
             "session": list_fields["session"],
             "pdf_url": v.get("pdf_url", ""),
+            # "poster_pdf": v["poster_pdf"],
         },
+        "poster_pdf": "GLTR_poster.pdf",
     }
 
 
