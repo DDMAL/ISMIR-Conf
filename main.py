@@ -109,6 +109,14 @@ def workshops():
     ]
     return render_template("workshops.html", **data)
 
+@app.route("/music.html")
+def music():
+    data = _data()
+    # data["workshops"] = [
+    #     format_workshop(workshop) for workshop in site_data["workshops"]
+    # ]
+    return render_template("music.html", **data)
+
 
 def extract_list_field(v, key):
     value = v.get(key, "")

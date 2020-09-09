@@ -18,6 +18,8 @@
     <link rel="stylesheet" href="static/css/lazy_load.css" />
     <link rel="stylesheet" href="static/css/typeahead.css" />
 
+    <!-- <link rel="stylesheet" href="https://gitcdn.xyz/repo/wingkwong/jquery-chameleon/master/src/chameleon.min.css"> -->
+
     <!-- External Javascript libs  -->
     <script src="https://cdn.jsdelivr.net/npm/d3@5/dist/d3.min.js"></script>
 
@@ -37,6 +39,7 @@
     <script src="https://cdn.jsdelivr.net/npm/moment@2.24.0/min/moment.min.js" integrity="sha256-4iQZ6BVL4qNKlQ27TExEhBN1HFPvAvAMbFavKKosSWQ=" crossorigin="anonymous"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/moment-timezone@0.5.28/builds/moment-timezone-with-data.min.js" integrity="sha256-IWYg4uIC8/erItNXYvLtyYHioRi2zT1TFva8qaAU/ww=" crossorigin="anonymous"></script>
+    <!-- <script src="static/js/chameleon.js"></script> -->
 
 
     <!-- Library libs -->
@@ -68,7 +71,7 @@
       href="static/css/Ambiant.css"
       rel="stylesheet"
     />
-
+    <!-- <link href="static/css/chameleon.css" rel="stylesheet"/> -->
     <title>{{config.page_title.prefix}}{% if page_title %}{{config.page_title.separator}}{{page_title}}{% endif %}</title>
     {% endblock %}
   </head>
@@ -81,7 +84,8 @@
     ('calendar.html', 'Schedule'),
     ('papers.html', 'Papers'),
     ('workshops.html', 'Workshops'),
-    ('chat.html', 'Chat'),
+    ('music.html', 'Music'),
+    ('chat.html', 'Social'),
     ('about.html', 'Help'),
     ] -%}
 
