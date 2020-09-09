@@ -110,6 +110,13 @@
         <input type="radio" name="options" value="authors" autocomplete="off" />
         author
       </label>
+      <!-- <label
+        class="btn btn-outline-secondary"
+        data-tippy-content="Search for papers from specific session"
+      >
+        <input type="radio" name="options" value="session_name" autocomplete="off" />
+        session
+      </label> -->
     </div>
   </div>
   <div class="col-12 col-lg-4">
@@ -144,6 +151,16 @@
         </label>
       </div>
     </div>
+  </div>
+  <div class="col-12 col-sm-6 col-md-6 col-lg-4 mb-3">
+    <span>Session: </span>
+    <select id="session-select" onchange="sessionSearch()">
+      <option value=""></option>
+      <!-- <option value="volvo">Volvo</option>
+      <option value="saab">Saab</option>
+      <option value="vw">VW</option>
+      <option value="audi" selected>Audi</option> -->
+    </select>
   </div>
 </div>
 

@@ -87,6 +87,7 @@ let calcAllKeys = function (allPapers, allKeys) {
           d.content.authors.forEach(a => collectAuthors.add(a));
           d.content.keywords.forEach(a => collectKeywords.add(a));
           d.content.session.forEach(a => collectSessions.add(a));
+          // allKeys.session_name.push(d.content.session_name);
           allKeys.titles.push(d.content.title);
       });
     allKeys.authors = Array.from(collectAuthors);
@@ -94,3 +95,13 @@ let calcAllKeys = function (allPapers, allKeys) {
     allKeys.session = Array.from(collectSessions);
     allKeys.session.sort();
 };
+
+function populateSessionSelect(sessionArray) {
+  const select = document.getElementById("session-select");
+  for (let i = 0; i < sessionArray.length; i += 1) {
+      option = document.createElement('option');
+      option.setAttribute('value', sessionArray[i]);
+      option.appendChild(document.createTextNode(sessionArray[i]));
+      select.appendChild(option);
+  }
+}

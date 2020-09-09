@@ -13,6 +13,9 @@ const filters = {
 };
 
 let render_mode = 'compact';
+let uniqueSessions = null;
+
+
 
 const persistor = new Persistor('Mini-Conf-Papers');
 
@@ -100,7 +103,7 @@ const render = () => {
         // console.log(fList, "--- fList");
         updateCards(fList)
     }
-
+    console.log([...new Set(allKeys['session_name'])]);
 }
 
 const updateFilterSelectionBtn = value => {
@@ -140,6 +143,9 @@ const start = () => {
 
         allPapers = papers;
         calcAllKeys(allPapers, allKeys);
+        uniqueSessions = [...new Set(allKeys['session'])];
+        console.log(uniqueSessions);
+        populateSessionSelect(uniqueSessions);
         setTypeAhead(urlFilter,
           allKeys, filters, render);
         updateCards(allPapers)
@@ -160,6 +166,16 @@ const start = () => {
 /**
  * EVENTS
  * **/
+function sessionSearch() {
+  let select = document.getElementById("session-select").value;
+  setQueryStringParameter("session", select);
+  render();
+}
+// d3.selectAll('#session-select option').on('click', function() {
+//     console.log('selected');
+//     const me = d3.select(this);
+//
+// })
 
 d3.selectAll('.filter_option input').on('click', function () {
     const me = d3.select(this)
@@ -167,6 +183,7 @@ d3.selectAll('.filter_option input').on('click', function () {
     const filter_mode = me.property('value');
     setQueryStringParameter("filter", filter_mode);
     setQueryStringParameter("search", '');
+    setQueryStringParameter("session", '');
     updateFilterSelectionBtn(filter_mode);
 
 
@@ -207,7 +224,7 @@ const card_image = (openreview, show) => {
 
 const card_detail = (openreview, show) => {
     if (show)
-        return ` 
+        return `
      <div class="pp-card-header">
         <p class="card-text"> ${openreview.content.TLDR}</p>
         <p class="card-text"><span class="font-weight-bold">Keywords:</span>
@@ -255,7 +272,7 @@ const card_cal = (openreview, i) => `<a class="text-muted" href="webcal://iclr.g
 const card_html = openreview => `
         <div class="pp-card pp-mode-` + render_mode + ` ">
             <div class="pp-card-header">
-            <div class="checkbox-paper ${openreview.content.read ? 'selected' : ''}" style="display: block;position: absolute; bottom:35px;left: 35px;">✓</div>    
+            <div class="checkbox-paper ${openreview.content.read ? 'selected' : ''}" style="display: block;position: absolute; bottom:35px;left: 35px;">✓</div>
                 <a href="poster_${openreview.id}.html"
                 target="_blank"
                    class="text-muted">
@@ -264,9 +281,8 @@ const card_html = openreview => `
                         ${openreview.content.authors.join(', ')}
                 </h6>
                 ${card_image(openreview, render_mode !== 'list')}
-                
+
             </div>
-               
+
                 ${card_detail(openreview, (render_mode === 'detail'))}
         </div>`
-
