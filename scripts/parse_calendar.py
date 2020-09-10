@@ -12,7 +12,7 @@ def parse_arguments():
 
     parser.add_argument(
         "--ics",
-        default="sample_cal.ics",
+        default="../static/calendar/ISMIR_2020.ics",
         type=str,
         help="ICS file to parse (local or via http)",
     )
