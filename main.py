@@ -6,7 +6,7 @@ import json
 import os
 
 import yaml
-from flask import Flask, jsonify, redirect, render_template, send_from_directory, send_file
+from flask import Flask, jsonify, redirect, render_template, send_from_directory, send_file, url_for
 from flask_frozen import Freezer
 from flaskext.markdown import Markdown
 
@@ -121,7 +121,7 @@ def music():
 
 @app.route("/getCalendar")
 def get_calendar():
-    return send_file('scripts/ISMIR_2020.ics',
+    return send_file(url_for('scripts', filename="ISMIR_2020.ics"),
                     mimetype='text/ics',
                     attachment_filename='ISMIR_2020.ics',
                     as_attachment=True)
