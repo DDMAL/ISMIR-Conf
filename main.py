@@ -6,7 +6,7 @@ import json
 import os
 
 import yaml
-from flask import Flask, jsonify, redirect, render_template, send_from_directory
+from flask import Flask, jsonify, redirect, render_template, send_from_directory, send_file
 from flask_frozen import Freezer
 from flaskext.markdown import Markdown
 
@@ -117,6 +117,14 @@ def music():
     # ]
     return render_template("music.html", **data)
 
+# DOWNLOAD CALENDAR
+
+@app.route("/getCalendar")
+def get_calendar():
+    return send_file('scripts/ISMIR_2020.ics',
+                    mimetype='text/ics',
+                    attachment_filename='ISMIR_2020.ics',
+                    as_attachment=True)
 
 def extract_list_field(v, key):
     value = v.get(key, "")
