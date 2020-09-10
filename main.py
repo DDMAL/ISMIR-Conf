@@ -121,7 +121,7 @@ def music():
 
 @app.route("/getCalendar")
 def get_calendar():
-    return send_file(url_for('scripts', filename="ISMIR_2020.ics"),
+    return send_file(url_for('static', filename="calendar/ISMIR_2020.ics"),
                     mimetype='text/ics',
                     attachment_filename='ISMIR_2020.ics',
                     as_attachment=True)
