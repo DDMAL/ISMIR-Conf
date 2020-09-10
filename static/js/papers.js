@@ -103,7 +103,7 @@ const render = () => {
         // console.log(fList, "--- fList");
         updateCards(fList)
     }
-    console.log([...new Set(allKeys['session_name'])]);
+    // console.log([...new Set(allKeys['session_name'])]);
 }
 
 const updateFilterSelectionBtn = value => {
@@ -112,6 +112,7 @@ const updateFilterSelectionBtn = value => {
           const v = d3.select(this).select('input').property('value')
           return v === value;
       })
+    sessionSearch();
 }
 
 const updateSession = () => {
@@ -123,6 +124,7 @@ const updateSession = () => {
         return true;
     } else {
         filters['session'] = null
+        d3.select('.session_notice').classed('d-none', true);
         return false;
     }
 }
@@ -166,6 +168,7 @@ const start = () => {
 /**
  * EVENTS
  * **/
+
 function sessionSearch() {
   let select = document.getElementById("session-select").value;
   setQueryStringParameter("session", select);
