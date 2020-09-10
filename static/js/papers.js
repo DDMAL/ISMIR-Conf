@@ -195,7 +195,7 @@ d3.selectAll('.filter_option input').on('click', function () {
     const filter_mode = me.property('value');
     setQueryStringParameter("filter", filter_mode);
     setQueryStringParameter("search", '');
-    setQueryStringParameter("session", '');
+    // setQueryStringParameter("session", '');
     updateFilterSelectionBtn(filter_mode);
 
 
