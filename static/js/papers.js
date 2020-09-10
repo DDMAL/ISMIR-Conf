@@ -112,7 +112,7 @@ const updateFilterSelectionBtn = value => {
           const v = d3.select(this).select('input').property('value')
           return v === value;
       })
-    sessionSearch();
+    // sessionSearch();
 }
 
 const updateSession = () => {
@@ -154,7 +154,16 @@ const start = () => {
 
 
         const urlSearch = getUrlParameter("search");
-        if ((urlSearch !== '') || updateSession()) {
+        const urlSession = getUrlParameter("session");
+        // console.log(urlSession);
+        if (urlSession !== '') {
+          document.getElementById("session-select").value = urlSession;
+          setQueryStringParameter("session", urlSession);
+          filters["session"] = urlSession;
+          render();
+        }
+        // if ((urlSearch !== '') || updateSession()) {
+        if (urlSearch !== '') {
             filters[urlFilter] = urlSearch;
             $('.typeahead_all').val(urlSearch);
             render();
