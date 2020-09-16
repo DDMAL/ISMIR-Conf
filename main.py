@@ -47,9 +47,7 @@ def main(site_data_path):
     for typ in ["papers", "speakers", "workshops"]:
         by_uid[typ] = {}
         for p in site_data[typ]:
-            by_uid[typ][p["UID"]] = p
-    site_data["highlighted"] = []
-    
+            by_uid[typ][p["UID"]] = p    
     print("Data Successfully Loaded")
     return extra_files
 
