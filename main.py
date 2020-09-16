@@ -14,6 +14,15 @@ site_data = {}
 by_uid = {}
 
 
+def paper_check(row):
+    return "paper" in row['type']
+
+def music_check(row):
+    return "music" in row['type']
+
+def demo_check(row):
+    return "demo" in row['type']
+
 def main(site_data_path):
     global site_data, extra_files
     extra_files = ["README.md"]
@@ -24,7 +33,13 @@ def main(site_data_path):
         if typ == "json":
             site_data[name] = json.load(open(f))
         elif typ in {"csv", "tsv"}:
-            site_data[name] = list(csv.DictReader(open(f)))
+            if name == "papers":
+                all_content = csv.DictReader(open(f))
+                site_data["papers"] = list(filter(paper_check, all_content))
+                site_data["music"] = list(filter(music_check, all_content))
+                site_data["demo"] = list(filter(demo_check, all_content))
+            else:
+                site_data[name] = list(csv.DictReader(open(f)))
         elif typ == "yml":
             site_data[name] = yaml.load(open(f).read(), Loader=yaml.SafeLoader)
 
