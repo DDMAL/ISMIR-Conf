@@ -3,6 +3,9 @@ JS_FILES = $(shell find static/js -name "*.js")
 CSS_FILES = $(shell find static/css -name "*.css")
 .PHONY: format-python format-web format run freeze format-check
 TEMP_DEPLOY_BRANCH = "temp-gh-pages"
+TEMP_DEPLOY_BRANCH_DEV = "temp-gh-pages-dev"
+
+DDMAL_REMOTE = "ddmal_origin"
 
 all: format-check
 
@@ -43,3 +46,14 @@ deploy: freeze
 	git checkout @{-1}
 	@echo "Deployed to gh-pages 🚀"
 
+dev: freeze
+	-git branch -D gh-pages-dev
+	-git branch -D $(TEMP_DEPLOY_BRANCH_DEV)
+	git checkout -b $(TEMP_DEPLOY_BRANCH_DEV)
+	git add -f build
+	git commit -am "Deploy on gh-pages-dev"
+	git subtree split --prefix build -b gh-pages-dev
+	# git push --force "https://${GH_TOKEN}@${GH_REF}.git" $(TEMP_DEPLOY_BRANCH):gh-pages
+	git push --force $(DDMAL_REMOTE) gh-pages-dev
+	git checkout @{-1}
+	@echo "Deployed to gh-pages-dev 🚀"
