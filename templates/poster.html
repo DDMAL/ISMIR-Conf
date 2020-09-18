@@ -71,16 +71,28 @@
   </div>
 </div>
 
-<h5 style="color: red;">
-  Add content for posters. This could be a video, embedded pdf, chat room ....
-</h5>
-
 {{ components.section("Example Poster") }}
-<iframe src = "static/ViewerJS/index.html#../images/{{ paper.poster_pdf }}" width='100%' height='500px' allowfullscreen webkitallowfullscreen></iframe> 
+<iframe src = "static/ViewerJS/index.html#../images/{{ paper.poster_pdf }}" width='100%' height='500px' allowfullscreen webkitallowfullscreen></iframe>
 <!-- <object data="{{ url_for('static', filename='images/Evan_Savage_Resume_2020.pdf')}}" type="application/pdf" style="min-height:100vh;width:100%"></object> -->
 <!-- <object data="{{ paper.poster_pdf }}" type="application/pdf" style="min-height:100vh;width:100%"></object> -->
 
 {{ components.section("Example Video Stream") }}
+https://www.bilibili.com/video/BV1mD4y1d7iM?zw
+<div class="aspect-ratio">
+  <iframe class="video-stream" src="//player.bilibili.com/player.html?aid=712007829&bvid=BV1mD4y1d7iM&cid=235970292&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="550" height="281"> </iframe>
+</div>
+
+<div class="aspect-ratio">
+  <iframe class="video-stream" width="560" height="315" src="https://www.youtube.com/embed/_dOP36kWDyo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+
+<div class="aspect-ratio">
+  <video class="video-stream" width="560" height="315" controls>
+    <source src="static/video/member_search_demo.mov">
+  </video>
+</div>
+
+
 
 <script src="https://cdn.jsdelivr.net/npm/pdfjs-dist@2.3.200/build/pdf.min.js"></script>
 <script src="static/js/pdf_render.js"></script>
