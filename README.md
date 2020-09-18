@@ -1,5 +1,9 @@
 ## Welcome to ISMIR 2020!!
 
+Production: https://gh-pages.d2v1pt6u509dae.amplifyapp.com
+
+Development: http://ddmal.music.mcgill.ca/ISMIR-Conf/
+
 <!-- ## MiniConf
 
 <a href="https://mini-conf.github.io/index.html">MiniConf</a> is a virtual conference in a box. It manages the papers, schedules, and speakers for an academic conference run virtually. It can be easily integrated with interactive tools such as video, chat, and QA.

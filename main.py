@@ -47,7 +47,7 @@ def main(site_data_path):
     for typ in ["papers", "speakers", "workshops"]:
         by_uid[typ] = {}
         for p in site_data[typ]:
-            by_uid[typ][p["UID"]] = p    
+            by_uid[typ][p["UID"]] = p
     print("Data Successfully Loaded")
     return extra_files
 
@@ -80,7 +80,7 @@ def index():
 @app.route("/index.html")
 def home():
     data = _data()
-    data["readme"] = open("README.md").read()
+    data["readme"] = open("HOME.md").read()
     data["committee"] = site_data["committee"]["committee"]
     return render_template("index.html", **data)
 
