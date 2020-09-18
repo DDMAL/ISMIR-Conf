@@ -5,7 +5,7 @@ CSS_FILES = $(shell find static/css -name "*.css")
 TEMP_DEPLOY_BRANCH = "temp-gh-pages"
 TEMP_DEPLOY_BRANCH_DEV = "temp-gh-pages-dev"
 
-DDMAL_REMOTE = "ddmal_origin"
+DDMAL_REMOTE = "origin"
 
 all: format-check
 
