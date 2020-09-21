@@ -48,21 +48,33 @@ body {
   font: "Montserrat";
 }
 
+.organizers {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
 .pp-card {
   font-family: "Exo";
-  box-shadow: 0 0 14px 0 rgba(204, 204, 204, 1);
+  /* box-shadow: 0 0 14px 0 rgba(204, 204, 204, 1); */
   margin-bottom: 1em;
   display: block;
   overflow: hidden;
 }
 
 .pp-card-header {
-  border: 4px solid #eee;
-  font-family: "Exo";
-  height: 340px;
+  /* border: 4px solid #eee; */
+  font-family: "Ambiant";
+  height: 200px;
   padding-top: 10px;
   padding-left: 15px;
   padding-right: 15px;
+}
+
+.pp-card-header center {
+  /* position: absolute;
+  top: 110px;
+  left: 50%;
+  transform: translateX(-50%); */
 }
 
 .pp-mode-list .pp-card-header {

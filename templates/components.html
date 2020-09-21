@@ -69,57 +69,62 @@
 {%- endmacro %}
 
 {% macro organizergroup(committee) -%}
-<div class="row">
-  {% set roles =
-    ['General Co-Chair',
-    'Scientific Program',
-    'Publication',
-    'Tutorials',
-    'Late-breaking/Demo',
-    'Satellite Events',
-    'WiMIR',
-    'Unconference',
-    'Sponsorship',
-    'Industry',
-    'Virtual Technology',
-    'Website and Conference Management Software',
-    'Local Arrangements',
-    'Volunteer'
-  ] %}
-  {% for role in roles %} <!-- Maintains ordering from original site -->
-  <!-- <h3>{{ role }}</h3> -->
-  {% for org in committee %}
-  {% if org.role in role %}
-  <div class="col-md-4 col-xs-6">
-    <div class="pp-card">
-      <div class="pp-card-header" class="text-muted">
-        <h5 class="card-title" align="center">{{org.name}}</h5>
-        <div>
-          <h6 class="card-subtitle text-muted m-1" align="center">
-            {{org.role}}
-          </h6>
+<div class="organizers">
+  <div class="row">
+    {% set roles =
+      ['General Co-Chair',
+      'Scientific Program',
+      'Publication',
+      'Tutorials',
+      'Late-breaking/Demo',
+      'Satellite Events',
+      'WiMIR',
+      'Unconference',
+      'Sponsorship',
+      'Industry',
+      'Music',
+      'Virtual Technology',
+      'Website and Conference Management Software',
+      'Local Arrangements',
+      'Volunteer'
+    ] %}
+    {% for role in roles %} <!-- Maintains ordering from original site -->
+    <!-- <h3>{{ role }}</h3> -->
+    {% for org in committee %}
+    {% if org.role[0] in role %}
+    <div class="col-md-4 col-xs-6 col-sm-6">
+      <div class="pp-card">
+        <div class="pp-card-header" class="text-muted">
+          <center>
+            {% if org.im %}
+            <img src="{{org.im}}" class="rounded" style="height: 100px;" />
+            {% else %}
+            <img src="static/images/organizers/holder_100px.jpg" class="rounded" style="height: 100px;" />
+            {% endif %}
+          </center>
+          <h5 class="card-title" align="center">{{org.name}}</h5>
+          <div>
+            {% for r in org.role %}
+              <h6 class="card-subtitle text-muted m-1" align="center">
+                {{ r }}
+              </h6>
+            {% endfor %}
+          </div>
+          <div>
+            <h6 class="card-subtitle text-muted m-1" align="center">
+              {{org.aff}}{% if org.tw %} /
+              <a class="text-muted" href="http://twitter.com/{{org.tw}}"
+                >@{{org.tw}}</a
+              >{% endif %}
+            </h6>
+          </div>
         </div>
-        <div>
-          <h6 class="card-subtitle text-muted m-1" align="center">
-            {{org.aff}}{% if org.tw %} /
-            <a class="text-muted" href="http://twitter.com/{{org.tw}}"
-              >@{{org.tw}}</a
-            >{% endif %}
-          </h6>
-        </div>
-        <center>
-          {% if org.im %}
-          <img src="{{org.im}}" class="rounded" style="height: 100px;" />
-          {% else %}
-          <img src="static/images/organizers/holder_100px.jpg" class="rounded" style="height: 100px;" />
-          {% endif %}
-        </center>
       </div>
     </div>
+    {% endif %}
+    {% endfor %}
+    {% endfor %}
   </div>
-  {% endif %}
-  {% endfor %}
-  {% endfor %}
 </div>
 {%- endmacro %}
 
