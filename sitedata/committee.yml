@@ -171,7 +171,7 @@ committee:
       - Music
     name: Guillaume Boutard
     # aff: MIT-IBM Watson AI Lab
-    # im: static/images/organizers/rachel_100px.jpg
+    im: static/images/organizers/guillaume_100px.jpg
 
   - role:
       - Music
@@ -186,7 +186,6 @@ committee:
 
   - role:
       - Local Arrangements
-      - Music
     name: Emily Hopkins
     # aff: MIT-IBM Watson AI Lab
     im: static/images/organizers/emily_100px.jpg
