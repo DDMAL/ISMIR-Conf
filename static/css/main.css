@@ -9,7 +9,7 @@ body a:hover {
 
 h2,
 h3 {
-  font-family: "Lato";
+  font-family: "Ambiant";
 }
 
 label:text-muted,
@@ -112,11 +112,11 @@ body .nav-pills .nav-link.active {
 }
 
 .card-header {
-  font-family: "Exo";
+  font-family: "Ambiant";
 }
 
 .card-header .card-title {
-  font-family: "Exo";
+  font-family: "Ambiant";
 }
 
 .cards.myCard {

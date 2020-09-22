@@ -1,3 +1,11 @@
+.poster-buttons {
+  font-family: "Ambiant";
+}
+
+.content {
+  min-height: calc(100vh - 206.02px);
+}
+
 .aspect-ratio {
   position:relative;
   width: 100%;

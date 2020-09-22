@@ -44,58 +44,77 @@
       >{{ "," if not loop.last }}
       {% endfor %}
     </p>
-    <div class="text-center p-3">
-      <a class="card-link" data-toggle="collapse" role="button" href="#details">
+  </div>
+</div>
+<div class="row">
+  <div class="col-12 text-center">
+    <div class="poster-buttons btn-group btn-group-toggle mb-3" data-toggle="buttons">
+      <button class="card-link btn btn-primary" data-toggle="collapse" type="button" data-target="#details">
         Abstract
-      </a>
-      <a class="card-link" target="_blank" href="{{paper.link}}">
+      </button>
+      <button class="card-link btn btn-primary" data-toggle="collapse" type="button" data-target="#paper">
         Paper
-      </a>
-      {% if paper.content.code != blank %}
+      </button>
+      <button class="card-link btn btn-primary" data-toggle="collapse" type="button" data-target="#video">
+        Video
+      </button>
+      <button class="card-link btn btn-primary" data-toggle="collapse" type="button" data-target="#links">
+        Links
+      </button>
+      <!-- {% if paper.content.code != blank %}
       <a href="{{paper.content.code}}" target="_blank" class="card-link">
         Code
       </a>
-      {% endif %}
+      {% endif %} -->
     </div>
   </div>
 </div>
-<div id="details" class="pp-card m-3 collapse">
-  <div class="card-body">
-    <div class="card-text">
-      <div id="abstractExample">
-        <span class="font-weight-bold">Abstract:</span>
-        {{paper.content.abstract}}
+<div class="poster-content">
+  <div id="details" class="pp-card m-3 collapse">
+    <div class="card-body">
+      <div class="card-text">
+        <div id="abstractExample">
+          <span class="font-weight-bold">Abstract:</span>
+          {{paper.content.abstract}}
+        </div>
       </div>
+      <p></p>
     </div>
-    <p></p>
+  </div>
+  <div id="paper" class="collapse">
+    <!-- {{ components.section("Example Poster") }} -->
+    <iframe src = "static/ViewerJS/index.html#../images/{{ paper.poster_pdf }}" width='100%' height='500px' allowfullscreen webkitallowfullscreen></iframe>
+    <!-- <object data="{{ url_for('static', filename='images/Evan_Savage_Resume_2020.pdf')}}" type="application/pdf" style="min-height:100vh;width:100%"></object> -->
+    <!-- <object data="{{ paper.poster_pdf }}" type="application/pdf" style="min-height:100vh;width:100%"></object> -->
+  </div>
+  <div id="video" class="collapse">
+    <!-- {{ components.section("Video Stream") }} -->
+
+    <div class="aspect-ratio">
+      <iframe class="video-stream" src="//player.bilibili.com/player.html?aid=712007829&bvid=BV1mD4y1d7iM&cid=235970292&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="550" height="281"> </iframe>
+    </div>
+
+    <!-- <div class="aspect-ratio">
+      <iframe class="video-stream" width="560" height="315" src="https://www.youtube.com/embed/_dOP36kWDyo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div> -->
+
+    <!-- <div class="aspect-ratio">
+      <video class="video-stream" width="560" height="315" controls>
+        <source src="static/video/member_search_demo.mov">
+      </video>
+    </div> -->
+  </div>
+  <div id="links" class="collapse">
+    {{ components.section("Links") }}
+
+    Holder for link content
   </div>
 </div>
-
-{{ components.section("Example Poster") }}
-<iframe src = "static/ViewerJS/index.html#../images/{{ paper.poster_pdf }}" width='100%' height='500px' allowfullscreen webkitallowfullscreen></iframe>
-<!-- <object data="{{ url_for('static', filename='images/Evan_Savage_Resume_2020.pdf')}}" type="application/pdf" style="min-height:100vh;width:100%"></object> -->
-<!-- <object data="{{ paper.poster_pdf }}" type="application/pdf" style="min-height:100vh;width:100%"></object> -->
-
-{{ components.section("Example Video Stream") }}
-
-<div class="aspect-ratio">
-  <iframe class="video-stream" src="//player.bilibili.com/player.html?aid=712007829&bvid=BV1mD4y1d7iM&cid=235970292&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="550" height="281"> </iframe>
-</div>
-
-<div class="aspect-ratio">
-  <iframe class="video-stream" width="560" height="315" src="https://www.youtube.com/embed/_dOP36kWDyo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-</div>
-
-<div class="aspect-ratio">
-  <video class="video-stream" width="560" height="315" controls>
-    <source src="static/video/member_search_demo.mov">
-  </video>
-</div>
-
 
 
 <script src="https://cdn.jsdelivr.net/npm/pdfjs-dist@2.3.200/build/pdf.min.js"></script>
 <script src="static/js/pdf_render.js"></script>
+<script src="static/js/poster.js"></script>
 <script>
     // $(document).ready(() => {
     //     // render first page of PDF to div
