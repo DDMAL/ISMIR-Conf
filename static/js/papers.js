@@ -146,6 +146,7 @@ const start = () => {
         allPapers = papers;
         calcAllKeys(allPapers, allKeys);
         uniqueSessions = [...new Set(allKeys['session'])];
+        uniqueSessions = uniqueSessions.sort((a,b) => a - b);
         console.log(uniqueSessions);
         populateSessionSelect(uniqueSessions);
         setTypeAhead(urlFilter,
