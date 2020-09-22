@@ -1,3 +1,7 @@
+* {
+  font-family: "Ambiant";
+}
+
 body a {
   color: #2294e0;
 }
@@ -14,11 +18,11 @@ h3 {
 
 label:text-muted,
 .nav-link {
-  font-family: "Lato";
+  font-family: "Ambiant";
 }
 
 body {
-  font-family: "Lato", sans-serif;
+  font-family: "Ambiant", sans-serif;
   background-color: rgba(236, 241, 246, 1);
 }
 
@@ -27,7 +31,7 @@ body {
 }
 
 .jumbotron {
-  font-family: "Lato", sans-serif;
+  font-family: "Ambiant", sans-serif;
   background-color: rgba(236, 241, 246, 1);
 }
 
@@ -54,7 +58,7 @@ body {
 }
 
 .pp-card {
-  font-family: "Exo";
+  font-family: "Ambiant";
   /* box-shadow: 0 0 14px 0 rgba(204, 204, 204, 1); */
   margin-bottom: 1em;
   display: block;
@@ -108,7 +112,7 @@ body .nav-pills .nav-link.active {
 }
 
 .card {
-  font-family: "Exo";
+  font-family: "Ambiant";
 }
 
 .card-header {
@@ -153,7 +157,7 @@ h3.card-subtitle.text-muted {
 .main-title {
   font-weight: 700;
   color: #2294e0;
-  font-family: "Exo";
+  font-family: "Ambiant";
 }
 
 .myAccordion {
@@ -242,7 +246,7 @@ tr.fc-list-item {
 }
 
 .details {
-  font-family: "Lato", sans-serif;
+  font-family: "Ambiant", sans-serif;
 }
 
 #abstractExample.collapse:not(.show) {
