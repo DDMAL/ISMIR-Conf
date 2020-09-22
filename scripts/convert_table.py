@@ -62,7 +62,7 @@ for index, row in orig_csv.iterrows():
     # print(author_affil)
 new_csv = pd.DataFrame(
     {"UID": orig_csv['Paper ID'],
-    "type": orig_csv['Content Type'],
+    # "type": orig_csv['Content Type'],
     "title": orig_csv['Paper Title'],
     "abstract": orig_csv['Abstract'],
     "primary_author": orig_csv['Primary Contact Author Name'],
