@@ -83,7 +83,9 @@
   </div>
   <div id="paper" class="collapse">
     <!-- {{ components.section("Example Poster") }} -->
-    <iframe src = "static/ViewerJS/index.html#../images/{{ paper.poster_pdf }}" width='100%' height='500px' allowfullscreen webkitallowfullscreen></iframe>
+    <!-- <iframe src = "static/ViewerJS/index.html#../camera_ready_papers_wo_num/{{ paper.id }}.pdf" width='100%' height='500px' allowfullscreen webkitallowfullscreen></iframe> -->
+    <button id="fullscreen-button" class="btn btn-primary mb-3">Fullscreen</button>
+    <iframe id="fullscreen-iframe" src = "static/camera_ready_papers_wo_num/{{ paper.id }}.pdf#embedded=true" width='100%' height='500px' allowfullscreen webkitallowfullscreen></iframe>
     <!-- <object data="{{ url_for('static', filename='images/Evan_Savage_Resume_2020.pdf')}}" type="application/pdf" style="min-height:100vh;width:100%"></object> -->
     <!-- <object data="{{ paper.poster_pdf }}" type="application/pdf" style="min-height:100vh;width:100%"></object> -->
   </div>
@@ -112,8 +114,8 @@
 </div>
 
 
-<script src="https://cdn.jsdelivr.net/npm/pdfjs-dist@2.3.200/build/pdf.min.js"></script>
-<script src="static/js/pdf_render.js"></script>
+<!-- <script src="https://cdn.jsdelivr.net/npm/pdfjs-dist@2.3.200/build/pdf.min.js"></script>
+<script src="static/js/pdf_render.js"></script> -->
 <script src="static/js/poster.js"></script>
 <script>
     // $(document).ready(() => {
