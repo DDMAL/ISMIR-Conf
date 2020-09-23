@@ -15,6 +15,29 @@ key_choice = str(input())
 if key_choice not in ['m', 'M']:
     sys.exit('Chooose one of the options above')
 
+articles = ['a', 'an', 'of', 'the', 'for', 'and', 'nor', 'but', 'or', 'yet',
+    'so', 'at', 'by', 'from', 'with', 'without', 'to', 'on', 'via', 'in', 'vs']
+
+capital_exceptions = ['DJ', 'LSTM-HSMM', 'SuPP', 'MaPP:', 'POP909:', 'PIANOTREE',
+    'VAE', 'VAE:', 'MIR', 'MIR:', 'ASAP', 'Tag2Risk:', 'BebopNet:', 'SketchNet', 'BTS',
+    'ARMY', 'Human-AI', 'Song/Artist', 'MIDI', 'MusPy', 'GrooveToolbox', 'EEG',
+    'Fadernets', 'CONLON', 'DRUMGAN', 'JavaScript', 'dMelodies',
+    'Ethno-Music-Ontology', 'AI', 'AI-composed', 'COVID-19', 'Mix-To-Track',
+    '"Play', '"Butter']
+
+def title_except(s, exceptions):
+    word_list = re.split(' ', s)       # re.split behaves as expected
+    if word_list[0] in capital_exceptions:
+        final = [word_list[0]]
+    else:
+        final = [word_list[0].capitalize()]
+    for word in word_list[1:]:
+        if word in capital_exceptions:
+            final.append(word)
+        else:
+            final.append(word if word in exceptions else word.capitalize())
+    return " ".join(final)
+
 
 # Rework authors, affiliations, subject areas
 
@@ -63,7 +86,7 @@ for index, row in orig_csv.iterrows():
 new_csv = pd.DataFrame(
     {"UID": orig_csv['Paper ID'],
     # "type": orig_csv['Content Type'],
-    "title": orig_csv['Paper Title'],
+    "title": [title_except(x, articles) for x in orig_csv['Paper Title']],
     "abstract": orig_csv['Abstract'],
     "primary_author": orig_csv['Primary Contact Author Name'],
     "primary_email": orig_csv['Primary Contact Author Email'],
@@ -74,5 +97,5 @@ new_csv = pd.DataFrame(
 })
 # UID   title   authors session	day	abstract	keywords
 # print(orig_csv)
-# print(new_csv)
+print(new_csv["title"].loc[new_csv["UID"] == 128])
 new_csv.to_csv('../sitedata/papers.csv', index=False)
