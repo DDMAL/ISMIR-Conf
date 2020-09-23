@@ -134,6 +134,21 @@ body .nav-pills .nav-link.active {
   margin-top: 10px;
 }
 
+.cards .myCard {
+  margin-bottom: 1rem;
+}
+
+.myCard .pp-mode-compact {
+  border: 1px solid #efefef;
+  height: 100%;
+}
+
+.myCard .pp-mode-compact .pp-card-header, .myCard .pp-mode-detail .pp-card-header {
+  height: auto;
+}
+
+
+
 .card-title {
   margin-top: 10px;
   font-size: 20px;
