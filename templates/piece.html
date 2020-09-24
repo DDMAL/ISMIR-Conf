@@ -22,7 +22,14 @@
     </div>
     <div class="music-details">
       <h1 class="mb-4">{{music.title}}</h1>
-      <h4>{{music.first_name}} {{music.last_name}}</h4>
+      <!-- <p>{{music.UID}}</p> -->
+      {% if music.UID == '392' %}
+          <h4>{{music.last_name[12:]}}</h4>
+      {% elif music.UID == '393' %}
+          <h4>{{music.last_name}}</h4>
+      {% else %}
+          <h4>{{music.first_name}} {{music.last_name}}</h4>
+      {% endif %}
       <h5 style="color: rgba(0,0,0,.5);">{{music.affiliation}}</h5>
     </div>
   </div>

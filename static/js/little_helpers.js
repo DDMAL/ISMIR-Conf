@@ -96,6 +96,17 @@ let calcAllKeys = function (allPapers, allKeys) {
     allKeys.session.sort();
 };
 
+let calcAllKeysMusic = function (allPapers, allKeys) {
+    const collectSessions = new Set();
+
+    allPapers.forEach(
+      d => {
+          collectSessions.add(d.session);
+      });
+    allKeys.session = Array.from(collectSessions);
+    allKeys.session.sort();
+};
+
 function populateSessionSelect(sessionArray) {
   const select = document.getElementById("session-select");
   for (let i = 0; i < sessionArray.length; i += 1) {

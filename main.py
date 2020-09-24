@@ -256,6 +256,13 @@ def paper_json():
         json.append(format_paper(v))
     return jsonify(json)
 
+@app.route("/music.json")
+def music_json():
+    json = []
+    for v in site_data["music"]:
+        json.append(v)
+    return jsonify(json)
+
 
 @app.route("/static/<path:path>")
 def send_static(path):
