@@ -128,9 +128,7 @@ def workshops():
 @app.route("/music.html")
 def musics():
     data = _data()
-    # data["workshops"] = [
-    #     format_workshop(workshop) for workshop in site_data["workshops"]
-    # ]
+    data["music"] = site_data["music"]
     return render_template("music.html", **data)
 
 # DOWNLOAD CALENDAR
@@ -194,9 +192,12 @@ def format_music(v):
             "title": v["title"],
             "first_name": v["first_name"],
             "last_name": v["last_name"],
+            "affiliation": v["affiliation"],
             "abstract": v["abstract"],
             "bio": v["bio"],
             "web_link": v["web_link"],
+            "session": v["session"],
+            "yt_link": v["yt_link"],
         }
     }
 
@@ -235,7 +236,7 @@ def music(music):
     uid = music
     v = by_uid["music"][uid]
     data = _data()
-    data["music"] = format_music(v)
+    data["music"] = v
     return render_template("piece.html", **data)
 
 

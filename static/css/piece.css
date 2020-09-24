@@ -1,0 +1,27 @@
+.music-page-wrapper {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.music-page-wrapper .page-header {
+  display: flex;
+  width: 100%;
+}
+
+.music-page-wrapper .page-header .image-wrapper {
+  max-width: 260px;
+}
+
+.music-page-wrapper .page-header .music-details {
+  width: calc(100% - 260px);
+  padding-top: 80px;
+  padding-left: 80px;
+}
+
+.music-page-wrapper .page-header .music-details {
+  /* text-align: center; */
+}
+
+.music-page-wrapper .page-header .image-wrapper img {
+  max-width: 100%;
+}

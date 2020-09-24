@@ -1,32 +1,38 @@
-{% set page_title = music.content.title %}
+{% set page_title = music.title %}
 {% extends "base.html" %}
 
 {% block head %}
 
 {{ super() }}
-<meta name="citation_title" content="{{music.content.title}}" />
-<meta name="citation_author" content="{{music.content.first_name}} {{music.content.last_name}}" />
+<meta name="citation_title" content="{{music.UID}}" />
+<meta name="citation_author" content="{{music.first_name}} {{music.last_name}}" />
 <meta name="citation_publication_date" content="{{config.citation_date}}" />
 <meta name="citation_conference_title" content="{{config.tagline|striptags|title}}" />
 <meta name="citation_inbook_title" content="{{config.proceedings_title}}" />
-<meta name="citation_abstract" content="{{music.content.abstract}}" />
+<meta name="citation_abstract" content="{{music.abstract}}" />
 
 {% endblock %}
 
 {% block content %}
 
-<p>Rendered</p>
+<div class="music-page-wrapper mt-3">
+  <div class="page-header mb-5">
+    <div class="image-wrapper">
+      <img alt="{{music.first_name}} {{music.last_name}}" src="static/images/music_headshots/{{music.UID}}.jpg"/>
+    </div>
+    <div class="music-details">
+      <h1 class="mb-4">{{music.title}}</h1>
+      <h4>{{music.first_name}} {{music.last_name}}</h4>
+      <h5>{{music.affiliation}}</h5>
+    </div>
+  </div>
 
 
+<div>{{music.abstract}}</div>
+
+</div>
 <!-- <script src="https://cdn.jsdelivr.net/npm/pdfjs-dist@2.3.200/build/pdf.min.js"></script>
 <script src="static/js/pdf_render.js"></script> -->
 <!-- <script src="static/js/poster.js"></script> -->
-
-</script>
-
-
-
-
-
 
 {% endblock %}
