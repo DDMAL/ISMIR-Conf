@@ -44,7 +44,7 @@ def main(site_data_path):
                 site_data[name] = list(csv.DictReader(open(f)))
         elif typ == "yml":
             site_data[name] = yaml.load(open(f).read(), Loader=yaml.SafeLoader)
-    for typ in ["papers", "speakers", "workshops"]:
+    for typ in ["papers", "speakers", "workshops", "music"]:
         by_uid[typ] = {}
         for p in site_data[typ]:
             by_uid[typ][p["UID"]] = p
@@ -126,7 +126,7 @@ def workshops():
     return render_template("workshops.html", **data)
 
 @app.route("/music.html")
-def music():
+def musics():
     data = _data()
     # data["workshops"] = [
     #     format_workshop(workshop) for workshop in site_data["workshops"]
@@ -187,6 +187,19 @@ def format_workshop(v):
         "abstract": v["abstract"],
     }
 
+def format_music(v):
+    return {
+        "id": v["UID"],
+        "content": {
+            "title": v["title"],
+            "first_name": v["first_name"],
+            "last_name": v["last_name"],
+            "abstract": v["abstract"],
+            "bio": v["bio"],
+            "web_link": v["web_link"],
+        }
+    }
+
 
 # ITEM PAGES
 
@@ -216,6 +229,14 @@ def workshop(workshop):
     data = _data()
     data["workshop"] = format_workshop(v)
     return render_template("workshop.html", **data)
+
+@app.route("/music_<music>.html")
+def music(music):
+    uid = music
+    v = by_uid["music"][uid]
+    data = _data()
+    data["music"] = format_music(v)
+    return render_template("piece.html", **data)
 
 
 @app.route("/chat.html")
