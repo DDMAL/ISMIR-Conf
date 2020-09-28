@@ -22,6 +22,9 @@ default_presentation_id: 38922815
 default_poster_pdf: /static/images/GLTR_poster.pdf
 
 
+opening_ref_title_1: Opening Plenary A (L)
+opening_ref_title_2: Opening Plenary B (R)
+
 # Configuration for auth
 #Test user
 #user: miniconf@miniconf.com

@@ -5,6 +5,9 @@ function make_cal(name) {
     const current_tz = getUrlParameter('tz') || moment.tz.guess();
     const tzNames = [...moment.tz.names()];
 
+    let localStart = 8 // 08:00 local for checking which opening event to center the calendar on
+    let startOffsets = [0,0]
+
     const setupTZSelector = () => {
         const tzOptons = d3.select('#tzOptions')
         tzOptons.selectAll('option').data(tzNames)
@@ -44,6 +47,8 @@ function make_cal(name) {
 
     $.get('serve_config.json').then(config => {
         $.get(name).then(events => {
+            const scroll_ref1 = config.opening_ref_title_1;
+            const scroll_ref2 = config.opening_ref_title_2;
 
             const all_cals = [];
             const timezoneName = current_tz;
@@ -90,13 +95,28 @@ function make_cal(name) {
                       var min = time.minutes === 0 ? '00' : time.minutes;
                       return hour + ':' + min;
                     },
-                    // timegridDisplayTime: function (time) {
-                    //   // var meridiem = time.hour < 12 ? 'am' : 'pm';
-                    //
-                    //   return time.hour + ':' + time.minutes;
-                    // },
                     time: function (schedule) {
-                        return '<strong>' + moment(schedule.start.getTime())
+                        var class_name=""
+                        if (schedule.title == scroll_ref1) {
+                          startOffsets[0] = parseInt(moment(schedule.start.getTime())
+                            .tz(timezoneName)
+                            .format('HH')) + parseInt(moment(schedule.start.getTime())
+                            .tz(timezoneName)
+                            .format('mm')) / 60 - localStart;
+                          class_name = 'openingA';
+                          // console.log(startOffsets);
+                        } else if (schedule.title == scroll_ref2) {
+                          startOffsets[1] = parseInt(
+                            moment(schedule.start.getTime())
+                            .tz(timezoneName)
+                            .format('HH')) + parseInt(
+                            moment(schedule.start.getTime())
+                            .tz(timezoneName)
+                            .format('mm')) / 60 - localStart;
+                          class_name = 'openingB';
+                          // console.log(startOffsets);
+                        }
+                        return `<strong class=${class_name}>` + moment(schedule.start.getTime())
                           .tz(timezoneName)
                           .format('HH:mm') + '</strong> ' + schedule.title;
                     },
@@ -207,11 +227,28 @@ function make_cal(name) {
             $(window).on('resize', _.debounce(function () {
                 all_cals.forEach(c => resize(c));
             }, 100));
+            calendar.on('afterRenderSchedule', function() {
+              console.log(startOffsets);
+              var scrollTo = null;
+              var topPos = 0;
+              const contain = $('.tui-full-calendar-timegrid-container');
 
+              if (startOffsets[0] < -3 || startOffsets[0] >= 11) {
+                scrollTo = $('.openingB').parents('.tui-full-calendar-time-date-schedule-block');
+                topPos = scrollTo[0].offsetTop;
+              }
+              else {
+                scrollTo = $('.openingA').parents('.tui-full-calendar-time-date-schedule-block');
+                topPos = scrollTo[0].offsetTop;
+              }
+              contain.scrollTop(topPos - 20);
+            });
             // d3.selectAll('.tui-full-calendar-vlayout-area').attr('style',null);
-
         })
 
     })
-
 }
+
+$(window).ready(function() {
+
+})
