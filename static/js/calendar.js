@@ -84,10 +84,21 @@ function make_cal(name) {
                     monthDayname: function (dayname) {
                         return '<span class="calendar-week-dayname-name">' + dayname.label + '</span>';
                     },
+                    timegridDisplayPrimaryTime: function (time) {
+                      // var meridiem = time.hour < 12 ? 'am' : 'pm';
+                      var hour = time.hour < 10 ? `0${time.hour}` : time.hour;
+                      var min = time.minutes === 0 ? '00' : time.minutes;
+                      return hour + ':' + min;
+                    },
+                    // timegridDisplayTime: function (time) {
+                    //   // var meridiem = time.hour < 12 ? 'am' : 'pm';
+                    //
+                    //   return time.hour + ':' + time.minutes;
+                    // },
                     time: function (schedule) {
                         return '<strong>' + moment(schedule.start.getTime())
                           .tz(timezoneName)
-                          .format('hh:mm') + '</strong> ' + schedule.title;
+                          .format('HH:mm') + '</strong> ' + schedule.title;
                     },
                     milestone: function (schedule) {
                         return '<span class="calendar-font-icon ic-milestone-b"></span> <span style="background-color: ' + schedule.bgColor + '"> M: ' + schedule.title + '</span>';
