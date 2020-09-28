@@ -228,7 +228,7 @@ function make_cal(name) {
                 all_cals.forEach(c => resize(c));
             }, 100));
             calendar.on('afterRenderSchedule', function() {
-              console.log(startOffsets);
+              // console.log(startOffsets);
               var scrollTo = null;
               var topPos = 0;
               const contain = $('.tui-full-calendar-timegrid-container');
