@@ -14,7 +14,7 @@ page_title:
   prefix: 'ISMIR 2020'
   separator: ': '
 background_image: static/images/ISMIR_Homepage_HERO_IMAGE.png
-organization: MiniConf Organization Committee
+organization: ISMIR Organization Committee
 
 # Remove or change to your chat server.
 chat_server: miniconf.sloppy.zone
@@ -40,9 +40,10 @@ calendar:
     qa: '#4FCAEB'
     talk: '#ccc'
     open: '#D9E6C0'
-    pos: '#EDDCD2'
-    meet: '#FFF1E6'
+    pos: '#F7CDBA'
+    meet: '#FAE2C0'
     ind: '#F0EFEB'
-    mus: '#DDBEA9'
-    key: '#CB997E'
+    mus: '#F6EFA6'
+    key: '#B4CDED'
+    master: '#E9E1D6'
   sunday_saturday: false  #  Include Sunday and Saturday
