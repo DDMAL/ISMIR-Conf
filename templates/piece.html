@@ -9,14 +9,16 @@
 <meta name="citation_publication_date" content="{{config.citation_date}}" />
 <meta name="citation_conference_title" content="{{config.tagline|striptags|title}}" />
 <meta name="citation_inbook_title" content="{{config.proceedings_title}}" />
-<meta name="citation_abstract" content="{{music.abstract}}" />
+<meta name="citation_abstract" content="{{music.abstract}}"/>
+<meta id="yt-link" data-name="{{music.yt_link}}"/>
+<meta id="bb-link" data-name="{{music.bb_link}}"/>
 
 {% endblock %}
 
 {% block content %}
 
-<div class="music-page-wrapper mt-3">
-  <div class="page-header mb-5">
+<div class="music-page-wrapper mt-3 mb-5">
+  <div class="page-header">
     <div class="image-wrapper">
       <img alt="{{music.first_name}} {{music.last_name}}" src="static/images/music_headshots/{{music.UID}}.jpg"/>
     </div>
@@ -33,13 +35,47 @@
       <h5 style="color: rgba(0,0,0,.5);">{{music.affiliation}}</h5>
     </div>
   </div>
-
-
-<div>{{music.abstract}}</div>
+  <div class="row mt-4">
+    <div class="col-12 text-center">
+      <div class="music-buttons btn-group btn-group-toggle mb-3" data-toggle="buttons">
+        <button class="card-link btn btn-outline-primary" data-toggle="collapse" type="button" data-target="#bio">
+          Bio
+        </button>
+        <button class="card-link btn btn-outline-primary" data-toggle="collapse" type="button" data-target="#abstract">
+          Abstract
+        </button>
+        <button class="card-link btn btn-outline-primary" data-toggle="collapse" type="button" data-target="#music">
+          Music
+        </button>
+        <button class="card-link btn btn-outline-primary" data-toggle="collapse" type="button" data-target="#links">
+          Links
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="music-content-wrapper">
+    <div id="bio" class="pp-card mt-3 collapse">{{music.bio}}</div>
+    <div id="abstract" class="pp-card mt-3 collapse">{{music.abstract}}</div>
+    <div id="music" class="mt-3 collapse">
+      <!-- <div class="aspect-ratio">
+        <iframe class="video-stream" src="//player.bilibili.com/player.html?aid=712007829&bvid=BV1mD4y1d7iM&cid=235970292&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="550" height="281"> </iframe>
+      </div> -->
+      <div class="aspect-ratio">
+        <iframe id="yt-frame" class="video-stream" width="560" height="315" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
 
 </div>
-<!-- <script src="https://cdn.jsdelivr.net/npm/pdfjs-dist@2.3.200/build/pdf.min.js"></script>
-<script src="static/js/pdf_render.js"></script> -->
-<!-- <script src="static/js/poster.js"></script> -->
+
+<script src="static/js/url_converter.js"></script>
+<script src="static/js/piece.js"></script>
+<script>
+  const yt_link = $('#yt-link').data()["name"];
+  const bb_link = $('#bb-link').data()["name"];
+  var yt_ID = getId(yt_link);
+  $('#yt-frame').attr('src', '//www.youtube.com/embed/' + yt_ID)
+
+</script>
 
 {% endblock %}

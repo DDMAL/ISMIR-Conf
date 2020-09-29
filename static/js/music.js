@@ -87,7 +87,7 @@ const render = () => {
 const start = () => {
     const urlFilter = getUrlParameter("session");
     setQueryStringParameter("session", urlFilter);
-    // updateFilterSelectionBtn(urlFilter)
+    updateFilterSelectionBtn(urlFilter)
     // console.log('start');
 
 

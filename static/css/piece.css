@@ -8,6 +8,10 @@
   width: 100%;
 }
 
+.music-content-wrapper {
+  min-height: 400px;
+}
+
 .music-page-wrapper .page-header .image-wrapper {
   max-width: 260px;
 }
@@ -24,4 +28,15 @@
 
 .music-page-wrapper .page-header .image-wrapper img {
   max-width: 100%;
+}
+
+@media (max-width: 767px) {
+  .music-page-wrapper .page-header {
+    flex-direction: column;
+  }
+  .music-page-wrapper .page-header .music-details {
+    width: auto;
+    padding-top: 20px;
+    padding-left: 0px;
+  }
 }
