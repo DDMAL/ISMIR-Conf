@@ -13,6 +13,7 @@
 <meta id="yt-link" data-name="{{music.yt_link}}"/>
 <meta id="bb-link" data-name="{{music.bb_link}}"/>
 
+<script type="text/javascript" src="https://www.dropbox.com/static/api/2/dropins.js" id="dropboxjs" data-app-key="vg3b6ih5d014szs"></script>
 {% endblock %}
 
 {% block content %}
@@ -63,6 +64,15 @@
       <div class="aspect-ratio">
         <iframe id="yt-frame" class="video-stream" width="560" height="315" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       </div>
+      <div class="aspect-ratio">
+        <video class="video-stream" preload="auto" controls>
+          <source src="{{music.db_link}}&raw=1"/>
+        </video>
+      </div>
+      <!-- <a
+        href="https://www.dropbox.com/s/9pto4mzd969by30/ISMIR-377.mp4?dl=0"
+        class="dropbox-embed"
+      ></a> -->
     </div>
   </div>
 
