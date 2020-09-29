@@ -7,3 +7,13 @@
   /* background-color: red; */
   margin-top: 0;
 }
+
+.tui-full-calendar-time-schedule-content, .tui-full-calendar-time-schedule-content-time {
+  border-color: lightgrey !important;
+  font-weight: 400;
+}
+
+strong {
+  font-weight: 900;
+  /* font-size: 0.8rem; */
+}
