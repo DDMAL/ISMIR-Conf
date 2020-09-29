@@ -65,3 +65,7 @@ function fullscreenChange() {
 
 
 $("#fullscreen-iframe button#presentationMode").css('display', 'none !important');
+
+$(window).ready(function() {
+  $('.poster-buttons button').first().trigger("click");
+})
