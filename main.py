@@ -266,7 +266,9 @@ def music_json():
 
 @app.route("/static/<path:path>")
 def send_static(path):
-    return send_from_directory("static", path)
+    if "wo_num" not in path:
+        # print(path)
+        return send_from_directory("static", path)
 
 
 @app.route("/serve_<path>.json")
