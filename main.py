@@ -44,7 +44,7 @@ def main(site_data_path):
                 site_data[name] = list(csv.DictReader(open(f)))
         elif typ == "yml":
             site_data[name] = yaml.load(open(f).read(), Loader=yaml.SafeLoader)
-    for typ in ["papers", "speakers", "workshops", "music"]:
+    for typ in ["papers", "speakers", "workshops", "music", "demos"]:
         by_uid[typ] = {}
         for p in site_data[typ]:
             by_uid[typ][p["UID"]] = p
@@ -144,6 +144,7 @@ def musics():
 @app.route("/demos.html")
 def demos():
     data = _data()
+    data["demos"] = site_data["demos"]
     return render_template("demos.html", **data)
 
 @app.route("/topics.html")
@@ -189,6 +190,25 @@ def format_paper(v):
             # "poster_pdf": v["poster_pdf"],
         },
         "poster_pdf": "GLTR_poster.pdf",
+    }
+
+def format_demo(v):
+    list_keys = ["authors"]
+    list_fields = {}
+    for key in list_keys:
+        list_fields[key] = extract_list_field(v, key)
+
+    return {
+        "id": v["UID"],
+        "forum": v["UID"],
+        "session": v["session"],
+        "content": {
+            "title": v["title"],
+            "authors": list_fields["authors"],
+            "abstract": v["abstract"],
+            "TLDR": v["abstract"],
+            "pdf_url": v.get("pdf_url", ""),
+        },
     }
 
 
@@ -259,6 +279,14 @@ def music(music):
     data["music"] = v
     return render_template("piece.html", **data)
 
+@app.route("/demo_<demo>.html")
+def demo(demo):
+    uid = demo
+    v = by_uid["demos"][uid]
+    data = _data()
+    data["demo"] = format_demo(v)
+    return render_template("demo.html", **data)
+
 
 @app.route("/chat.html")
 def chat():
@@ -281,6 +309,13 @@ def music_json():
     json = []
     for v in site_data["music"]:
         json.append(v)
+    return jsonify(json)
+
+@app.route("/demos.json")
+def demos_json():
+    json = []
+    for v in site_data["demos"]:
+        json.append(format_demo(v))
     return jsonify(json)
 
 
@@ -311,6 +346,8 @@ def generator():
         yield "workshop", {"workshop": str(workshop["UID"])}
     for music in site_data["music"]:
         yield "music", {"music": str(music["UID"])}
+    for demo in site_data["demos"]:
+        yield "demo", {"demo": str(demo["UID"])}
 
     for key in site_data:
         yield "serve", {"path": key}

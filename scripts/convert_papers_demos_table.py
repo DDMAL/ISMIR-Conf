@@ -135,6 +135,7 @@ new_csv_demos = pd.DataFrame(
     "abstract": orig_csv_demos['Abstract'],
     "primary_author": orig_csv_demos['Primary Contact Author Name'],
     "primary_email": orig_csv_demos['Primary Contact Author Email'],
+    "session": [0] * len(orig_csv_demos['Paper ID']),
     "authors": authors_list_demos,
     "affiliations": affils_list_demos,
     "author_emails": emails_list_demos,

@@ -96,7 +96,7 @@ let calcAllKeys = function (allPapers, allKeys) {
     allKeys.session.sort();
 };
 
-let calcAllKeysMusic = function (allPapers, allKeys) {
+let calcAllKeysSimple = function (allPapers, allKeys) {
     const collectSessions = new Set();
 
     allPapers.forEach(
