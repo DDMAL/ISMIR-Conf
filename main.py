@@ -141,6 +141,16 @@ def musics():
     data["music"] = site_data["music"]
     return render_template("music.html", **data)
 
+@app.route("/demos.html")
+def demos():
+    data = _data()
+    return render_template("demos.html", **data)
+
+@app.route("/topics.html")
+def topics():
+    data = _data()
+    return render_template("topics.html", **data)
+
 # DOWNLOAD CALENDAR
 
 @app.route("/getCalendar")
