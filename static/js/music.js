@@ -62,7 +62,6 @@ const render = () => {
     else {
         const fList = allMusic.filter(
           d => {
-
               let i = 0, pass_test = true;
               while (i < f_test.length && pass_test) {
                   if (f_test[i][0] === 'titles') {
@@ -97,7 +96,7 @@ const start = () => {
         shuffleArray(music);
         //
         allMusic = music;
-        calcAllKeysMusic(allMusic, allKeys);
+        calcAllKeysSimple(allMusic, allKeys);
         uniqueSessions = [...new Set(allKeys['session'])];
         uniqueSessions = uniqueSessions.sort((a,b) => a - b);
         // console.log(uniqueSessions);

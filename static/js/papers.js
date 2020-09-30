@@ -85,7 +85,6 @@ const render = () => {
     else {
         const fList = allPapers.filter(
           d => {
-
               let i = 0, pass_test = true;
               while (i < f_test.length && pass_test) {
                   if (f_test[i][0] === 'titles') {

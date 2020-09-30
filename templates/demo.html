@@ -1,0 +1,89 @@
+{% set page_title = demo.content.title %}
+{% extends "base.html" %}
+
+{% block head %}
+
+{{ super() }}
+<meta name="citation_title" content="{{demo.content.title}}" />
+{% for author in demo.content.authors %}
+<meta name="citation_author" content="{{author}}" />
+{% endfor %}
+<meta name="citation_publication_date" content="{{config.citation_date}}" />
+<meta name="citation_conference_title" content="{{config.tagline|striptags|title}}" />
+<meta name="citation_inbook_title" content="{{config.proceedings_title}}" />
+<meta name="citation_abstract" content="{{demo.content.abstract}}" />
+
+<meta name="citation_pdf_url" content="{{demo.content.pdf_url | default("")}}" />
+
+{% endblock %}
+
+{% block content %}
+
+<!-- Title -->
+<div class="pp-card m-3" style="">
+  <div class="card-header">
+    <h2 class="card-title main-title text-center" style="">
+      {{demo.content.title}}
+    </h2>
+    <h3 class="card-subtitle mb-2 text-muted text-center">
+      {% for author in demo.content.authors %}
+      {{author}}{{ "," if not loop.last }}
+      {% endfor %}
+    </h3>
+  </div>
+</div>
+<div class="row">
+  <div class="col-12 text-center">
+    <div class="demo-buttons btn-group btn-group-toggle mb-3" data-toggle="buttons">
+      <button class="card-link btn btn-outline-primary" data-toggle="collapse" type="button" data-target="#details">
+        Abstract
+      </button>
+      <button class="card-link btn btn-outline-primary" data-toggle="collapse" type="button" data-target="#paper">
+        Paper
+      </button>
+      <button class="card-link btn btn-outline-primary" data-toggle="collapse" type="button" data-target="#video">
+        Video
+      </button>
+      <button class="card-link btn btn-outline-primary" data-toggle="collapse" type="button" data-target="#links">
+        Links
+      </button>
+    </div>
+  </div>
+</div>
+<div class="poster-content">
+  <div id="details" class="pp-card m-3 collapse">
+    <div class="card-body">
+      <div class="card-text">
+        <div id="abstractExample">
+          <span class="font-weight-bold">Abstract:</span>
+          {{demo.content.abstract}}
+        </div>
+      </div>
+      <p></p>
+    </div>
+  </div>
+  <div id="paper" class="collapse">
+    <!-- {{ components.section("Example Poster") }} -->
+    <!-- <iframe src = "static/ViewerJS/index.html#../camera_ready_papers_wo_num/{{ demo.id }}.pdf" width='100%' height='500px' allowfullscreen webkitallowfullscreen></iframe> -->
+    <button id="fullscreen-button" class="btn btn-primary mb-3">Fullscreen</button>
+    <!-- <iframe id="fullscreen-iframe" src = "static/camera_ready_papers_wo_num/{{ demo.id }}.pdf#embedded=true" width='100%' height='500px' allowfullscreen webkitallowfullscreen></iframe> -->
+    <iframe id="fullscreen-iframe" width='100%' height='500px' allowfullscreen webkitallowfullscreen></iframe>
+    <!-- <object data="{{ demo.poster_pdf }}" type="application/pdf" style="min-height:100vh;width:100%"></object> -->
+  </div>
+  <div id="video" class="collapse">
+    <!-- {{ components.section("Video Stream") }} -->
+
+    <div class="aspect-ratio">
+      <iframe class="video-stream" src="//player.bilibili.com/player.html?aid=712007829&bvid=BV1mD4y1d7iM&cid=235970292&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="550" height="281"> </iframe>
+    </div>
+  </div>
+  <div id="links" class="collapse">
+    {{ components.section("Links") }}
+
+    Holder for link content
+  </div>
+</div>
+
+<script src="static/js/demo.js"></script>
+
+{% endblock %}
