@@ -108,12 +108,22 @@ def paper_vis():
 @app.route("/calendar.html")
 def schedule():
     data = _data()
-    data["day"] = {
-        "speakers": site_data["speakers"],
-        "highlighted": [
-            format_paper(by_uid["papers"][h["UID"]]) for h in site_data["highlighted"]
-        ],
-    }
+    data["days"] = []
+    # data = _data()
+    for day in ['1', '2', '3', '4']:
+        speakers = [s for s in site_data["speakers"] if s["day"] == day]
+        out = {
+            "speakers": speakers,
+            "day": day,
+        }
+        data["days"].append(out)
+    # data["day"] = {
+    #     "speakers": site_data["speakers"],
+    #     "highlighted": [
+    #         format_paper(by_uid["papers"][h["UID"]]) for h in site_data["highlighted"]
+    #     ],
+    # }
+    print(data)
     return render_template("schedule.html", **data)
 
 

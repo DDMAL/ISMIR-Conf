@@ -23,7 +23,7 @@
     <div class="image-wrapper">
       <img alt="{{music.first_name}} {{music.last_name}}" src="static/images/music_headshots/{{music.UID}}.jpg"/>
     </div>
-    <div class="music-details">
+    <div class="details">
       <h1 class="mb-4">{{music.title}}</h1>
       <!-- <p>{{music.UID}}</p> -->
       {% if music.UID == '392' %}
@@ -69,10 +69,6 @@
           <source src="{{music.db_link}}&raw=1"/>
         </video>
       </div>
-      <!-- <a
-        href="https://www.dropbox.com/s/9pto4mzd969by30/ISMIR-377.mp4?dl=0"
-        class="dropbox-embed"
-      ></a> -->
     </div>
   </div>
 

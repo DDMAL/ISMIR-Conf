@@ -9,10 +9,10 @@
 {% block tabs %}
 {{ components.tabs([
   ("calendar", "Calendar", "active"),
-  ("day", "Monday", ""),
-  ("day", "Tuesday", ""),
-  ("day", "Wednesday", ""),
-  ("day", "Thursday", ""),
+  ("1", "Day 1", ""),
+  ("2", "Day 2", ""),
+  ("3", "Day 3", ""),
+  ("4", "Day 4", ""),
   ])
 }}
 {% endblock %}
@@ -55,28 +55,31 @@
   </div>
 
   <!-- Day Tab -->
-
+  {% for day in days %}
   <div
     class="tab-pane fade"
-    id="tab-day"
+    id="tab-{{day.day}}"
     role="tabpanel"
     aria-labelledby="nav-profile-tab"
   >
     <div id="day">
       <!-- Speakers -->
-      {{ components.section("Speakers") }}
+      {% if day.speakers %}
+      {{ components.section("Keynote Speaker") }}
       <div class="speakers">
         {{ components.speakergroup(day.speakers) }}
       </div>
-      {{ components.section("Highlighted Papers") }}
+      {% endif %}
+      <!-- {{ components.section("Highlighted Papers") }}
       <div class="papers">
         {{ components.highlightgroup(day.highlighted, 1) }}
-      </div>
+      </div> -->
     </div>
 
     <script type="text/javascript">
       lazyLoader();
     </script>
   </div>
+  {% endfor %}
 </div>
 {% endblock %}
