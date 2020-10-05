@@ -137,10 +137,10 @@ d3.selectAll('.filter_option input').on('click', function () {
 const card_html = openreview => {
     return `
       <div class="music-card m-4">
-      <a href="music_${openreview.UID}.html" class="image-wrapper mb-3">
-        <img src="static/images/music_headshots/${openreview.UID}.jpg"/>
+      <a href="music_${openreview.id}.html" class="image-wrapper mb-3">
+        <img src="static/images/demo_thumbnails/${openreview.id}.jpg"/>
       </a>
-      <h3><a href="demo_${openreview.UID}.html">${openreview.content.title}</a></h3>
+      <h3><a href="demo_${openreview.id}.html">${openreview.content.title}</a></h3>
       <h4>${openreview.content.authors.join(', ')}</h4>
       </div>`
 }
