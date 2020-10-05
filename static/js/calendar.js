@@ -69,10 +69,14 @@ function make_cal(name) {
                 taskView: false,
                 scheduleView: ['time'],
                 usageStatistics: false,
+                // useDetailPopup: true,
                 week: {
-                    workweek: !config.calendar["sunday_saturday"],
-                    hourStart: min_hours,
-                    hourEnd: max_hours
+                    // workweek: !config.calendar["sunday_friday"],
+                    daynames: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+                    startDayOfWeek: 0,
+                    // hourStart: min_hours,
+                    // hourEnd: max_hours,
+                    // narrowWeekend: true,
                 },
                 timezones: [{
                     timezoneOffset: -moment.tz.zone(timezoneName)
@@ -80,6 +84,11 @@ function make_cal(name) {
                     displayLabel: timezoneName,
                     tooltip: timezoneName
                 }],
+                theme: {
+                  'week.dayname.height': '42px',
+                  'week.timegridOneHour.height': '68px',
+                  // 'week.dayGridSchedule.height': '100px',
+                },
                 // timezones: [{
                 //     getTimezoneOffset: 540,
                 //     displayLabel: 'a',
