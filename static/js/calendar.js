@@ -142,9 +142,13 @@ function make_cal(name) {
             calendar.createSchedules(events);
             calendar.on({
                 'clickSchedule': function (e) {
-                    const s = e.schedule
+                    const s = e.schedule;
                     if (s.location.length > 0) {
-                        window.open(s.location, '_blanket');
+                        if (s.location.split("-")[0] === 'tab') {
+                          $('.nav-pills .nav-item .nav-link').eq(s.location.split("-")[1]).trigger('click');
+                        } else {
+                          window.open(s.location, '_self');
+                        }
                     }
                 },
             })
@@ -196,9 +200,14 @@ function make_cal(name) {
                 cal.createSchedules(events);
                 cal.on({
                     'clickSchedule': function (e) {
-                        const s = e.schedule
+                        const s = e.schedule;
                         if (s.location.length > 0) {
-                            window.open(s.location, '_blanket');
+
+                            if (s.location.split("-")[0] === 'tab') {
+                              $('.nav-pills .nav-item .nav-link').eq(s.location.split("-")[1]).trigger('click');
+                            } else {
+                              window.open(s.location, '_self');
+                            }
                         }
                     },
                 })

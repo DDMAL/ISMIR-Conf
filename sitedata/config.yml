@@ -22,7 +22,7 @@ default_presentation_id: 38922815
 default_poster_pdf: /static/images/GLTR_poster.pdf
 
 
-opening_ref_title_1: Opening Plenary A (L)
+opening_ref_title_1: Opening Plenary (Live) A
 opening_ref_title_2: Opening Plenary B (R)
 
 # Configuration for auth
@@ -37,13 +37,18 @@ auth0_domain : miniconf.auth0.com
 calendar:
   colors: #  Colors for the different event hashtags:
     ---: '#bed972'
-    qa: '#4FCAEB'
-    talk: '#ccc'
-    open: '#D9E6C0'
-    pos: '#F7CDBA'
-    meet: '#FAE2C0'
-    ind: '#F0EFEB'
-    mus: '#F6EFA6'
-    key: '#B4CDED'
-    master: '#E9E1D6'
+    # qa: '#4FCAEB'
+    # talk: '#ccc'
+    # open: '#D9E6C0'
+    # ind: '#F0EFEB'
+    # key: '#B4CDED'
+    tut: '#A79B8E'
+    all: '#D50201'
+    pos: '#F6BF25'
+    meet: '#B39DDB'
+    wimir: '#8F24AA'
+    meet-spec: '#34B579'
+    mus: '#3F51B5'
+    master: '#BFCB33'
+    sat: '#A79B8E'
   sunday_saturday: false  #  Include Sunday and Saturday
