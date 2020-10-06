@@ -61,6 +61,7 @@
       <!-- <div class="aspect-ratio">
         <iframe class="video-stream" src="//player.bilibili.com/player.html?aid=712007829&bvid=BV1mD4y1d7iM&cid=235970292&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="550" height="281"> </iframe>
       </div> -->
+      {% if config.music_links %}
       <div class="aspect-ratio">
         <iframe id="yt-frame" class="video-stream" width="560" height="315" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       </div>
@@ -69,6 +70,10 @@
           <source src="{{music.db_link}}&raw=1"/>
         </video>
       </div>
+      {% endif %}
+    </div>
+    <div id="links" class="pp-card mt-3 collapse">
+      Placeholder for links
     </div>
   </div>
 

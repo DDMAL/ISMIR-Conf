@@ -52,3 +52,7 @@ calendar:
     master: '#BFCB33'
     sat: '#A79B8E'
   sunday_saturday: false  #  Include Sunday and Saturday
+
+# RELEASE CONTROL
+
+music_links: false
