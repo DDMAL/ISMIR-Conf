@@ -39,6 +39,8 @@
 
 {% macro speakergroup(speakers, timezone) -%}
 {% for speaker in speakers %}
+{% set local_date_a = speaker.start_date_a | localizetime(speaker.start_time_a, timezone) %}
+{% set local_date_b = speaker.start_date_b | localizetime(speaker.start_time_b, timezone) %}
 <div class="row p-4">
   <div class="col-md-12">
     <div class="card">
@@ -59,6 +61,12 @@
               <span class="card-title h3">
                 {{speaker.speaker}}  /  {{speaker.institution}}
               </span>
+            </div>
+            <div class="m-3 text-left card-subtitle">
+              {{local_date_a[0]}} | {{local_date_a[1]}} (Live)
+            </div>
+            <div class="ml-3 text-left card-subtitle">
+              {{local_date_b[0]}} | {{local_date_b[1]}} (Replay)
             </div>
             <div class="m-3">
               {{speaker.abstract|safe}}
