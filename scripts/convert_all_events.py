@@ -100,7 +100,8 @@ new_csv = pd.DataFrame(
     {"UID": orig_csv['Event number (UTC)'],
     "title": orig_csv['Title'],
     "day": orig_csv['Conf day'],
-    # "start_date":
+    "start_date": orig_csv['Date (UTC)'],
+    "start_time": orig_csv['Start time (UTC)'],
     "category": orig_csv['Category'],
     "description": orig_csv['Description'],
     "organiser": orig_csv['Organiser'],

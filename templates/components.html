@@ -37,7 +37,7 @@
   <h2 class="day-title {{tag_text}}">{{name}}</h2>
 {%- endmacro %}
 
-{% macro speakergroup(speakers) -%}
+{% macro speakergroup(speakers, timezone) -%}
 {% for speaker in speakers %}
 <div class="row p-4">
   <div class="col-md-12">
@@ -259,9 +259,10 @@
 </div>
 {%- endmacro %}
 
-{% macro daycard(type) -%}
+{% macro daycard(type, timezone) -%}
 <div class="cards row p-4">
   {% for meet in type %}
+  {% set local_date = meet.start_date | localizetime(meet.start_time, timezone) %}
   <div class="col-md-6 col-sm-12 p-3" style="box-sizing: border-box;">
     <div class="card" style="display: block; overflow: hidden; width: 100%;">
       <div
@@ -279,6 +280,9 @@
           {{meet.organiser}}
         </div>
         <div class="m-3 text-left card-subtitle">
+          {{local_date[0]}} | {{local_date[1]}}
+        </div>
+        <div class="m-3 text-left card-subtitle">
           {{meet.description|markdown}}
         </div>
         <div class="m-3 text-left">
@@ -294,4 +298,5 @@
   </div>
   {% endfor %}
 </div>
+
 {%- endmacro %}

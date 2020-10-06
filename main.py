@@ -10,7 +10,11 @@ from flask import Flask, jsonify, redirect, render_template, send_from_directory
 from flask_frozen import Freezer
 from flaskext.markdown import Markdown
 # from flaskext.cache import Cache
-
+import pytz
+from pytz import timezone
+import tzlocal
+import datetime
+from dateutil import tz
 
 site_data = {}
 by_uid = {}
@@ -136,7 +140,7 @@ def schedule():
     #         format_paper(by_uid["papers"][h["UID"]]) for h in site_data["highlighted"]
     #     ],
     # }
-    print(data)
+    # print(data)
     return render_template("schedule.html", **data)
 
 
@@ -254,6 +258,20 @@ def format_music(v):
         }
     }
 
+@app.template_filter('localcheck')
+def datetimelocalcheck(s):
+    return tzlocal.get_localzone()
+
+@app.template_filter('localizetime')
+def localizetime(date,time,timezone):
+    to_zone = tz.gettz(str(timezone))
+    date = datetime.datetime.strptime(date + ' ' + time, '%Y-%m-%d %H:%M')
+    UTC_date = pytz.utc.localize(date)
+    local_date = UTC_date.astimezone(to_zone)
+    return local_date.strftime("%Y-%m-%d"), local_date.strftime("%H:%M")
+
+
+# app.jinja_env.filters['datetimelocalcheck'] = datetimelocalcheck
 
 # ITEM PAGES
 

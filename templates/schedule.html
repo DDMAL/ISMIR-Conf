@@ -18,6 +18,11 @@
 {% endblock %}
 
 {% block content %}
+{% if request.args.get('tz') %}
+  {% set tzone = request.args.get('tz') %}
+{% else %}
+  {% set tzone = '' | localcheck %}
+{% endif %}
 <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
   <!-- Calender tab -->
   <div
@@ -67,25 +72,25 @@
       {% if day.speakers %}
       {{ components.subsection_tag("Keynote Speaker", "all") }}
       <div class="day-section">
-        {{ components.speakergroup(day.speakers) }}
+        {{ components.speakergroup(day.speakers, tzone) }}
       </div>
       {% endif %}
       {% if day.special %}
       {{ components.subsection_tag("Special Meetups", "meet-spec") }}
       <div class="day-section">
-        {{ components.daycard(day.special) }}
+        {{ components.daycard(day.special, tzone) }}
       </div>
       {% endif %}
       {% if day.wimir %}
       {{ components.subsection_tag("WiMIR Meetups", "wimir") }}
       <div class="day-section">
-        {{ components.daycard(day.wimir) }}
+        {{ components.daycard(day.wimir, tzone) }}
       </div>
       {% endif %}
       {% if day.master %}
       {{ components.subsection_tag("Masterclasses", "master") }}
       <div class="day-section">
-        {{ components.daycard(day.master) }}
+        {{ components.daycard(day.master, tzone) }}
       </div>
       {% endif %}
       <!-- {{ components.section("Highlighted Papers") }}

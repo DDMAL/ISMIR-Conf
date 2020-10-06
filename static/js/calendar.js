@@ -4,7 +4,7 @@ function make_cal(name) {
 
     const current_tz = getUrlParameter('tz') || moment.tz.guess();
     const tzNames = [...moment.tz.names()];
-
+    console.log(current_tz);
     let localStart = 8 // 08:00 local for checking which opening event to center the calendar on
     let startOffsets = [0,0]
 
@@ -21,6 +21,7 @@ function make_cal(name) {
                 new_tz = tzNames[clickedIndex]
                 window.open(window.location.pathname+'?tz='+new_tz, '_self');
             })
+
     }
 
     setupTZSelector();
