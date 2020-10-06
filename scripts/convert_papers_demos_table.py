@@ -1,6 +1,7 @@
 import pandas as pd
 import re
 import sys
+import math
 
 authors_list = []
 affils_list = []
@@ -86,7 +87,7 @@ def extract_emails(row, cell_ref):
 for index, row in orig_csv.iterrows():
 
     session_num = schedule_csv[schedule_csv["Paper ID"] == row["Paper ID"]]["Session"].values[0]
-
+    session_num = math.ceil(session_num / 2)
     if key_choice == 'm':
         primary_sub = [row['Primary Subject Area'].split(' -> ')[1]]
         secondary_sub = [[x.split(' -> ')[1]] for x in row['Secondary Subject Areas'].split('; ')] if not pd.isnull(row['Secondary Subject Areas']) else None
