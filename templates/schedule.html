@@ -65,9 +65,27 @@
     <div id="day">
       <!-- Speakers -->
       {% if day.speakers %}
-      {{ components.section("Keynote Speaker") }}
-      <div class="speakers">
+      {{ components.subsection_tag("Keynote Speaker", "all") }}
+      <div class="day-section">
         {{ components.speakergroup(day.speakers) }}
+      </div>
+      {% endif %}
+      {% if day.special %}
+      {{ components.subsection_tag("Special Meetups", "meet-spec") }}
+      <div class="day-section">
+        {{ components.daycard(day.special) }}
+      </div>
+      {% endif %}
+      {% if day.wimir %}
+      {{ components.subsection_tag("WiMIR Meetups", "wimir") }}
+      <div class="day-section">
+        {{ components.daycard(day.wimir) }}
+      </div>
+      {% endif %}
+      {% if day.master %}
+      {{ components.subsection_tag("Masterclasses", "master") }}
+      <div class="day-section">
+        {{ components.daycard(day.master) }}
       </div>
       {% endif %}
       <!-- {{ components.section("Highlighted Papers") }}

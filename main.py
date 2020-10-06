@@ -44,7 +44,7 @@ def main(site_data_path):
                 site_data[name] = list(csv.DictReader(open(f)))
         elif typ == "yml":
             site_data[name] = yaml.load(open(f).read(), Loader=yaml.SafeLoader)
-    for typ in ["papers", "speakers", "workshops", "music", "demos"]:
+    for typ in ["papers", "speakers", "workshops", "music", "demos", "events"]:
         by_uid[typ] = {}
         for p in site_data[typ]:
             by_uid[typ][p["UID"]] = p
@@ -112,8 +112,21 @@ def schedule():
     # data = _data()
     for day in ['1', '2', '3', '4']:
         speakers = [s for s in site_data["speakers"] if s["day"] == day]
+        posters = [p for p in site_data["events"] if p["day"] == day and p["category"] == "Poster session"]
+        music = [m for m in site_data["events"] if m["day"] == day and m["category"] == "Music concert"]
+        meetup = [m for m in site_data["events"] if m["day"] == day and m["category"] == "Meetup"]
+        master = [m for m in site_data["events"] if m["day"] == day and m["category"] == "Masterclass"]
+        wimir = [w for w in site_data["events"] if w["day"] == day and w["category"] == "WiMIR Meetup"]
+        special = [s for s in site_data["events"] if s["day"] == day and s["category"] == "Meetup-Special"]
+
         out = {
             "speakers": speakers,
+            "meetup": meetup,
+            "special": special,
+            "master": master,
+            "wimir": wimir,
+            "posters": posters,
+            "music": music,
             "day": day,
         }
         data["days"].append(out)

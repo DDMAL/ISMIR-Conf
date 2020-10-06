@@ -144,8 +144,11 @@ function make_cal(name) {
                 'clickSchedule': function (e) {
                     const s = e.schedule;
                     if (s.location.length > 0) {
-                        if (s.location.split("-")[0] === 'tab') {
-                          $('.nav-pills .nav-item .nav-link').eq(s.location.split("-")[1]).trigger('click');
+                        if (s.location.split("|")[0] === 'tab') {
+                          var location = s.location.split("|");
+                          $('.nav-pills .nav-item .nav-link').eq(location[1]).trigger('click');
+                          $(`#tab-${location[1]} #day .${location[location.length - 1]}`)[0].scrollIntoView();
+                          $('html')[0].scrollTop -= 120;
                         } else {
                           window.open(s.location, '_self');
                         }
@@ -204,7 +207,10 @@ function make_cal(name) {
                         if (s.location.length > 0) {
 
                             if (s.location.split("-")[0] === 'tab') {
-                              $('.nav-pills .nav-item .nav-link').eq(s.location.split("-")[1]).trigger('click');
+                              var location = s.location.split("|");
+                              $('.nav-pills .nav-item .nav-link').eq(location[1]).trigger('click');
+                              $(`#tab-${location[1]} #day .${location[location.length - 1]}`)[0].scrollIntoView();
+                              $('html')[0].scrollTop -= 150;
                             } else {
                               window.open(s.location, '_self');
                             }

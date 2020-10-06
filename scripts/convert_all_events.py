@@ -15,15 +15,15 @@ opening_ref_a = 11 #openingA
 opening_ref_b = 20 #openingB
 
 color_dict = {
-    "Tutorials": "#tut",
-    "All Meeting": "#all", # big stuff such as keynotes, business meetings
-    "Poster session": "#pos",
-    "Meetup": "#meet",
-    "WiMIR Meetup": "#wimir",
-    "Meetup-Special": "#meet-spec",
-    "Music concert": "#mus",
-    "Masterclass": "#master",
-    "Satellite": "#sat",
+    "Tutorials": "tut",
+    "All Meeting": "all", # big stuff such as keynotes, business meetings
+    "Poster session": "pos",
+    "Meetup": "meet",
+    "WiMIR Meetup": "wimir",
+    "Meetup-Special": "meet-spec",
+    "Music concert": "mus",
+    "Masterclass": "master",
+    "Satellite": "sat",
 }
 
 posters_dict = {
@@ -79,11 +79,13 @@ for index, event in orig_csv.iterrows():
         session_num = posters_dict[event['Title'].split(" ")[-1]]
         e_cal['location'] = f'music.html?session={session_num}'
 
-    elif event['Category'] in ["All Meeting", "Meetup"]:
-        e_cal['location'] = f'tab-{event["Conf day"]}-{event["Title"]}'
+    elif event['Category'] in ["All Meeting", "Meetup", "Meetup-Special", "WiMIR Meetup"]:
+        e_cal['location'] = f'tab|{event["Conf day"]}|{event["Title"]}|{color_dict[event["Category"]]}'
+    # elif event['Category'] in ["All Meeting", "Meetup"]:
+    #     e_cal['location'] = event['Channel URL']
 
 
-    e_cal['summary'] = color_dict[event['Category']] + ' ' + event['Title']
+    e_cal['summary'] = "#" + color_dict[event['Category']] + ' ' + event['Title']
     e_cal['dtstart'] = datetime(e_date[0], e_date[1], e_date[2],
         e_start_time[0], e_start_time[1], 0, tzinfo=pytz.utc)
     if e_end_time[0] < e_start_time[0]:
@@ -94,16 +96,22 @@ for index, event in orig_csv.iterrows():
             e_end_time[0], e_end_time[1], 0, tzinfo=pytz.utc)
     cal.add_component(e_cal)
 
-    e_meta['title'] = event['Title']
-    e_meta['description'] = event['Description']
-    e_meta['category'] = event['Category']
-    e_meta['organiser'] = event['Organiser']
-    e_meta['web_link'] = event['Website link']
-    e_meta['slack_channel'] = event['Slack Channel']
-    e_meta['channel_url'] = event['Channel URL']
-    events_meta[event['Event number (UTC)']] = e_meta
+new_csv = pd.DataFrame(
+    {"UID": orig_csv['Event number (UTC)'],
+    "title": orig_csv['Title'],
+    "day": orig_csv['Conf day'],
+    # "start_date":
+    "category": orig_csv['Category'],
+    "description": orig_csv['Description'],
+    "organiser": orig_csv['Organiser'],
+    "web_link": orig_csv['Website link'],
+    "slack_channel": orig_csv['Slack Channel'],
+    "channel_url": orig_csv['Channel URL'],
+})
 
 with open('../static/calendar/ISMIR_2020.ics', 'wb') as f:
     f.write(cal.to_ical())
+
+new_csv.to_csv('../sitedata/events.csv', index=False)
 # print(cal)
 # print(events_meta)

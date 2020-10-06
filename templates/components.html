@@ -33,6 +33,10 @@
 </div>
 {%- endmacro %}
 
+{% macro subsection_tag(name, tag_text) -%}
+  <h2 class="day-title {{tag_text}}">{{name}}</h2>
+{%- endmacro %}
+
 {% macro speakergroup(speakers) -%}
 {% for speaker in speakers %}
 <div class="row p-4">
@@ -247,6 +251,43 @@
         </div>
         <div class="m-3 text-left card-subtitle font-italic">
           {{workshop.abstract|safe}}
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{%- endmacro %}
+
+{% macro daycard(type) -%}
+<div class="cards row p-4">
+  {% for meet in type %}
+  <div class="col-md-6 col-sm-12 p-3" style="box-sizing: border-box;">
+    <div class="card" style="display: block; overflow: hidden; width: 100%;">
+      <div
+        class="card-header text-center"
+        style="min-height: 200px; width: 100%;"
+      >
+        <h3 class="m-3 card-title main-title text-left">
+          {% if meet.channel_url %}
+          <a href="{{meet.channel_url}}">{{meet.title}}</a>
+          {% else %}
+          {{meet.title}}
+          {% endif %}
+        </h3>
+        <div class="m-3 text-left card-subtitle text-muted">
+          {{meet.organiser}}
+        </div>
+        <div class="m-3 text-left card-subtitle">
+          {{meet.description|markdown}}
+        </div>
+        <div class="m-3 text-left">
+        {% if meet.channel_url %}
+          <a href="{{meet.channel_url}}" class="btn btn-primary mr-3">Slack</a>
+        {% endif %}
+        {% if meet.web_link %}
+          <a href="{{meet.web_link}}" class="btn btn-secondary">Info</a>
+        {% endif %}
         </div>
       </div>
     </div>
