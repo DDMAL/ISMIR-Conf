@@ -85,8 +85,8 @@ let calcAllKeys = function (allPapers, allKeys) {
     allPapers.forEach(
       d => {
           d.content.authors.forEach(a => collectAuthors.add(a));
-          d.content.keywords.forEach(a => collectKeywords.add(a));
-          d.content.session.forEach(a => collectSessions.add(a));
+          if(d.content.keywords!==undefined) d.content.keywords.forEach(a => collectKeywords.add(a));
+          if(d.content.session!==undefined) d.content.session.forEach(a => collectSessions.add(a));
           // allKeys.session_name.push(d.content.session_name);
           allKeys.titles.push(d.content.title);
       });

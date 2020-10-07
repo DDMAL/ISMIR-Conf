@@ -73,7 +73,7 @@ for index, event in orig_csv.iterrows():
             e_cal['location'] = f'papers.html?filter=title&session={session_num}'
         else:
             # session_num = posters_dict[event['Title'].split(" ")[-1]]
-            e_cal['location'] = f'demos.html?session='
+            e_cal['location'] = f'lbds.html?session='
 
     elif event['Category'] == "Music concert":
         session_num = posters_dict[event['Title'].split(" ")[-1]]

@@ -8,14 +8,14 @@ affils_list = []
 keywords_list = []
 session_list = []
 
-authors_list_demos = []
-affils_list_demos = []
-emails_list_demos = []
+authors_list_lbds = []
+affils_list_lbds = []
+emails_list_lbds = []
 
 orig_csv = pd.read_csv('../static/csv/pre_parse_ISMIR2020_papers.csv')
 schedule_csv = pd.read_csv('../static/csv/paper_schedule.csv')
 
-orig_csv_demos = pd.read_csv('../static/csv/2020-ISMIR-LBD-Submissions - Sheet1.csv')
+orig_csv_lbds = pd.read_csv('../static/csv/2020-ISMIR-LBD-Submissions - Sheet1.csv')
 
 print('Min or max keywords? [mM]')
 key_choice = str(input())
@@ -108,12 +108,12 @@ for index, row in orig_csv.iterrows():
     session_list.append(session_num)
     print(keywords, '\n')
 
-for index, row in orig_csv_demos.iterrows():
+for index, row in orig_csv_lbds.iterrows():
     authors, affils = extract_author_affil(row, 'Authors')
     emails = extract_emails(row, 'Author Emails')
-    authors_list_demos.append(authors)
-    affils_list_demos.append(affils)
-    emails_list_demos.append(emails)
+    authors_list_lbds.append(authors)
+    affils_list_lbds.append(affils)
+    emails_list_lbds.append(emails)
 
 
     # print(author_affil)
@@ -130,19 +130,19 @@ new_csv = pd.DataFrame(
     "keywords": keywords_list,
 })
 
-new_csv_demos = pd.DataFrame(
-    {"UID": orig_csv_demos['Paper ID'],
-    "title": [title_except(x, articles, capital_exceptions) for x in orig_csv_demos['Paper Title']],
-    "abstract": orig_csv_demos['Abstract'],
-    "primary_author": orig_csv_demos['Primary Contact Author Name'],
-    "primary_email": orig_csv_demos['Primary Contact Author Email'],
-    "session": [0] * len(orig_csv_demos['Paper ID']),
-    "authors": authors_list_demos,
-    "affiliations": affils_list_demos,
-    "author_emails": emails_list_demos,
+new_csv_lbds = pd.DataFrame(
+    {"UID": orig_csv_lbds['Paper ID'],
+    "title": [title_except(x, articles, capital_exceptions) for x in orig_csv_lbds['Paper Title']],
+    "abstract": orig_csv_lbds['Abstract'],
+    "primary_author": orig_csv_lbds['Primary Contact Author Name'],
+    "primary_email": orig_csv_lbds['Primary Contact Author Email'],
+    "session": [0] * len(orig_csv_lbds['Paper ID']),
+    "authors": authors_list_lbds,
+    "affiliations": affils_list_lbds,
+    "author_emails": emails_list_lbds,
 })
 # UID   title   authors session	day	abstract	keywords
 # print(orig_csv)
-print(new_csv_demos["title"])
+print(new_csv_lbds["title"])
 new_csv.to_csv('../sitedata/papers.csv', index=False)
-new_csv_demos.to_csv('../sitedata/demos.csv', index=False)
+new_csv_lbds.to_csv('../sitedata/lbds.csv', index=False)
