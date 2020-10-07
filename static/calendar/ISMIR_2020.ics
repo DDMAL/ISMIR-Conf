@@ -7,8 +7,8 @@ DTEND:2020-10-11 14:00:00+00:00
 UID:1
 END:VEVENT
 BEGIN:VEVENT
-SUMMARY:#tut T4A: Open-Source Tools & Data for Music Source Separation: A 
- Practical Guide for the MIR Practitioner
+SUMMARY:#tut T2A: Analysis of Expressive Timing in Recorded Music Performa
+ nces
 DTSTART:2020-10-11 14:00:00+00:00
 DTEND:2020-10-11 17:00:00+00:00
 UID:2
@@ -20,8 +20,8 @@ DTEND:2020-10-11 17:00:00+00:00
 UID:3
 END:VEVENT
 BEGIN:VEVENT
-SUMMARY:#tut T2A: Analysis of Expressive Timing in Recorded Music Performa
- nces
+SUMMARY:#tut T4A: Open-Source Tools & Data for Music Source Separation: A 
+ Practical Guide for the MIR Practitioner
 DTSTART:2020-10-11 14:00:00+00:00
 DTEND:2020-10-11 17:00:00+00:00
 UID:4
