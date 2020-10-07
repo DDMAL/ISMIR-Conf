@@ -1,0 +1,16 @@
+{% set active_page = "Tutorials" %}
+{% set page_title = "Tutorials" %}
+{% extends "base.html" %}
+
+{% block content %}
+{% set tzone = '' | localcheck %}
+<div class="tab-content px-3 px-sm-0" id="nav-tabContent">
+  <div id="day">
+    <!-- Workshops -->
+    <h2 style="text-align: center;">Tutorials</h2>
+    <div class="speakers">
+      {{ components.daycard(tutorials, tzone) }}
+    </div>
+  </div>
+</div>
+{% endblock %}
