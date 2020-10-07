@@ -63,3 +63,13 @@ sat: '#A79B8E' */
 .mus::after {
   border-color: #3F51B5;
 }
+.master::after {
+  border-color: #BFCB33;
+}
+
+.full-card-link {
+  color: inherit;
+}
+.full-card-link:hover {
+  color: inherit;
+}

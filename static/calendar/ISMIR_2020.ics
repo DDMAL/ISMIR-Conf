@@ -404,6 +404,7 @@ SUMMARY:#master Masterclass: Code Review
 DTSTART:2020-10-14 19:00:00+00:00
 DTEND:2020-10-14 20:00:00+00:00
 UID:54
+LOCATION:tab|3|Masterclass: Code Review|master
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:#meet Meetups Misc
@@ -473,6 +474,7 @@ SUMMARY:#master Masterclass: Code Review
 DTSTART:2020-10-15 07:30:00+00:00
 DTEND:2020-10-15 08:30:00+00:00
 UID:64
+LOCATION:tab|3|Masterclass: Code Review|master
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:#meet Meetups Misc
@@ -507,6 +509,7 @@ SUMMARY:#master Masterclass: Interviews
 DTSTART:2020-10-15 16:30:00+00:00
 DTEND:2020-10-15 17:30:00+00:00
 UID:69
+LOCATION:tab|4|Masterclass: Interviews|master
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:#meet Meetups Misc
@@ -578,6 +581,7 @@ SUMMARY:#master Masterclass: Interviews
 DTSTART:2020-10-16 05:00:00+00:00
 DTEND:2020-10-16 06:00:00+00:00
 UID:79
+LOCATION:tab|4|Masterclass: Interviews|master
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:#pos LBD & Ind 8B

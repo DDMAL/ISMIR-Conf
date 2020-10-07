@@ -324,22 +324,34 @@
 
   {% for session in session_list %}
     <div class="col-md-6 col-sm-12 p-3" style="box-sizing: border-box;">
-      <div class="card" style="display: block; overflow: hidden; width: 100%;">
-        <div
-          class="card-header text-center"
-          style="width: 100%;"
-        >
-        {% for part in session %}
-          {% set local_date = part.start_date | localizetime(part.start_time, timezone) %}
-          <h3 class="m-3 card-title main-title text-left">
-            {{part.title}}
-          </h3>
-          <div class="m-3 text-left card-subtitle">
-            {{local_date[0]}} | {{local_date[1]}}
+
+      {% set session_filter = session[0]['title'].split(" ")[-1][0] %}
+
+      {% set category = session[0]['category'] %}
+
+      {% if category == 'Poster session' and session[0]['title'].split(" ")[0] == 'LBD' %}{% set page = 'lbds.html' %}
+      {% elif category == 'Music concert' %}{% set page = 'music.html' %}
+      {% elif category == 'Poster session' %}{% set page = 'papers.html' %}
+      {% endif %}
+
+      <a class="full-card-link" href="{{page}}?session={{session_filter}}">
+        <div class="card" style="display: block; overflow: hidden; width: 100%;">
+          <div
+            class="card-header text-center"
+            style="width: 100%;"
+          >
+          {% for part in session %}
+            {% set local_date = part.start_date | localizetime(part.start_time, timezone) %}
+            <h3 class="m-3 card-title main-title text-left">
+              {{part.title}}
+            </h3>
+            <div class="m-3 text-left card-subtitle">
+              {{local_date[0]}} | {{local_date[1]}}
+            </div>
+          {% endfor %}
           </div>
-        {% endfor %}
         </div>
-      </div>
+      </a>
     </div>
   {% endfor %}
 </div>
