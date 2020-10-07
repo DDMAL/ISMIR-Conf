@@ -59,6 +59,6 @@ music_links: false
 poster_embeds: false
 paper_embeds: false
 
-# Equal to the current conference day
+# Set to the current conference day
 
 paper_day_release: 0
