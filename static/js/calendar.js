@@ -151,7 +151,7 @@ function make_cal(name) {
                           $(`#tab-${location[1]} #day .${location[location.length - 1]}`)[0].scrollIntoView();
                           $('html')[0].scrollTop -= 120;
                         } else {
-                          window.open(s.location, '_self');
+                          window.open(s.location, '_blanket');
                         }
                     }
                 },
@@ -213,7 +213,7 @@ function make_cal(name) {
                               $(`#tab-${location[1]} #day .${location[location.length - 1]}`)[0].scrollIntoView();
                               $('html')[0].scrollTop -= 150;
                             } else {
-                              window.open(s.location, '_self');
+                              window.open(s.location, '_blanket');
                             }
                         }
                     },

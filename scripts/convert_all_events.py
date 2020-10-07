@@ -74,12 +74,16 @@ for index, event in orig_csv.iterrows():
         else:
             # session_num = posters_dict[event['Title'].split(" ")[-1]]
             e_cal['location'] = f'lbds.html?session='
+    elif event['Category'] == "Tutorials":
+        e_cal['location'] = f'tutorials.html#{event["Title"].replace(" ", "_")}'
 
     elif event['Category'] == "Music concert":
         session_num = posters_dict[event['Title'].split(" ")[-1]]
         e_cal['location'] = f'music.html?session={session_num}'
+    elif event['Category'] == "Meetup":
+        e_cal['location'] = event['Channel URL']
 
-    elif event['Category'] in ["All Meeting", "Meetup", "Meetup-Special", "WiMIR Meetup"]:
+    elif event['Category'] in ["All Meeting", "Meetup-Special", "WiMIR Meetup"]:
         e_cal['location'] = f'tab|{event["Conf day"]}|{event["Title"]}|{color_dict[event["Category"]]}'
     # elif event['Category'] in ["All Meeting", "Meetup"]:
     #     e_cal['location'] = event['Channel URL']

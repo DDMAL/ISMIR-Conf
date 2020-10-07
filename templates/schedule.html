@@ -69,6 +69,12 @@
   >
     <div id="day">
       <!-- Speakers -->
+      {% if day.all %}
+        {% for e in day.all %}
+
+
+        {% endfor %}
+      {% endif %}
       {% if day.speakers %}
       {{ components.subsection_tag("Keynote Speaker", "all") }}
       <div class="day-section">

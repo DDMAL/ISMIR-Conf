@@ -5,6 +5,8 @@ SUMMARY:#tut T1A: Prototyping and Scaling Audio Research with Klio
 DTSTART:2020-10-11 11:00:00+00:00
 DTEND:2020-10-11 14:00:00+00:00
 UID:1
+LOCATION:tutorials.html#T1A:_Prototyping_and_Scaling_Audio_Research_with_K
+ lio
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:#tut T2A: Analysis of Expressive Timing in Recorded Music Performa
@@ -12,12 +14,16 @@ SUMMARY:#tut T2A: Analysis of Expressive Timing in Recorded Music Performa
 DTSTART:2020-10-11 14:00:00+00:00
 DTEND:2020-10-11 17:00:00+00:00
 UID:2
+LOCATION:tutorials.html#T2A:_Analysis_of_Expressive_Timing_in_Recorded_Mus
+ ic_Performances
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:#tut T3A: Metric Learning for Music Information Retrieval
 DTSTART:2020-10-11 14:00:00+00:00
 DTEND:2020-10-11 17:00:00+00:00
 UID:3
+LOCATION:tutorials.html#T3A:_Metric_Learning_for_Music_Information_Retriev
+ al
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:#tut T4A: Open-Source Tools & Data for Music Source Separation: A 
@@ -25,18 +31,23 @@ SUMMARY:#tut T4A: Open-Source Tools & Data for Music Source Separation: A
 DTSTART:2020-10-11 14:00:00+00:00
 DTEND:2020-10-11 17:00:00+00:00
 UID:4
+LOCATION:tutorials.html#T4A:_Open-Source_Tools_&_Data_for_Music_Source_Sep
+ aration:_A_Practical_Guide_for_the_MIR_Practitioner
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:#tut T5A: Version Identification in the 20s
 DTSTART:2020-10-11 16:00:00+00:00
 DTEND:2020-10-11 19:00:00+00:00
 UID:5
+LOCATION:tutorials.html#T5A:_Version_Identification_in_the_20s
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:#tut T1B: Prototyping and Scaling Audio Research with Klio
 DTSTART:2020-10-11 19:00:00+00:00
 DTEND:2020-10-11 22:00:00+00:00
 UID:6
+LOCATION:tutorials.html#T1B:_Prototyping_and_Scaling_Audio_Research_with_K
+ lio
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:#tut T2B: Analysis of Expressive Timing in Recorded Music Performa
@@ -44,6 +55,8 @@ SUMMARY:#tut T2B: Analysis of Expressive Timing in Recorded Music Performa
 DTSTART:2020-10-11 22:00:00+00:00
 DTEND:2020-10-12 01:00:00+00:00
 UID:7
+LOCATION:tutorials.html#T2B:_Analysis_of_Expressive_Timing_in_Recorded_Mus
+ ic_Performances
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:#tut T4B: Open-Source Tools & Data for Music Source Separation: A 
@@ -51,18 +64,23 @@ SUMMARY:#tut T4B: Open-Source Tools & Data for Music Source Separation: A
 DTSTART:2020-10-12 02:00:00+00:00
 DTEND:2020-10-12 05:00:00+00:00
 UID:8
+LOCATION:tutorials.html#T4B:_Open-Source_Tools_&_Data_for_Music_Source_Sep
+ aration:_A_Practical_Guide_for_the_MIR_Practitioner
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:#tut T3B: Metric Learning for Music Information Retrieval
 DTSTART:2020-10-12 06:00:00+00:00
 DTEND:2020-10-12 09:00:00+00:00
 UID:9
+LOCATION:tutorials.html#T3B:_Metric_Learning_for_Music_Information_Retriev
+ al
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:#tut T5B: Version Identification in the 20s
 DTSTART:2020-10-12 08:00:00+00:00
 DTEND:2020-10-12 11:00:00+00:00
 UID:10
+LOCATION:tutorials.html#T5B:_Version_Identification_in_the_20s
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:#all Opening Plenary (Live) A
@@ -84,14 +102,14 @@ SUMMARY:#meet Meetups Misc
 DTSTART:2020-10-12 14:30:00+00:00
 DTEND:2020-10-12 15:30:00+00:00
 UID:13
-LOCATION:tab|1|Meetups Misc|meet
+LOCATION:https://ismir2020.slack.com/archives/C01B81D5TF0
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:#meet Meetup for First Time ISMIR attendees A
 DTSTART:2020-10-12 14:30:00+00:00
 DTEND:2020-10-12 15:30:00+00:00
 UID:14
-LOCATION:tab|1|Meetup for First Time ISMIR attendees A|meet
+LOCATION:nan
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:#meet-spec Special Session 1: Multidisciplinary research in MIR: w
@@ -130,7 +148,7 @@ SUMMARY:#meet Meetups Misc
 DTSTART:2020-10-12 19:00:00+00:00
 DTEND:2020-10-12 20:00:00+00:00
 UID:19
-LOCATION:tab|1|Meetups Misc|meet
+LOCATION:https://ismir2020.slack.com/archives/C01B81D5TF1
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:#all Opening Plenary B (R)
@@ -152,14 +170,14 @@ SUMMARY:#meet Meetup for First Time ISMIR attendees B
 DTSTART:2020-10-13 03:00:00+00:00
 DTEND:2020-10-13 04:00:00+00:00
 UID:22
-LOCATION:tab|1|Meetup for First Time ISMIR attendees B|meet
+LOCATION:nan
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:#meet Meetups Misc
 DTSTART:2020-10-13 03:00:00+00:00
 DTEND:2020-10-13 04:00:00+00:00
 UID:23
-LOCATION:tab|1|Meetups Misc|meet
+LOCATION:https://ismir2020.slack.com/archives/C01B81D5TF2
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:#all Keynote by Dr. Safiya Noble: Taking on Big Tech: New Paradigm
@@ -197,14 +215,14 @@ SUMMARY:#meet Meetups Misc
 DTSTART:2020-10-13 07:30:00+00:00
 DTEND:2020-10-13 08:30:00+00:00
 UID:28
-LOCATION:tab|1|Meetups Misc|meet
+LOCATION:https://ismir2020.slack.com/archives/C01B81D5TF3
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:#meet Meetups Misc
 DTSTART:2020-10-13 12:00:00+00:00
 DTEND:2020-10-13 13:00:00+00:00
 UID:29
-LOCATION:tab|2|Meetups Misc|meet
+LOCATION:https://ismir2020.slack.com/archives/C01B81D5TF4
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:#pos Posters 3A
@@ -227,7 +245,7 @@ SUMMARY:#meet Meetups Misc
 DTSTART:2020-10-13 16:30:00+00:00
 DTEND:2020-10-13 17:30:00+00:00
 UID:32
-LOCATION:tab|2|Meetups Misc|meet
+LOCATION:https://ismir2020.slack.com/archives/C01B81D5TF5
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:#wimir WiMIR meetup 3: Gissel Velarde
@@ -269,7 +287,7 @@ SUMMARY:#meet Meetups Misc
 DTSTART:2020-10-14 00:30:00+00:00
 DTEND:2020-10-14 01:30:00+00:00
 UID:38
-LOCATION:tab|2|Meetups Misc|meet
+LOCATION:https://ismir2020.slack.com/archives/C01B81D5TF6
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:#wimir WiMIR meetup 4: Blair Kaneshiro
@@ -300,7 +318,7 @@ SUMMARY:#meet Meetups Misc
 DTSTART:2020-10-14 05:00:00+00:00
 DTEND:2020-10-14 06:00:00+00:00
 UID:42
-LOCATION:tab|2|Meetups Misc|meet
+LOCATION:https://ismir2020.slack.com/archives/C01B81D5TF7
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:#wimir WiMIR meetup 5: Rachel Bittner
@@ -344,7 +362,7 @@ SUMMARY:#meet Meetups Misc
 DTSTART:2020-10-14 12:00:00+00:00
 DTEND:2020-10-14 13:00:00+00:00
 UID:48
-LOCATION:tab|3|Meetups Misc|meet
+LOCATION:https://ismir2020.slack.com/archives/C01B81D5TF8
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:#pos Posters 5A
@@ -358,14 +376,14 @@ SUMMARY:#meet Meetups with Industry Partners
 DTSTART:2020-10-14 14:30:00+00:00
 DTEND:2020-10-14 15:30:00+00:00
 UID:50
-LOCATION:tab|3|Meetups with Industry Partners|meet
+LOCATION:nan
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:#meet Meetups Misc
 DTSTART:2020-10-14 14:30:00+00:00
 DTEND:2020-10-14 15:30:00+00:00
 UID:51
-LOCATION:tab|3|Meetups Misc|meet
+LOCATION:https://ismir2020.slack.com/archives/C01B81D5TF9
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:#mus Music 2A
@@ -392,14 +410,14 @@ SUMMARY:#meet Meetups Misc
 DTSTART:2020-10-14 19:00:00+00:00
 DTEND:2020-10-14 20:00:00+00:00
 UID:55
-LOCATION:tab|3|Meetups Misc|meet
+LOCATION:https://ismir2020.slack.com/archives/C01B81D5TF10
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:#meet Meetups Misc
 DTSTART:2020-10-15 00:30:00+00:00
 DTEND:2020-10-15 01:30:00+00:00
 UID:56
-LOCATION:tab|3|Meetups Misc|meet
+LOCATION:https://ismir2020.slack.com/archives/C01B81D5TF11
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:#wimir WiMIR meetup 7: Estefanía Cano
@@ -427,14 +445,14 @@ SUMMARY:#meet Meetups with Industry Partners
 DTSTART:2020-10-15 03:00:00+00:00
 DTEND:2020-10-15 04:00:00+00:00
 UID:60
-LOCATION:tab|3|Meetups with Industry Partners|meet
+LOCATION:nan
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:#meet Meetups Misc
 DTSTART:2020-10-15 03:00:00+00:00
 DTEND:2020-10-15 04:00:00+00:00
 UID:61
-LOCATION:tab|3|Meetups Misc|meet
+LOCATION:https://ismir2020.slack.com/archives/C01B81D5TF12
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:#mus Music 2B
@@ -461,7 +479,7 @@ SUMMARY:#meet Meetups Misc
 DTSTART:2020-10-15 07:30:00+00:00
 DTEND:2020-10-15 08:30:00+00:00
 UID:65
-LOCATION:tab|3|Meetups Misc|meet
+LOCATION:https://ismir2020.slack.com/archives/C01B81D5TF13
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:#mus Music 3A
@@ -495,7 +513,7 @@ SUMMARY:#meet Meetups Misc
 DTSTART:2020-10-15 16:30:00+00:00
 DTEND:2020-10-15 17:30:00+00:00
 UID:70
-LOCATION:tab|4|Meetups Misc|meet
+LOCATION:https://ismir2020.slack.com/archives/C01B81D5TF14
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:#pos LBD & Ind 8A
@@ -525,7 +543,7 @@ SUMMARY:#meet Meetups Misc
 DTSTART:2020-10-15 19:00:00+00:00
 DTEND:2020-10-15 20:00:00+00:00
 UID:74
-LOCATION:tab|4|Meetups Misc|meet
+LOCATION:https://ismir2020.slack.com/archives/C01B81D5TF15
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:#mus Music 3B
@@ -553,7 +571,7 @@ SUMMARY:#meet Meetups Misc
 DTSTART:2020-10-16 05:00:00+00:00
 DTEND:2020-10-16 06:00:00+00:00
 UID:78
-LOCATION:tab|4|Meetups Misc|meet
+LOCATION:https://ismir2020.slack.com/archives/C01B81D5TF16
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:#master Masterclass: Interviews
@@ -588,7 +606,7 @@ SUMMARY:#meet Meetups Misc
 DTSTART:2020-10-16 07:30:00+00:00
 DTEND:2020-10-16 08:30:00+00:00
 UID:83
-LOCATION:tab|4|Meetups Misc|meet
+LOCATION:https://ismir2020.slack.com/archives/C01B81D5TF17
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:#sat NLP4MUSA 1A

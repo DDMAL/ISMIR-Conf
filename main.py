@@ -117,6 +117,7 @@ def schedule():
     for day in ['1', '2', '3', '4']:
         speakers = [s for s in site_data["speakers"] if s["day"] == day]
         posters = [p for p in site_data["events"] if p["day"] == day and p["category"] == "Poster session"]
+        all = [p for p in site_data["events"] if p["day"] == day and p["category"] == "All Meeting"]
         music = [m for m in site_data["events"] if m["day"] == day and m["category"] == "Music concert"]
         meetup = [m for m in site_data["events"] if m["day"] == day and m["category"] == "Meetup"]
         master = [m for m in site_data["events"] if m["day"] == day and m["category"] == "Masterclass"]
@@ -125,6 +126,7 @@ def schedule():
 
         out = {
             "speakers": speakers,
+            "all": all,
             "meetup": meetup,
             "special": special,
             "master": master,
@@ -209,6 +211,8 @@ def format_paper(v):
             "recs": [],
             "session": list_fields["session"],
             "pdf_url": v.get("pdf_url", ""),
+            "channel_url": v["channel_url"],
+            "day": v["day"],
             # "poster_pdf": v["poster_pdf"],
         },
         "poster_pdf": "GLTR_poster.pdf",
