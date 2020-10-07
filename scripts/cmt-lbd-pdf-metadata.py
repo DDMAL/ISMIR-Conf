@@ -6,8 +6,11 @@ import pandas as pd
 from pdfrw import PdfReader, PdfWriter, IndirectPdfDict
 from titlecase import titlecase
 
-folder_stem = "CameraReadys"
-xls = "CameraReadyPapers.xml" # as directly exported from CMT, won't work if opened and overwriten by Excel or LibreOffice
+folder_stem = "CameraReadys" # substring contained in the name of the folder extracted from the camera-ready archive exported from CMT
+xls = "CameraReadyPapers.xml" # as directly exported from CMT, won't work if opened and overwritten by Excel or LibreOffice
+pdf_file_prefix = "ISMIR2020-LBD-" # expecting as complete filename pattern: ISMIR2020-LBD-<id>-<abstract/poster>.pdf
+pdf_subject_paper = 'Extended Abstracts for the Late-Breaking Demo Session of the 21st International Society for Music Information Retrieval Conference (ISMIR), Montréal, Canada, 2020.'
+pdf_subject_poster = 'Posters for the Late-Breaking Demo Session of the 21st International Society for Music Information Retrieval Conference (ISMIR), Montréal, Canada, 2020.'
 
 # Derived from https://github.com/pandas-dev/pandas/issues/11503#issuecomment-661899368
 
@@ -32,12 +35,12 @@ def abbreviations(word, **kwargs):
 pdfs = glob.glob('*'+folder_stem+'*'+os.sep+'*.pdf');
 for pdf in pdfs:
     filename = pdf.split(os.sep)[1].split('.pdf')[0];
-    idtype = filename.split('ISMIR2020-LBD-')[1];
+    idtype = filename.split(pdf_file_prefix)[1];
     id = idtype.split('-')[0]
     type = idtype.split('-')[1]
-    subject = 'Extended Abstracts for the Late-Breaking Demo Session of the 21st International Society for Music Information Retrieval Conference (ISMIR), Montréal, Canada, 2020.'
+    subject = pdf_subject_paper
     if type == 'poster':
-        subject = 'Posters for the Late-Breaking Demo Session of the 21st International Society for Music Information Retrieval Conference (ISMIR), Montréal, Canada, 2020.'
+        subject = pdf_subject_poster
     loc = ids.get_loc(id)
     authors = meta['Author Names'][loc]
     title = meta['Paper Title'][loc]
