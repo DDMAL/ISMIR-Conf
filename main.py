@@ -144,13 +144,13 @@ def schedule():
     return render_template("schedule.html", **data)
 
 
-@app.route("/workshops.html")
-def workshops():
+@app.route("/tutorials.html")
+def tutorials():
     data = _data()
-    data["workshops"] = [
-        format_workshop(workshop) for workshop in site_data["workshops"]
+    data["tutorials"] = [
+        workshop for workshop in site_data["events"] if workshop["category"] == "Tutorials"
     ]
-    return render_template("workshops.html", **data)
+    return render_template("tutorials.html", **data)
 
 @app.route("/music.html")
 def musics():
@@ -169,10 +169,10 @@ def lbds_vis():
     data = _data()
     return render_template("lbds_vis.html", **data)
 
-@app.route("/topics.html")
+@app.route("/special_meetings.html")
 def topics():
     data = _data()
-    return render_template("topics.html", **data)
+    return render_template("special_meetings.html", **data)
 
 # DOWNLOAD CALENDAR
 

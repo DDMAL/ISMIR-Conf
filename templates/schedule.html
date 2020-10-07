@@ -76,7 +76,11 @@
       </div>
       {% endif %}
       {% if day.posters %}
-      {{ components.subsection_tag("Poster Sessions", "pos") }}
+        {% if day.day == '4' %}
+          {{ components.subsection_tag("LBD and Industry Sessions", "pos") }}
+        {% else %}
+          {{ components.subsection_tag("Poster Sessions", "pos") }}
+        {% endif %}
       <div class="day-section">
         {{ components.postercards(day.posters, tzone) }}
       </div>
