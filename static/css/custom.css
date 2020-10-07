@@ -60,3 +60,6 @@ sat: '#A79B8E' */
 .pos::after {
   border-color: #F6BF25;
 }
+.mus::after {
+  border-color: #3F51B5;
+}
