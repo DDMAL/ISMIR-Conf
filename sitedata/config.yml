@@ -56,3 +56,5 @@ calendar:
 # RELEASE CONTROL
 
 music_links: false
+poster_embeds: false
+paper_embeds: false

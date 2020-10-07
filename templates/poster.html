@@ -82,16 +82,16 @@
     </div>
   </div>
   <div id="paper" class="collapse">
-    <!-- {{ components.section("Example Poster") }} -->
-    <!-- <iframe src = "static/ViewerJS/index.html#../camera_ready_papers_wo_num/{{ paper.id }}.pdf" width='100%' height='500px' allowfullscreen webkitallowfullscreen></iframe> -->
+    {% if config.paper_embeds %}
     <button class="fullscreen-button btn btn-primary mb-3">Fullscreen</button>
-    <!-- <iframe class="fullscreen-iframe" src="static/images/ismir_tab_icon.png#embedded=true" width='100%' height='500px' allowfullscreen webkitallowfullscreen></iframe> -->
     <iframe class="fullscreen-iframe" src = "static/camera_ready_papers_wo_num/{{ paper.id }}.pdf#embedded=true" width='100%' height='500px' allowfullscreen webkitallowfullscreen></iframe>
-    <!-- <object data="{{ paper.poster_pdf }}" type="application/pdf" style="min-height:100vh;width:100%"></object> -->
+    {% endif %}
   </div>
   <div id="poster" class="collapse">
+    {% if config.poster_embeds %}
     <button class="fullscreen-button btn btn-primary mb-3">Fullscreen</button>
     <iframe class="fullscreen-iframe" src = "static/camera_ready_papers_wo_num/{{ paper.id }}.pdf#embedded=true" width='100%' height='500px' allowfullscreen webkitallowfullscreen></iframe>
+    {% endif %}
   </div>
   <div id="video" class="collapse">
     <!-- {{ components.section("Video Stream") }} -->
