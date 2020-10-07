@@ -7,10 +7,9 @@ import transformers
 
 def parse_arguments():
     parser = argparse.ArgumentParser(description="MiniConf Portal Command Line")
-
     parser.add_argument("papers", default=False, help="papers file to parse")
+    parser.add_argument("embeddings", default=False, help="embeddings.torch file to create")
     return parser.parse_args()
-
 
 if __name__ == "__main__":
     args = parse_arguments()
@@ -29,4 +28,4 @@ if __name__ == "__main__":
                 all_hidden_states, _ = model(input_ids)[-2:]
                 all_abstracts[i] = all_hidden_states.mean(0).mean(0)
                 print(i)
-    torch.save(all_abstracts, "embeddings.torch")
+    torch.save(all_abstracts, args.embeddings)
