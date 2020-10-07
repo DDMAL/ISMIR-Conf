@@ -132,7 +132,7 @@ const updateSession = () => {
  * START here and load JSON.
  */
 const start = () => {
-    const urlFilter = getUrlParameter("filter") || 'keywords';
+    const urlFilter = getUrlParameter("filter") //|| 'keywords';
     setQueryStringParameter("filter", urlFilter);
     updateFilterSelectionBtn(urlFilter)
 
@@ -238,11 +238,11 @@ const card_detail = (openreview, show) => {
     if (show)
         return `
      <div class="pp-card-header">
-        <p class="card-text"> ${openreview.content.TLDR}</p>
-        <p class="card-text"><span class="font-weight-bold">Keywords:</span>
-            ${openreview.content.keywords.map(keyword).join(', ')}
-        </p>
-    </div>
+        <p class="card-text"> ${openreview.content.TLDR}</p>`
+    // +    `<p class="card-text"><span class="font-weight-bold">Keywords:</span>
+    //         ${openreview.content.keywords.map(keyword).join(', ')}
+    //     </p>`
+    +`</div>
 `
     else return ''
 }

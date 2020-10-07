@@ -11,7 +11,7 @@ const filters = {
     title: null
 };
 
-const summaryBy = 'keywords' // or: "abstract"
+// const summaryBy = 'keywords' // or: "abstract"
 
 let currentTippy = null;
 let brush = null;
@@ -81,13 +81,13 @@ function brush_ended() {
     let parts = null;
     let count = 0;
     all_sel.forEach(lbd => {
-        if (summaryBy === 'keywords') {
-            lbd.content.keywords.forEach(kw => {
-                count = words_abstract.get(kw) | 0;
-                count += 1;
-                words_abstract.set(kw, count);
-            })
-        } else {
+        // if (summaryBy === 'keywords') {
+        //     lbd.content.keywords.forEach(kw => {
+        //         count = words_abstract.get(kw) | 0;
+        //         count += 1;
+        //         words_abstract.set(kw, count);
+        //     })
+        // } else {
             parts = lbd.content.abstract.split(/[.]?\s+/)
             parts.forEach(p => {
                 if (p.length < 3) return;
@@ -96,7 +96,7 @@ function brush_ended() {
                 count += 1;
                 words_abstract.set(p, count);
             })
-        }
+        // }
 
 
     })
@@ -159,7 +159,9 @@ const updateVis = () => {
           openreview.content.read = storedPapers[openreview.id] || false
       })
 
-    const is_filtered = filters.authors || filters.keywords || filters.titles;
+    const is_filtered = filters.authors
+        // || filters.keywords
+        || filters.titles;
 
     const [pW, pH] = plot_size();
 
