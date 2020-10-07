@@ -57,3 +57,6 @@ sat: '#A79B8E' */
 .wimir::after {
   border-color: #8F24AA;
 }
+.pos::after {
+  border-color: #F6BF25;
+}

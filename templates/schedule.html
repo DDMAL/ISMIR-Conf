@@ -75,6 +75,12 @@
         {{ components.speakergroup(day.speakers, tzone) }}
       </div>
       {% endif %}
+      {% if day.posters %}
+      {{ components.subsection_tag("Poster Sessions", "pos") }}
+      <div class="day-section">
+        {{ components.postercards(day.posters, tzone) }}
+      </div>
+      {% endif %}
       {% if day.special %}
       {{ components.subsection_tag("Special Meetups", "meet-spec") }}
       <div class="day-section">
