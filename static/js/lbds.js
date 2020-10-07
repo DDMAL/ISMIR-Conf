@@ -132,7 +132,7 @@ const updateSession = () => {
  * START here and load JSON.
  */
 const start = () => {
-    const urlFilter = getUrlParameter("filter") //|| 'keywords';
+    const urlFilter = getUrlParameter("filter") || 'titles';
     setQueryStringParameter("filter", urlFilter);
     updateFilterSelectionBtn(urlFilter)
 
