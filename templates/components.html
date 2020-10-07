@@ -276,15 +276,16 @@
       <div
         class="card-header text-center"
         style="min-height: 200px; width: 100%;"
-        id="{{ meet.title | replace(' ', '_') }}"
       >
-        <h3 class="m-3 card-title main-title text-left">
-          {% if meet.channel_url %}
-          <a href="{{meet.channel_url}}">{{meet.title}}</a>
-          {% else %}
-          {{meet.title}}
-          {% endif %}
-        </h3>
+        {% if meet.channel_url %}
+          <a id="{{ meet.title | replace(' ', '_') }}" href="{{meet.channel_url}}">
+            <h3 class="card-title main-title m-3 text-left">{{meet.title}}</h3>
+          </a>
+        {% else %}
+          <a id="{{ meet.title | replace(' ', '_') }}" href="#">
+            <h3 class="card-title main-title m-3 text-left">{{meet.title}}</h3>
+          </a>
+        {% endif %}
         <div class="m-3 text-left card-subtitle text-muted">
           {{meet.organiser}}
         </div>
