@@ -74,6 +74,7 @@ for index, event in orig_csv.iterrows():
         else:
             # session_num = posters_dict[event['Title'].split(" ")[-1]]
             e_cal['location'] = f'lbds.html?session='
+
     elif event['Category'] == "Tutorials":
         e_cal['location'] = f'tutorials.html#{event["Title"].replace(" ", "_")}'
 
@@ -85,6 +86,9 @@ for index, event in orig_csv.iterrows():
 
     elif event['Category'] in ["All Meeting", "Meetup-Special", "WiMIR Meetup"]:
         e_cal['location'] = f'tab|{event["Conf day"]}|{event["Title"]}|{color_dict[event["Category"]]}'
+
+    elif event['Category'] == "Satellite":
+        e_cal['location'] = event['Website link']
     # elif event['Category'] in ["All Meeting", "Meetup"]:
     #     e_cal['location'] = event['Channel URL']
 
