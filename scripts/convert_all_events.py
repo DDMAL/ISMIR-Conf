@@ -26,6 +26,16 @@ color_dict = {
     "Satellite": "sat",
 }
 
+# same events different times, via event number field
+
+same_event_list = [
+    [1, 6], # tutorials
+    [2, 7],
+    [3, 9],
+    [4, 8],
+    [5, 10],
+]
+
 posters_dict = {
     "1A": 1,
     "2A": 2,

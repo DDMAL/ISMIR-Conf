@@ -620,7 +620,7 @@ SUMMARY:#sat DLFM
 DTSTART:2020-10-16 13:00:00+00:00
 DTEND:2020-10-16 20:00:00+00:00
 UID:85
-LOCATION:https://dlfm.web.ox.ac.uk/
+LOCATION:https://dlfm.web.ox.ac.uk/2020-programme
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:#sat HAMR
