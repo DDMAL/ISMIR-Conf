@@ -7,6 +7,8 @@ authors_list = []
 affils_list = []
 keywords_list = []
 session_list = []
+slack_channel_list = []
+day_list = []
 
 authors_list_lbds = []
 affils_list_lbds = []
@@ -87,6 +89,8 @@ def extract_emails(row, cell_ref):
 for index, row in orig_csv.iterrows():
 
     session_num = schedule_csv[schedule_csv["Paper ID"] == row["Paper ID"]]["Session"].values[0]
+    slack_channel = schedule_csv[schedule_csv["Paper ID"] == row["Paper ID"]]["Slack URL"].values[0]
+    day = schedule_csv[schedule_csv["Paper ID"] == row["Paper ID"]]["Day"].values[0]
     # session_num = math.ceil(session_num / 2)
     if key_choice == 'm':
         primary_sub = [row['Primary Subject Area'].split(' -> ')[1]]
@@ -106,6 +110,8 @@ for index, row in orig_csv.iterrows():
     affils_list.append(affils)
     keywords_list.append(keywords)
     session_list.append(session_num)
+    slack_channel_list.append(slack_channel)
+    day_list.append(day)
     print(keywords, '\n')
 
 for index, row in orig_csv_lbds.iterrows():
@@ -128,6 +134,8 @@ new_csv = pd.DataFrame(
     "authors": authors_list,
     "affiliations": affils_list,
     "keywords": keywords_list,
+    "channel_url": slack_channel_list,
+    "day": day_list,
 })
 
 new_csv_lbds = pd.DataFrame(
