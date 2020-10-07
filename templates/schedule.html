@@ -91,6 +91,12 @@
         {{ components.postercards(day.posters, tzone) }}
       </div>
       {% endif %}
+      {% if day.music %}
+        {{ components.subsection_tag("Music Sessions", "mus") }}
+        <div class="day-section">
+          {{ components.postercards(day.music, tzone) }}
+        </div>
+      {% endif %}
       {% if day.special %}
       {{ components.subsection_tag("Special Meetups", "meet-spec") }}
       <div class="day-section">

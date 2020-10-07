@@ -321,7 +321,7 @@
   {% for i in range(0, type|length) %}
     {{session_list[i % index | int].append(type[i]) | default("", True)}}
   {% endfor %}
-  {% set tester = [['yes', 'no'], ['yes', 'no']] %}
+
   {% for session in session_list %}
     <div class="col-md-6 col-sm-12 p-3" style="box-sizing: border-box;">
       <div class="card" style="display: block; overflow: hidden; width: 100%;">
