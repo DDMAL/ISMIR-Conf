@@ -5,7 +5,7 @@ These include:
 * `embeddings.py` : For turning abstracts into embeddings. Creates an `embeddings.torch` file. 
 
 ```bash
-python embeddings.py ../sitedata/papers.csv
+python embeddings.py ../sitedata/papers.csv embeddings.torch
 ```
 
 * `reduce.py` : For creating two-dimensional representations of the embeddings.

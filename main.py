@@ -26,8 +26,8 @@ def paper_check(row):
 def music_check(row):
     return "music" in row['type']
 
-def demo_check(row):
-    return "demo" in row['type']
+def lbd_check(row):
+    return "lbd" in row['type']
 
 def main(site_data_path):
     global site_data, extra_files
@@ -43,12 +43,12 @@ def main(site_data_path):
             #     all_content = csv.DictReader(open(f))
             #     site_data["papers"] = list(filter(paper_check, all_content))
             #     site_data["music"] = list(filter(music_check, all_content))
-            #     site_data["demo"] = list(filter(demo_check, all_content))
+            #     site_data["lbd"] = list(filter(lbd_check, all_content))
             # else:
                 site_data[name] = list(csv.DictReader(open(f)))
         elif typ == "yml":
             site_data[name] = yaml.load(open(f).read(), Loader=yaml.SafeLoader)
-    for typ in ["papers", "speakers", "workshops", "music", "demos", "events"]:
+    for typ in ["papers", "speakers", "workshops", "music", "lbds", "events"]:
         by_uid[typ] = {}
         for p in site_data[typ]:
             by_uid[typ][p["UID"]] = p
@@ -158,11 +158,16 @@ def musics():
     data["music"] = site_data["music"]
     return render_template("music.html", **data)
 
-@app.route("/demos.html")
-def demos():
+@app.route("/lbds.html")
+def lbds():
     data = _data()
-    data["demos"] = site_data["demos"]
-    return render_template("demos.html", **data)
+    data["lbds"] = site_data["lbds"]
+    return render_template("lbds.html", **data)
+
+@app.route("/lbds_vis.html")
+def lbds_vis():
+    data = _data()
+    return render_template("lbds_vis.html", **data)
 
 @app.route("/topics.html")
 def topics():
@@ -209,7 +214,7 @@ def format_paper(v):
         "poster_pdf": "GLTR_poster.pdf",
     }
 
-def format_demo(v):
+def format_lbd(v):
     list_keys = ["authors"]
     list_fields = {}
     for key in list_keys:
@@ -310,13 +315,13 @@ def music(music):
     data["music"] = v
     return render_template("piece.html", **data)
 
-@app.route("/demo_<demo>.html")
-def demo(demo):
-    uid = demo
-    v = by_uid["demos"][uid]
+@app.route("/lbd_<lbd>.html")
+def lbd(lbd):
+    uid = lbd
+    v = by_uid["lbds"][uid]
     data = _data()
-    data["demo"] = format_demo(v)
-    return render_template("demo.html", **data)
+    data["lbd"] = format_lbd(v)
+    return render_template("lbd.html", **data)
 
 
 @app.route("/chat.html")
@@ -342,11 +347,11 @@ def music_json():
         json.append(v)
     return jsonify(json)
 
-@app.route("/demos.json")
-def demos_json():
+@app.route("/lbds.json")
+def lbds_json():
     json = []
-    for v in site_data["demos"]:
-        json.append(format_demo(v))
+    for v in site_data["lbds"]:
+        json.append(format_lbd(v))
     return jsonify(json)
 
 
@@ -377,8 +382,8 @@ def generator():
         yield "workshop", {"workshop": str(workshop["UID"])}
     for music in site_data["music"]:
         yield "music", {"music": str(music["UID"])}
-    for demo in site_data["demos"]:
-        yield "demo", {"demo": str(demo["UID"])}
+    for lbd in site_data["lbds"]:
+        yield "lbd", {"lbd": str(lbd["UID"])}
 
     for key in site_data:
         yield "serve", {"path": key}

@@ -475,7 +475,7 @@ SUMMARY:#pos LBD & Ind 7A
 DTSTART:2020-10-15 13:05:00+00:00
 DTEND:2020-10-15 14:25:00+00:00
 UID:67
-LOCATION:demos.html?session=
+LOCATION:lbds.html?session=
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:#all ISMIR Business Meeting A (Live)
@@ -502,7 +502,7 @@ SUMMARY:#pos LBD & Ind 8A
 DTSTART:2020-10-15 17:35:00+00:00
 DTEND:2020-10-15 18:55:00+00:00
 UID:71
-LOCATION:demos.html?session=
+LOCATION:lbds.html?session=
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:#meet-spec Special Session 7: How do we - in MIR research - help a
@@ -539,7 +539,7 @@ SUMMARY:#pos LBD & Ind 7B
 DTSTART:2020-10-16 01:35:00+00:00
 DTEND:2020-10-16 02:55:00+00:00
 UID:76
-LOCATION:demos.html?session=
+LOCATION:lbds.html?session=
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:#all ISMIR Business Meeting B (R)
@@ -566,7 +566,7 @@ SUMMARY:#pos LBD & Ind 8B
 DTSTART:2020-10-16 06:05:00+00:00
 DTEND:2020-10-16 07:25:00+00:00
 UID:80
-LOCATION:demos.html?session=
+LOCATION:lbds.html?session=
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:#meet-spec Special Session 8: Music emotion recognition: Moving on
