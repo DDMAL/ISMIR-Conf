@@ -9,6 +9,7 @@ keywords_list = []
 session_list = []
 slack_channel_list = []
 day_list = []
+slot_list = []
 
 authors_list_lbds = []
 affils_list_lbds = []
@@ -91,6 +92,7 @@ for index, row in orig_csv.iterrows():
     session_num = schedule_csv[schedule_csv["Paper ID"] == row["Paper ID"]]["Session"].values[0]
     slack_channel = schedule_csv[schedule_csv["Paper ID"] == row["Paper ID"]]["Slack URL"].values[0]
     day = schedule_csv[schedule_csv["Paper ID"] == row["Paper ID"]]["Day"].values[0]
+    slot = schedule_csv[schedule_csv["Paper ID"] == row["Paper ID"]]["Slot"].values[0]
     # session_num = math.ceil(session_num / 2)
     if key_choice == 'm':
         primary_sub = [row['Primary Subject Area'].split(' -> ')[1]]
@@ -112,6 +114,7 @@ for index, row in orig_csv.iterrows():
     session_list.append(session_num)
     slack_channel_list.append(slack_channel)
     day_list.append(day)
+    slot_list.append(slot)
     print(keywords, '\n')
 
 for index, row in orig_csv_lbds.iterrows():
@@ -136,6 +139,7 @@ new_csv = pd.DataFrame(
     "keywords": keywords_list,
     "channel_url": slack_channel_list,
     "day": day_list,
+    "slot": [['A', 'B'][s-1] for s in slot_list],
 })
 
 new_csv_lbds = pd.DataFrame(
@@ -151,6 +155,7 @@ new_csv_lbds = pd.DataFrame(
 })
 # UID   title   authors session	day	abstract	keywords
 # print(orig_csv)
-print(new_csv_lbds["title"])
+for i, row in new_csv.iterrows():
+    print(row[["session", "slot"]])
 new_csv.to_csv('../sitedata/papers.csv', index=False)
 new_csv_lbds.to_csv('../sitedata/lbds.csv', index=False)

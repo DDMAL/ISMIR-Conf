@@ -215,6 +215,7 @@ def format_paper(v):
             "pdf_url": v.get("pdf_url", ""),
             "channel_url": v["channel_url"],
             "day": v["day"],
+            "slot": v["slot"],
             # "poster_pdf": v["poster_pdf"],
         },
         "poster_pdf": "GLTR_poster.pdf",
