@@ -329,7 +329,7 @@ const card_html = (openreview) => {
                 <a href="poster_${openreview.id}.html"
                 target="_blank"
                    class="text-muted">
-                   <h5 class="card-title" align="center"> ${openreview.content.title} </h5></a>
+                   <h5 class="card-title" align="center">${openreview.id} - ${openreview.content.title} </h5></a>
                 <h6 style="flex-grow: 1;" class="card-subtitle text-muted" align="center">
                         ${openreview.content.authors.join(', ')}
                 </h6><a style="height: inherit; display: contents;" href="poster_${openreview.id}.html">
