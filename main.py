@@ -54,7 +54,7 @@ def main(site_data_path):
             by_uid[typ][p["UID"]] = p
     print("Data Successfully Loaded")
     by_uid["days"] = {}
-
+    site_data["days"] = []
     for day in ['1', '2', '3', '4']:
         speakers = [s for s in site_data["speakers"] if s["day"] == day]
         posters = [p for p in site_data["events"] if p["day"] == day and p["category"] == "Poster session"]
@@ -66,6 +66,7 @@ def main(site_data_path):
         opening = [o for o in site_data["tutorials_all"] if o["day"] == day and "Opening" in o["title"]]
         business = [o for o in site_data["tutorials_all"] if o["day"] == day and "Business" in o["title"]]
         by_uid["days"][day] = {
+            "UID": day,
             "speakers": speakers,
             "all": all,
             "meetup": meetup,
@@ -78,8 +79,9 @@ def main(site_data_path):
             "opening": opening,
             "business": business,
         }
-    site_data["days"] = by_uid["days"]
-    print(by_uid["days"])
+        site_data["days"].append(by_uid["days"][day])
+    print(site_data["papers"][0])
+    print(site_data["days"][0])
     return extra_files
 
 
@@ -433,7 +435,8 @@ def generator():
         yield "day", {"day": str(day["UID"])}
 
     for key in site_data:
-        yield "serve", {"path": key}
+        if key != 'days':
+            yield "serve", {"path": key}
 
 
 def parse_arguments():
