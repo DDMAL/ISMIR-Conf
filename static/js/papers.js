@@ -323,19 +323,16 @@ const card_html = (openreview) => {
   }
 
   return `
-        <div class="pp-card pp-mode-` + render_mode + ` ">
+        <a href="poster_${openreview.id}.html"><div class="pp-card pp-mode-` + render_mode + ` ">
             <div class="pp-card-header" >` +
             `<div class="checkbox-paper ${openreview.content.read ? 'selected' : ''}" style="display: block;position: absolute; bottom:35px;left: 35px;">✓</div>
-                <a href="poster_${openreview.id}.html"
-                target="_blank"
-                   class="text-muted">
-                   <h5 class="card-title" align="center">${openreview.id} - ${openreview.content.title} </h5></a>
+                   <h5 class="card-title text-muted" align="center">${openreview.id} - ${openreview.content.title} </h5>
                 <h6 style="flex-grow: 1;" class="card-subtitle text-muted" align="center">
                         ${openreview.content.authors.join(', ')}
-                </h6><a style="height: inherit; display: contents;" href="poster_${openreview.id}.html">
-                ${card_image(openreview, render_mode !== 'list')}</a>
+                </h6>
+                ${card_image(openreview, render_mode !== 'list')}
                 ` + button +
               `</div>
 
                 ${card_detail(openreview, (render_mode === 'detail'))}
-        </div>`}
+        </div></a>`}
