@@ -72,6 +72,7 @@ body {
   padding-top: 10px;
   padding-left: 15px;
   padding-right: 15px;
+
 }
 
 .pp-card-header center {
@@ -84,6 +85,8 @@ body {
 .pp-mode-list .pp-card-header {
   height: 175px;
   border: 1px solid #eee;
+  display: flex;
+  flex-direction: column;
 }
 
 .pp-card-footer {
@@ -145,6 +148,9 @@ body .nav-pills .nav-link.active {
 
 .myCard .pp-mode-compact .pp-card-header, .myCard .pp-mode-detail .pp-card-header {
   height: auto;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 

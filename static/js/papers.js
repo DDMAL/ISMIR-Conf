@@ -15,6 +15,8 @@ const filters = {
 let render_mode = 'compact';
 let uniqueSessions = null;
 
+let release_day = $('#release-day').data()['name'];
+// console.log(release_day);
 
 
 const persistor = new Persistor('Mini-Conf-Papers');
@@ -230,7 +232,7 @@ const keyword = kw => `<a href="papers.html?filter=keywords&search=${kw}"
                        class="text-secondary text-decoration-none">${kw.toLowerCase()}</a>`
 
 const card_image = (openreview, show) => {
-    if (show) return ` <center><img class="lazy-load-img cards_img" data-src="static/paper_images/${openreview.id}.pdf.png" width="80%"/></center>`
+    if (show) return ` <center style="flex-grow: 1;"><img class="lazy-load-img cards_img" data-src="static/paper_images/${openreview.id}.pdf.png" width="80%"/></center>`
     else return ''
 }
 
@@ -281,20 +283,27 @@ const card_cal = (openreview, i) => `<a class="text-muted" href="webcal://iclr.g
 // }
 
 //language=HTML
-const card_html = openreview => `
+const card_html = (openreview) => {
+  var button = ''
+  if (release_day >= openreview.content.day) {
+    button += '<div class="text-right"><a class="btn btn-outline-primary slack-btn mt-3 mb-3" href="'
+    button += openreview.content.channel_url + '">' + openreview.content.channel_name + '</a></div>'
+  }
+
+  return `
         <div class="pp-card pp-mode-` + render_mode + ` ">
-            <div class="pp-card-header">
-            <div class="checkbox-paper ${openreview.content.read ? 'selected' : ''}" style="display: block;position: absolute; bottom:35px;left: 35px;">✓</div>
+            <div class="pp-card-header" >` +
+            `<div class="checkbox-paper ${openreview.content.read ? 'selected' : ''}" style="display: block;position: absolute; bottom:35px;left: 35px;">✓</div>
                 <a href="poster_${openreview.id}.html"
                 target="_blank"
                    class="text-muted">
                    <h5 class="card-title" align="center"> ${openreview.content.title} </h5></a>
-                <h6 class="card-subtitle text-muted" align="center">
+                <h6 style="flex-grow: 1;" class="card-subtitle text-muted" align="center">
                         ${openreview.content.authors.join(', ')}
                 </h6>
                 ${card_image(openreview, render_mode !== 'list')}
-
-            </div>
+                ` + button +
+              `</div>
 
                 ${card_detail(openreview, (render_mode === 'detail'))}
-        </div>`
+        </div>`}

@@ -45,7 +45,7 @@
       {% endfor %}
     </p>
     {% if paper.content.channel_url and config.paper_day_release >= paper.content.day | int %}
-      <a href="{{paper.content.channel_url}}" class="btn btn-primary mr-3">{% include 'slack_svg.html' %} Slack channel</a>
+      <a href="{{paper.content.channel_url}}" class="btn btn-primary mr-3">{% include 'slack_svg.html' %} {{paper.content.channel_name}}</a>
     {% endif %}
   </div>
 </div>

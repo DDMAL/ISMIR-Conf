@@ -214,6 +214,7 @@ def format_paper(v):
             "session": list_fields["session"],
             "pdf_url": v.get("pdf_url", ""),
             "channel_url": v["channel_url"],
+            "channel_name": v["channel_name"],
             "day": v["day"],
             "slot": v["slot"],
             # "poster_pdf": v["poster_pdf"],
