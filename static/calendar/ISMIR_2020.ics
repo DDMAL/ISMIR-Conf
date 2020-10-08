@@ -80,7 +80,7 @@ DTSTART:2020-10-12 12:00:00+00:00
 DTEND:2020-10-12 13:00:00+00:00
 UID:11
 DESCRIPTION:openingA
-LOCATION:tab|1|Opening Plenary (Live) A|all
+LOCATION:tab|1|Opening Plenary (Live) A|all_b
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:#pos Posters 1A
@@ -148,7 +148,7 @@ DTSTART:2020-10-13 00:30:00+00:00
 DTEND:2020-10-13 01:30:00+00:00
 UID:20
 DESCRIPTION:openingB
-LOCATION:tab|1|Opening Plenary B (R)|all
+LOCATION:tab|1|Opening Plenary B (R)|all_b
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:#pos Posters 1B
@@ -494,7 +494,7 @@ SUMMARY:#all ISMIR Business Meeting A (Live)
 DTSTART:2020-10-15 14:30:00+00:00
 DTEND:2020-10-15 15:30:00+00:00
 UID:68
-LOCATION:tab|4|ISMIR Business Meeting A (Live)|all
+LOCATION:tab|4|ISMIR Business Meeting A (Live)|all_b
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:#master Masterclass: Interviews
@@ -559,7 +559,7 @@ SUMMARY:#all ISMIR Business Meeting B (R)
 DTSTART:2020-10-16 03:00:00+00:00
 DTEND:2020-10-16 04:00:00+00:00
 UID:77
-LOCATION:tab|4|ISMIR Business Meeting B (R)|all
+LOCATION:tab|4|ISMIR Business Meeting B (R)|all_b
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:#meet Meetups Misc

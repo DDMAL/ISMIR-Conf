@@ -34,6 +34,8 @@ tutorials_list = [
     [3, 9],
     [4, 8],
     [5, 10],
+    [11, 20], # opening
+    [68, 77], # business meeting
 ]
 
 posters_dict = {
@@ -63,7 +65,7 @@ def display(cal):
 
 # make tutorials.csv
 
-tut_csv = orig_csv.copy()[orig_csv['Category'] == "Tutorials"]
+tut_csv = orig_csv.copy()[orig_csv['Category'].isin(["Tutorials", "All Meeting"])]
 tut_csv['start_date_b'] = [""] * tut_csv.shape[0]
 tut_csv['start_time_b'] = [""] * tut_csv.shape[0]
 
@@ -109,7 +111,10 @@ for index, event in orig_csv.iterrows():
         e_cal['location'] = event['Channel URL']
 
     elif event['Category'] in ["All Meeting", "Meetup-Special", "WiMIR Meetup", "Masterclass"]:
-        e_cal['location'] = f'tab|{event["Conf day"]}|{event["Title"]}|{color_dict[event["Category"]]}'
+        if any(e in event["Title"] for e in ['Opening', "Business"]):
+            e_cal['location'] = f'tab|{event["Conf day"]}|{event["Title"]}|{color_dict[event["Category"]] + "_b"}'
+        else:
+            e_cal['location'] = f'tab|{event["Conf day"]}|{event["Title"]}|{color_dict[event["Category"]]}'
 
     elif event['Category'] == "Satellite":
         e_cal['location'] = event['Website link']
@@ -144,7 +149,7 @@ new_csv = pd.DataFrame(
 
 new_tut_csv = pd.DataFrame({
     "UID": tut_csv['Event number (UTC)'],
-    "title": [s.split(':')[0][:-1] + ': ' + s.split(':')[1] for s in tut_csv['Title']],
+    "title": [s.split(':')[0][:-1] + ': ' + s.split(':')[1] if ':' in s else s for s in tut_csv['Title']],
     "day": tut_csv['Conf day'],
     "start_date": tut_csv['Date (UTC)'],
     "start_time": tut_csv['Start time (UTC)'],
@@ -162,6 +167,6 @@ with open('../static/calendar/ISMIR_2020.ics', 'wb') as f:
     f.write(cal.to_ical())
 
 new_csv.to_csv('../sitedata/events.csv', index=False)
-new_tut_csv.to_csv('../sitedata/tutorials.csv', index=False)
+new_tut_csv.to_csv('../sitedata/tutorials_all.csv', index=False)
 # print(cal)
 # print(events_meta)

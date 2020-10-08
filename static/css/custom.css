@@ -51,6 +51,9 @@ sat: '#A79B8E' */
 .all::after {
   border-color: #D50201;
 }
+.all_b::after {
+  border-color: #D50201;
+}
 .meet-spec::after {
   border-color: #34B579;
 }

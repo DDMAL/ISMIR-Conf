@@ -117,12 +117,13 @@ def schedule():
     for day in ['1', '2', '3', '4']:
         speakers = [s for s in site_data["speakers"] if s["day"] == day]
         posters = [p for p in site_data["events"] if p["day"] == day and p["category"] == "Poster session"]
-        all = [p for p in site_data["events"] if p["day"] == day and p["category"] == "All Meeting"]
         music = [m for m in site_data["events"] if m["day"] == day and m["category"] == "Music concert"]
         meetup = [m for m in site_data["events"] if m["day"] == day and m["category"] == "Meetup"]
         master = [m for m in site_data["events"] if m["day"] == day and m["category"] == "Masterclass"]
         wimir = [w for w in site_data["events"] if w["day"] == day and w["category"] == "WiMIR Meetup"]
         special = [s for s in site_data["events"] if s["day"] == day and s["category"] == "Meetup-Special"]
+        opening = [o for o in site_data["tutorials_all"] if o["day"] == day and "Opening" in o["title"]]
+        business = [o for o in site_data["tutorials_all"] if o["day"] == day and "Business" in o["title"]]
 
         out = {
             "speakers": speakers,
@@ -134,6 +135,8 @@ def schedule():
             "posters": posters,
             "music": music,
             "day": day,
+            "opening": opening,
+            "business": business,
         }
         data["days"].append(out)
     # data["day"] = {
@@ -149,7 +152,7 @@ def schedule():
 @app.route("/tutorials.html")
 def tutorials():
     data = _data()
-    data["tutorials"] = site_data["tutorials"]
+    data["tutorials"] = [t for t in site_data["tutorials_all"] if t['category'] == "Tutorials"]
     return render_template("tutorials.html", **data)
 
 @app.route("/music.html")
