@@ -365,24 +365,30 @@
 <div class="cards row p-4">
   {% for meet in type %}
   {% set local_date = meet.start_date | localizetime(meet.start_time, timezone) %}
-  <div class="col-md-6 col-sm-12 p-3" style="box-sizing: border-box;">
+  {% set local_date_b = meet.start_date_b | localizetime(meet.start_time_b, timezone) %}
+  <div class="col-12 p-3" style="box-sizing: border-box;">
     <div class="card" style="display: block; overflow: hidden; width: 100%;">
       <div
         class="card-header text-center"
         style="min-height: 200px; width: 100%;"
       >
-        <h3 class="m-3 card-title main-title text-left">
-          {% if meet.channel_url %}
-          <a href="{{meet.channel_url}}">{{meet.title}}</a>
-          {% else %}
-          {{meet.title}}
-          {% endif %}
-        </h3>
+        {% if meet.channel_url %}
+          <a id="{{ meet.title[:2]}}" href="{{meet.channel_url}}">
+            <h3 class="card-title main-title m-3 text-left">{{meet.title}}</h3>
+          </a>
+        {% else %}
+          <a id="{{ meet.title[:2] }}" href="#">
+            <h3 class="card-title main-title m-3 text-left">{{meet.title}}</h3>
+          </a>
+        {% endif %}
         <div class="m-3 text-left card-subtitle text-muted">
           {{meet.organiser}}
         </div>
-        <div class="m-3 text-left card-subtitle">
-          {{local_date[0]}} | {{local_date[1]}}
+        <div class="m-3 text-left card-subtitle" style="display:flex; align-content: center;">
+          <span class="mr-2 h5">A: </span>{{local_date[0]}} | {{local_date[1]}}
+        </div>
+        <div class="ml-3 mb-3 text-left card-subtitle" style="display:flex; align-content: center;">
+          <span class="mr-2 h5">B: </span>{{local_date_b[0]}} | {{local_date_b[1]}}
         </div>
         <div class="m-3 text-left card-subtitle">
           {{meet.description|markdown}}

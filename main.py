@@ -149,9 +149,7 @@ def schedule():
 @app.route("/tutorials.html")
 def tutorials():
     data = _data()
-    data["tutorials"] = [
-        workshop for workshop in site_data["events"] if workshop["category"] == "Tutorials"
-    ]
+    data["tutorials"] = site_data["tutorials"]
     return render_template("tutorials.html", **data)
 
 @app.route("/music.html")

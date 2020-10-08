@@ -28,7 +28,7 @@ color_dict = {
 
 # same events different times, via event number field
 
-same_event_list = [
+tutorials_list = [
     [1, 6], # tutorials
     [2, 7],
     [3, 9],
@@ -61,6 +61,20 @@ events_meta = {}
 def display(cal):
     return cal.to_ical().replace('\r\n', '\n').strip()
 
+# make tutorials.csv
+
+tut_csv = orig_csv.copy()[orig_csv['Category'] == "Tutorials"]
+tut_csv['start_date_b'] = [""] * tut_csv.shape[0]
+tut_csv['start_time_b'] = [""] * tut_csv.shape[0]
+
+for p in tutorials_list:
+    tut_csv.loc[tut_csv['Event number (UTC)'] == p[0], 'start_date_b'] = tut_csv.loc[tut_csv['Event number (UTC)'] == p[1], 'Date (UTC)'].values[0]
+    tut_csv.loc[tut_csv['Event number (UTC)'] == p[0], 'start_time_b'] = tut_csv.loc[tut_csv['Event number (UTC)'] == p[1], 'Start time (UTC)'].values[0]
+# print(tut_csv)
+# for p in tutorials_list:
+tut_csv = tut_csv[tut_csv['start_date_b'] != ""]
+tut_csv = tut_csv.sort_values(by=['Title'])
+
 # summary is event title
 # location is the link on the calendar
 
@@ -86,7 +100,7 @@ for index, event in orig_csv.iterrows():
             e_cal['location'] = f'lbds.html?session='
 
     elif event['Category'] == "Tutorials":
-        e_cal['location'] = f'tutorials.html#{event["Title"].replace(" ", "_")}'
+        e_cal['location'] = f'tutorials.html#{event["Title"][:2]}'
 
     elif event['Category'] == "Music concert":
         session_num = posters_dict[event['Title'].split(" ")[-1]]
@@ -128,9 +142,26 @@ new_csv = pd.DataFrame(
     "channel_url": orig_csv['Channel URL'],
 })
 
+new_tut_csv = pd.DataFrame({
+    "UID": tut_csv['Event number (UTC)'],
+    "title": [s.split(':')[0][:-1] + ': ' + s.split(':')[1] for s in tut_csv['Title']],
+    "day": tut_csv['Conf day'],
+    "start_date": tut_csv['Date (UTC)'],
+    "start_time": tut_csv['Start time (UTC)'],
+    "start_date_b": tut_csv['start_date_b'],
+    "start_time_b": tut_csv['start_time_b'],
+    "category": tut_csv['Category'],
+    "description": tut_csv['Description'],
+    "organiser": tut_csv['Organiser'],
+    "web_link": tut_csv['Website link'],
+    "slack_channel": tut_csv['Slack Channel'],
+    "channel_url": tut_csv['Channel URL'],
+})
+
 with open('../static/calendar/ISMIR_2020.ics', 'wb') as f:
     f.write(cal.to_ical())
 
 new_csv.to_csv('../sitedata/events.csv', index=False)
+new_tut_csv.to_csv('../sitedata/tutorials.csv', index=False)
 # print(cal)
 # print(events_meta)

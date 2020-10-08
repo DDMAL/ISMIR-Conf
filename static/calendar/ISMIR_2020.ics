@@ -5,8 +5,7 @@ SUMMARY:#tut T1A: Prototyping and Scaling Audio Research with Klio
 DTSTART:2020-10-11 11:00:00+00:00
 DTEND:2020-10-11 14:00:00+00:00
 UID:1
-LOCATION:tutorials.html#T1A:_Prototyping_and_Scaling_Audio_Research_with_K
- lio
+LOCATION:tutorials.html#T1
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:#tut T2A: Analysis of Expressive Timing in Recorded Music Performa
@@ -14,16 +13,14 @@ SUMMARY:#tut T2A: Analysis of Expressive Timing in Recorded Music Performa
 DTSTART:2020-10-11 14:00:00+00:00
 DTEND:2020-10-11 17:00:00+00:00
 UID:2
-LOCATION:tutorials.html#T2A:_Analysis_of_Expressive_Timing_in_Recorded_Mus
- ic_Performances
+LOCATION:tutorials.html#T2
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:#tut T3A: Metric Learning for Music Information Retrieval
 DTSTART:2020-10-11 14:00:00+00:00
 DTEND:2020-10-11 17:00:00+00:00
 UID:3
-LOCATION:tutorials.html#T3A:_Metric_Learning_for_Music_Information_Retriev
- al
+LOCATION:tutorials.html#T3
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:#tut T4A: Open-Source Tools & Data for Music Source Separation: A 
@@ -31,23 +28,21 @@ SUMMARY:#tut T4A: Open-Source Tools & Data for Music Source Separation: A
 DTSTART:2020-10-11 14:00:00+00:00
 DTEND:2020-10-11 17:00:00+00:00
 UID:4
-LOCATION:tutorials.html#T4A:_Open-Source_Tools_&_Data_for_Music_Source_Sep
- aration:_A_Practical_Guide_for_the_MIR_Practitioner
+LOCATION:tutorials.html#T4
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:#tut T5A: Version Identification in the 20s
 DTSTART:2020-10-11 16:00:00+00:00
 DTEND:2020-10-11 19:00:00+00:00
 UID:5
-LOCATION:tutorials.html#T5A:_Version_Identification_in_the_20s
+LOCATION:tutorials.html#T5
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:#tut T1B: Prototyping and Scaling Audio Research with Klio
 DTSTART:2020-10-11 19:00:00+00:00
 DTEND:2020-10-11 22:00:00+00:00
 UID:6
-LOCATION:tutorials.html#T1B:_Prototyping_and_Scaling_Audio_Research_with_K
- lio
+LOCATION:tutorials.html#T1
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:#tut T2B: Analysis of Expressive Timing in Recorded Music Performa
@@ -55,8 +50,7 @@ SUMMARY:#tut T2B: Analysis of Expressive Timing in Recorded Music Performa
 DTSTART:2020-10-11 22:00:00+00:00
 DTEND:2020-10-12 01:00:00+00:00
 UID:7
-LOCATION:tutorials.html#T2B:_Analysis_of_Expressive_Timing_in_Recorded_Mus
- ic_Performances
+LOCATION:tutorials.html#T2
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:#tut T4B: Open-Source Tools & Data for Music Source Separation: A 
@@ -64,23 +58,21 @@ SUMMARY:#tut T4B: Open-Source Tools & Data for Music Source Separation: A
 DTSTART:2020-10-12 02:00:00+00:00
 DTEND:2020-10-12 05:00:00+00:00
 UID:8
-LOCATION:tutorials.html#T4B:_Open-Source_Tools_&_Data_for_Music_Source_Sep
- aration:_A_Practical_Guide_for_the_MIR_Practitioner
+LOCATION:tutorials.html#T4
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:#tut T3B: Metric Learning for Music Information Retrieval
 DTSTART:2020-10-12 06:00:00+00:00
 DTEND:2020-10-12 09:00:00+00:00
 UID:9
-LOCATION:tutorials.html#T3B:_Metric_Learning_for_Music_Information_Retriev
- al
+LOCATION:tutorials.html#T3
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:#tut T5B: Version Identification in the 20s
 DTSTART:2020-10-12 08:00:00+00:00
 DTEND:2020-10-12 11:00:00+00:00
 UID:10
-LOCATION:tutorials.html#T5B:_Version_Identification_in_the_20s
+LOCATION:tutorials.html#T5
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:#all Opening Plenary (Live) A
