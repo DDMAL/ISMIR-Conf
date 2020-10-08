@@ -427,8 +427,7 @@ def generator():
         yield "music", {"music": str(music["UID"])}
     for lbd in site_data["lbds"]:
         yield "lbd", {"lbd": str(lbd["UID"])}
-    for day in site_data["days"]:
-        yield "day", {"day": str(day["UID"])}
+        
 
     for key in site_data:
         yield "serve", {"path": key}
