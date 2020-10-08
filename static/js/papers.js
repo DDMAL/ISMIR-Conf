@@ -332,8 +332,8 @@ const card_html = (openreview) => {
                    <h5 class="card-title" align="center"> ${openreview.content.title} </h5></a>
                 <h6 style="flex-grow: 1;" class="card-subtitle text-muted" align="center">
                         ${openreview.content.authors.join(', ')}
-                </h6>
-                ${card_image(openreview, render_mode !== 'list')}
+                </h6><a style="height: inherit; display: contents;" href="poster_${openreview.id}.html">
+                ${card_image(openreview, render_mode !== 'list')}</a>
                 ` + button +
               `</div>
 
