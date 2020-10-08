@@ -58,6 +58,7 @@ calendar:
 music_links: false
 poster_embeds: false
 paper_embeds: false
+lbd_embeds: false
 
 # Set to the current conference day
 

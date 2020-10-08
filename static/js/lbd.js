@@ -1,4 +1,4 @@
-$('.demo-buttons button').on('click', function() {
+$('.lbd-buttons button').on('click', function() {
   var target = $(this).attr('data-target');
   $(this).siblings().removeClass('active');
   if ($(target).hasClass('show')) {
@@ -8,9 +8,12 @@ $('.demo-buttons button').on('click', function() {
   }
 });
 
-var button = document.querySelector('#fullscreen-button');
-
-button.addEventListener('click', fullscreen);
+$('.fullscreen-button').on('click', function() {
+  fullscreen($(this).next('.fullscreen-iframe')[0])
+})
+// var button = document.querySelector('#fullscreen-button');
+//
+// button.addEventListener('click', fullscreen);
 // when you are in fullscreen, ESC and F11 may not be trigger by keydown listener.
 // so don't use it to detect exit fullscreen
 document.addEventListener('keydown', function (e) {
@@ -67,5 +70,5 @@ function fullscreenChange() {
 $("#fullscreen-iframe button#presentationMode").css('display', 'none !important');
 
 $(window).ready(function() {
-  $('.demo-buttons button').first().trigger("click");
+  $('.lbd-buttons button').first().trigger("click");
 })
