@@ -60,6 +60,8 @@ poster_embeds: false
 paper_embeds: false
 lbd_embeds: false
 
+browse_paper_buttons: 0 # 0: none, 1: show
+
 # Set to the current conference day
 
 paper_day_release: 3

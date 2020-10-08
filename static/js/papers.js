@@ -16,7 +16,7 @@ let render_mode = 'compact';
 let uniqueSessions = null;
 
 let release_day = $('#release-day').data()['name'];
-// console.log(release_day);
+let browse_paper_buttons = $('#browse-buttons').data()['name'];
 
 let slack_svg =  `<svg style="display: inline-block; width: 23px;" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 viewBox="75 75 150 150" style="enable-background:new 0 0 270 270;" xml:space="preserve">
@@ -261,7 +261,7 @@ const keyword = kw => `<a href="papers.html?filter=keywords&search=${kw}"
                        class="text-secondary text-decoration-none">${kw.toLowerCase()}</a>`
 
 const card_image = (openreview, show) => {
-    if (show) return ` <center style="flex-grow: 1;"><img class="lazy-load-img cards_img" data-src="static/paper_images/${openreview.id}.pdf.png" width="80%"/></center>`
+    if (show) return ` <center style="flex-grow: 1;"><img class="lazy-load-img cards_img" data-src="static/paper_images/${openreview.pic_id}.pdf.png" width="80%"/></center>`
     else return ''
 }
 
@@ -314,7 +314,7 @@ const card_cal = (openreview, i) => `<a class="text-muted" href="webcal://iclr.g
 //language=HTML
 const card_html = (openreview) => {
   var button = ''
-  if (release_day >= openreview.content.day) {
+  if (release_day >= openreview.content.day && browse_paper_buttons) {
     button += '<div class="text-right"><a class="btn btn-primary slack-btn mt-3 mb-3" href="'
     button += ''
     button += openreview.content.channel_url + '">'
