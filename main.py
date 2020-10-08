@@ -54,6 +54,7 @@ def main(site_data_path):
             by_uid[typ][p["UID"]] = p
     print("Data Successfully Loaded")
     by_uid["days"] = {}
+
     for day in ['1', '2', '3', '4']:
         speakers = [s for s in site_data["speakers"] if s["day"] == day]
         posters = [p for p in site_data["events"] if p["day"] == day and p["category"] == "Poster session"]
@@ -77,6 +78,7 @@ def main(site_data_path):
             "opening": opening,
             "business": business,
         }
+    site_data["days"] = by_uid["days"]
     print(by_uid["days"])
     return extra_files
 
@@ -427,7 +429,8 @@ def generator():
         yield "music", {"music": str(music["UID"])}
     for lbd in site_data["lbds"]:
         yield "lbd", {"lbd": str(lbd["UID"])}
-        
+    for day in site_data["days"]:
+        yield "day", {"day": str(day["UID"])}
 
     for key in site_data:
         yield "serve", {"path": key}
