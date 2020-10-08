@@ -158,6 +158,7 @@ def tutorials():
 def musics():
     data = _data()
     data["music"] = site_data["music"]
+    data["text"] = open("MUSIC.md").read()
     return render_template("music.html", **data)
 
 @app.route("/lbds.html")
