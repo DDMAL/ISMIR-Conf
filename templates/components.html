@@ -401,6 +401,11 @@
           <a href="{{meet.web_link}}" class="btn btn-secondary">Info</a>
         {% endif %}
         </div>
+        {% if meet.category == "All Meeting" %}
+          <div class="ml-3 mr-3 mt-4 mb-3 h5 text-left text-muted">
+            Zoom links will be shared on Slack.
+          </div>
+        {% endif %}
       </div>
     </div>
   </div>
