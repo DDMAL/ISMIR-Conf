@@ -11,6 +11,7 @@ slack_channel_list = []
 slack_name_list = []
 day_list = []
 slot_list = []
+poster_code_list = []
 
 authors_list_lbds = []
 affils_list_lbds = []
@@ -95,6 +96,7 @@ for index, row in orig_csv.iterrows():
     day = schedule_csv[schedule_csv["Paper ID"] == row["Paper ID"]]["Day"].values[0]
     slot = schedule_csv[schedule_csv["Paper ID"] == row["Paper ID"]]["Slot"].values[0]
     slack_name = schedule_csv[schedule_csv["Paper ID"] == row["Paper ID"]]["Slack Channel"].values[0]
+    poster_code = schedule_csv[schedule_csv["Paper ID"] == row["Paper ID"]]["Poster code"].values[0]
     # session_num = math.ceil(session_num / 2)
     if key_choice == 'm':
         primary_sub = [row['Primary Subject Area'].split(' -> ')[1]]
@@ -118,6 +120,7 @@ for index, row in orig_csv.iterrows():
     slack_name_list.append(slack_name)
     day_list.append(day)
     slot_list.append(slot)
+    poster_code_list.append(poster_code)
     print(keywords, '\n')
 
 for index, row in orig_csv_lbds.iterrows():
@@ -130,7 +133,7 @@ for index, row in orig_csv_lbds.iterrows():
 
     # print(author_affil)
 new_csv = pd.DataFrame(
-    {"UID": orig_csv['Paper ID'],
+    {"UID": poster_code_list,
     # "type": orig_csv['Content Type'],
     "title": [title_except(x, articles, capital_exceptions) for x in orig_csv['Paper Title']],
     "abstract": orig_csv['Abstract'],
@@ -143,7 +146,9 @@ new_csv = pd.DataFrame(
     "channel_url": slack_channel_list,
     "channel_name": slack_name_list,
     "day": day_list,
-    "slot": [['A', 'B'][s-1] for s in slot_list],
+    "slot": slot_list,
+    "pic_id": orig_csv['Paper ID'],
+    # "poster_code": poster_code_list,
 })
 
 new_csv_lbds = pd.DataFrame(

@@ -205,6 +205,7 @@ def format_paper(v):
     return {
         "id": v["UID"],
         "forum": v["UID"],
+        "pic_id": v['pic_id'],
         "content": {
             "title": v["title"],
             "authors": list_fields["authors"],
