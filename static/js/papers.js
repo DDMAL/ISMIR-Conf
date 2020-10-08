@@ -18,6 +18,35 @@ let uniqueSessions = null;
 let release_day = $('#release-day').data()['name'];
 // console.log(release_day);
 
+let slack_svg =  `<svg style="display: inline-block; width: 23px;" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="75 75 150 150" style="enable-background:new 0 0 270 270;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#FFFFFF;}
+</style>
+<g>
+	<g>
+		<path class="st0" d="M99.4,151.2c0,7.1-5.8,12.9-12.9,12.9s-12.9-5.8-12.9-12.9c0-7.1,5.8-12.9,12.9-12.9h12.9V151.2z"/>
+		<path class="st0" d="M105.9,151.2c0-7.1,5.8-12.9,12.9-12.9s12.9,5.8,12.9,12.9v32.3c0,7.1-5.8,12.9-12.9,12.9
+			s-12.9-5.8-12.9-12.9C105.9,183.5,105.9,151.2,105.9,151.2z"/>
+	</g>
+	<g>
+		<path class="st0" d="M118.8,99.4c-7.1,0-12.9-5.8-12.9-12.9s5.8-12.9,12.9-12.9s12.9,5.8,12.9,12.9v12.9H118.8z"/>
+		<path class="st0" d="M118.8,105.9c7.1,0,12.9,5.8,12.9,12.9s-5.8,12.9-12.9,12.9H86.5c-7.1,0-12.9-5.8-12.9-12.9
+			s5.8-12.9,12.9-12.9C86.5,105.9,118.8,105.9,118.8,105.9z"/>
+	</g>
+	<g>
+		<path class="st0" d="M170.6,118.8c0-7.1,5.8-12.9,12.9-12.9c7.1,0,12.9,5.8,12.9,12.9s-5.8,12.9-12.9,12.9h-12.9V118.8z"/>
+		<path class="st0" d="M164.1,118.8c0,7.1-5.8,12.9-12.9,12.9c-7.1,0-12.9-5.8-12.9-12.9V86.5c0-7.1,5.8-12.9,12.9-12.9
+			c7.1,0,12.9,5.8,12.9,12.9V118.8z"/>
+	</g>
+	<g>
+		<path class="st0" d="M151.2,170.6c7.1,0,12.9,5.8,12.9,12.9c0,7.1-5.8,12.9-12.9,12.9c-7.1,0-12.9-5.8-12.9-12.9v-12.9H151.2z"/>
+		<path class="st0" d="M151.2,164.1c-7.1,0-12.9-5.8-12.9-12.9c0-7.1,5.8-12.9,12.9-12.9h32.3c7.1,0,12.9,5.8,12.9,12.9
+			c0,7.1-5.8,12.9-12.9,12.9H151.2z"/>
+	</g>
+</g>
+</svg>
+`
 
 const persistor = new Persistor('Mini-Conf-Papers');
 
@@ -286,8 +315,11 @@ const card_cal = (openreview, i) => `<a class="text-muted" href="webcal://iclr.g
 const card_html = (openreview) => {
   var button = ''
   if (release_day >= openreview.content.day) {
-    button += '<div class="text-right"><a class="btn btn-outline-primary slack-btn mt-3 mb-3" href="'
-    button += openreview.content.channel_url + '">' + openreview.content.channel_name + '</a></div>'
+    button += '<div class="text-right"><a class="btn btn-primary slack-btn mt-3 mb-3" href="'
+    button += ''
+    button += openreview.content.channel_url + '">'
+    button += slack_svg
+    button += openreview.content.channel_name + '</a></div>'
   }
 
   return `
