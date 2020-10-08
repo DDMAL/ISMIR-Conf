@@ -112,9 +112,9 @@ for index, event in orig_csv.iterrows():
 
     elif event['Category'] in ["All Meeting", "Meetup-Special", "WiMIR Meetup", "Masterclass"]:
         if any(e in event["Title"] for e in ['Opening', "Business"]):
-            e_cal['location'] = f'tab|{event["Conf day"]}|{event["Title"]}|{color_dict[event["Category"]] + "_b"}'
+            e_cal['location'] = f'day_{event["Conf day"]}.html#{color_dict[event["Category"]] + "_b"}'
         else:
-            e_cal['location'] = f'tab|{event["Conf day"]}|{event["Title"]}|{color_dict[event["Category"]]}'
+            e_cal['location'] = f'day_{event["Conf day"]}.html#{color_dict[event["Category"]]}'
 
     elif event['Category'] == "Satellite":
         e_cal['location'] = event['Website link']

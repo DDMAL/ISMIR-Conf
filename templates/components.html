@@ -16,6 +16,23 @@
 </ul>
 {%- endmacro %}
 
+{% macro navtabs(tab_group) -%}
+<ul class="nav nav-pills justify-content-center">
+  {% for tab in tab_group %}
+  <li class="nav-item">
+    <a
+      id="{{tab[2]}}"
+      class="nav-link text-muted"
+      href="{{tab[0]}}"
+      aria-controls="nav-home"
+      aria-selected="true"
+      >{{tab[1]}}
+    </a>
+  </li>
+  {% endfor %}
+</ul>
+{%- endmacro %}
+
 {% macro section(name) -%}
 <div class="border-top my-3"></div>
 <div class="row p-4" id="faq">
@@ -34,7 +51,7 @@
 {%- endmacro %}
 
 {% macro subsection_tag(name, tag_text) -%}
-  <h2 class="day-title {{tag_text}}">{{name}}</h2>
+  <h2 class="day-title" id={{tag_text}}>{{name}}</h2>
 {%- endmacro %}
 
 {% macro speakergroup(speakers, timezone) -%}

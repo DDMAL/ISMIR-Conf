@@ -53,6 +53,31 @@ def main(site_data_path):
         for p in site_data[typ]:
             by_uid[typ][p["UID"]] = p
     print("Data Successfully Loaded")
+    by_uid["days"] = {}
+    for day in ['1', '2', '3', '4']:
+        speakers = [s for s in site_data["speakers"] if s["day"] == day]
+        posters = [p for p in site_data["events"] if p["day"] == day and p["category"] == "Poster session"]
+        music = [m for m in site_data["events"] if m["day"] == day and m["category"] == "Music concert"]
+        meetup = [m for m in site_data["events"] if m["day"] == day and m["category"] == "Meetup"]
+        master = [m for m in site_data["events"] if m["day"] == day and m["category"] == "Masterclass"]
+        wimir = [w for w in site_data["events"] if w["day"] == day and w["category"] == "WiMIR Meetup"]
+        special = [s for s in site_data["events"] if s["day"] == day and s["category"] == "Meetup-Special"]
+        opening = [o for o in site_data["tutorials_all"] if o["day"] == day and "Opening" in o["title"]]
+        business = [o for o in site_data["tutorials_all"] if o["day"] == day and "Business" in o["title"]]
+        by_uid["days"][day] = {
+            "speakers": speakers,
+            "all": all,
+            "meetup": meetup,
+            "special": special,
+            "master": master,
+            "wimir": wimir,
+            "posters": posters,
+            "music": music,
+            "day": day,
+            "opening": opening,
+            "business": business,
+        }
+    print(by_uid["days"])
     return extra_files
 
 
@@ -290,6 +315,14 @@ def localizetime(date,time,timezone):
 
 # ITEM PAGES
 
+@app.route("/day_<day>.html")
+def day(day):
+    uid = day
+    v = by_uid["days"][uid]
+    data = _data()
+    data["day"] = v
+    data["daynum"] = uid
+    return render_template("day.html", **data)
 
 @app.route("/poster_<poster>.html")
 def poster(poster):
@@ -394,6 +427,8 @@ def generator():
         yield "music", {"music": str(music["UID"])}
     for lbd in site_data["lbds"]:
         yield "lbd", {"lbd": str(lbd["UID"])}
+    for day in site_data["days"]:
+        yield "day", {"day": str(day["UID"])}
 
     for key in site_data:
         yield "serve", {"path": key}

@@ -7,12 +7,12 @@
 {% endblock %}
 
 {% block tabs %}
-{{ components.tabs([
-  ("calendar", "Calendar", "active"),
-  ("1", "Day 1", ""),
-  ("2", "Day 2", ""),
-  ("3", "Day 3", ""),
-  ("4", "Day 4", ""),
+{{ components.navtabs([
+  ("calendar.html", "Calendar", "calendar-html"),
+  ("day_1.html", "Day 1", "day_1-html"),
+  ("day_2.html", "Day 2", "day_2-html"),
+  ("day_3.html", "Day 3", "day_3-html"),
+  ("day_4.html", "Day 4", "day_4-html"),
   ])
 }}
 {% endblock %}
@@ -125,6 +125,14 @@
 
     <script type="text/javascript">
       lazyLoader();
+    </script>
+    <script>
+      $('.nav-pills .nav-item .nav-link').each(function() {
+        console.log(window.location.pathname.split('/')[1].split('.')[0])
+        if (window.location.pathname.split('/')[1].replace('.', '-') === $(this).attr('id') ) {
+          $(this).addClass('active');
+        }
+      })
     </script>
   </div>
   {% endfor %}

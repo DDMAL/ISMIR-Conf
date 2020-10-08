@@ -80,7 +80,7 @@ DTSTART:2020-10-12 12:00:00+00:00
 DTEND:2020-10-12 13:00:00+00:00
 UID:11
 DESCRIPTION:openingA
-LOCATION:tab|1|Opening Plenary (Live) A|all_b
+LOCATION:day_1.html#all_b
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:#pos Posters 1A
@@ -109,8 +109,7 @@ SUMMARY:#meet-spec Special Session 1: Multidisciplinary research in MIR: w
 DTSTART:2020-10-12 14:30:00+00:00
 DTEND:2020-10-12 15:30:00+00:00
 UID:15
-LOCATION:tab|1|Special Session 1: Multidisciplinary research in MIR: where
-  are we now?|meet-spec
+LOCATION:day_1.html#meet-spec
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:#all Keynote by Dr. Safiya Noble: Taking on Big Tech: New Paradigm
@@ -118,8 +117,7 @@ SUMMARY:#all Keynote by Dr. Safiya Noble: Taking on Big Tech: New Paradigm
 DTSTART:2020-10-12 16:30:00+00:00
 DTEND:2020-10-12 17:30:00+00:00
 UID:16
-LOCATION:tab|1|Keynote by Dr. Safiya Noble: Taking on Big Tech: New Paradi
- gms for New Possibilities (Live)|all
+LOCATION:day_1.html#all
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:#pos Posters 2A
@@ -133,7 +131,7 @@ SUMMARY:#wimir WiMIR meetup 1: Amelie Anglade
 DTSTART:2020-10-12 19:00:00+00:00
 DTEND:2020-10-12 20:00:00+00:00
 UID:18
-LOCATION:tab|1|WiMIR meetup 1: Amelie Anglade|wimir
+LOCATION:day_1.html#wimir
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:#meet Meetups Misc
@@ -148,7 +146,7 @@ DTSTART:2020-10-13 00:30:00+00:00
 DTEND:2020-10-13 01:30:00+00:00
 UID:20
 DESCRIPTION:openingB
-LOCATION:tab|1|Opening Plenary B (R)|all_b
+LOCATION:day_1.html#all_b
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:#pos Posters 1B
@@ -177,8 +175,7 @@ SUMMARY:#all Keynote by Dr. Safiya Noble: Taking on Big Tech: New Paradigm
 DTSTART:2020-10-13 05:00:00+00:00
 DTEND:2020-10-13 06:00:00+00:00
 UID:24
-LOCATION:tab|1|Keynote by Dr. Safiya Noble: Taking on Big Tech: New Paradi
- gms for New Possibilities (Rebroadcast)|all
+LOCATION:day_1.html#all
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:#pos Posters 2B
@@ -192,15 +189,14 @@ SUMMARY:#wimir WiMIR meetup 2: Emilia Gómez
 DTSTART:2020-10-13 07:30:00+00:00
 DTEND:2020-10-13 08:30:00+00:00
 UID:26
-LOCATION:tab|1|WiMIR meetup 2: Emilia Gómez|wimir
+LOCATION:day_1.html#wimir
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:#meet-spec Special Session 2: Are MIR tools fitted to all music?
 DTSTART:2020-10-13 07:30:00+00:00
 DTEND:2020-10-13 08:30:00+00:00
 UID:27
-LOCATION:tab|1|Special Session 2: Are MIR tools fitted to all music?|meet-
- spec
+LOCATION:day_1.html#meet-spec
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:#meet Meetups Misc
@@ -229,8 +225,7 @@ SUMMARY:#all WiMIR Keynote by Johanna Devaney: Performance Matters\,  Beyo
 DTSTART:2020-10-13 14:30:00+00:00
 DTEND:2020-10-13 15:30:00+00:00
 UID:31
-LOCATION:tab|2|WiMIR Keynote by Johanna Devaney: Performance Matters\,  Be
- yond the current conception of musical performance in MIR (Live)|all
+LOCATION:day_2.html#all
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:#meet Meetups Misc
@@ -244,14 +239,14 @@ SUMMARY:#wimir WiMIR meetup 3: Gissel Velarde
 DTSTART:2020-10-13 16:30:00+00:00
 DTEND:2020-10-13 17:30:00+00:00
 UID:33
-LOCATION:tab|2|WiMIR meetup 3: Gissel Velarde|wimir
+LOCATION:day_2.html#wimir
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:#meet-spec Special Session 3: Between musicology and MIR
 DTSTART:2020-10-13 16:30:00+00:00
 DTEND:2020-10-13 17:30:00+00:00
 UID:34
-LOCATION:tab|2|Special Session 3: Between musicology and MIR|meet-spec
+LOCATION:day_2.html#meet-spec
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:#pos Posters 4A
@@ -272,7 +267,7 @@ SUMMARY:#meet-spec Special Session 4: Do we have enough data?
 DTSTART:2020-10-14 00:30:00+00:00
 DTEND:2020-10-14 01:30:00+00:00
 UID:37
-LOCATION:tab|2|Special Session 4: Do we have enough data?|meet-spec
+LOCATION:day_2.html#meet-spec
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:#meet Meetups Misc
@@ -286,7 +281,7 @@ SUMMARY:#wimir WiMIR meetup 4: Blair Kaneshiro
 DTSTART:2020-10-14 00:30:00+00:00
 DTEND:2020-10-14 01:30:00+00:00
 UID:39
-LOCATION:tab|2|WiMIR meetup 4: Blair Kaneshiro|wimir
+LOCATION:day_2.html#wimir
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:#pos Posters 3B
@@ -301,9 +296,7 @@ SUMMARY:#all WiMIR Keynote by Johanna Devaney: Performance Matters\,  Beyo
 DTSTART:2020-10-14 03:00:00+00:00
 DTEND:2020-10-14 04:00:00+00:00
 UID:41
-LOCATION:tab|2|WiMIR Keynote by Johanna Devaney: Performance Matters\,  Be
- yond the current conception of musical performance in MIR (Rebroadcast)|al
- l
+LOCATION:day_2.html#all
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:#meet Meetups Misc
@@ -317,7 +310,7 @@ SUMMARY:#wimir WiMIR meetup 5: Rachel Bittner
 DTSTART:2020-10-14 05:00:00+00:00
 DTEND:2020-10-14 06:00:00+00:00
 UID:43
-LOCATION:tab|2|WiMIR meetup 5: Rachel Bittner|wimir
+LOCATION:day_2.html#wimir
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:#pos Posters 4B
@@ -339,15 +332,14 @@ SUMMARY:#meet-spec Special Session 5: Do we really care about the validity
 DTSTART:2020-10-14 12:00:00+00:00
 DTEND:2020-10-14 13:00:00+00:00
 UID:46
-LOCATION:tab|3|Special Session 5: Do we really care about the validity of 
- MIR research?|meet-spec
+LOCATION:day_3.html#meet-spec
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:#wimir WiMIR meetup 6: Elaine Chew
 DTSTART:2020-10-14 12:00:00+00:00
 DTEND:2020-10-14 13:00:00+00:00
 UID:47
-LOCATION:tab|3|WiMIR meetup 6: Elaine Chew|wimir
+LOCATION:day_3.html#wimir
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:#meet Meetups Misc
@@ -396,7 +388,7 @@ SUMMARY:#master Masterclass: Code Review
 DTSTART:2020-10-14 19:00:00+00:00
 DTEND:2020-10-14 20:00:00+00:00
 UID:54
-LOCATION:tab|3|Masterclass: Code Review|master
+LOCATION:day_3.html#master
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:#meet Meetups Misc
@@ -417,7 +409,7 @@ SUMMARY:#wimir WiMIR meetup 7: Estefanía Cano
 DTSTART:2020-10-15 00:30:00+00:00
 DTEND:2020-10-15 01:30:00+00:00
 UID:57
-LOCATION:tab|3|WiMIR meetup 7: Estefanía Cano|wimir
+LOCATION:day_3.html#wimir
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:#pos Posters 5B
@@ -431,7 +423,7 @@ SUMMARY:#meet-spec Special Session 6: Music and learning
 DTSTART:2020-10-15 03:00:00+00:00
 DTEND:2020-10-15 04:00:00+00:00
 UID:59
-LOCATION:tab|3|Special Session 6: Music and learning|meet-spec
+LOCATION:day_3.html#meet-spec
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:#meet Meetups with Industry Partners
@@ -466,7 +458,7 @@ SUMMARY:#master Masterclass: Code Review
 DTSTART:2020-10-15 07:30:00+00:00
 DTEND:2020-10-15 08:30:00+00:00
 UID:64
-LOCATION:tab|3|Masterclass: Code Review|master
+LOCATION:day_3.html#master
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:#meet Meetups Misc
@@ -494,14 +486,14 @@ SUMMARY:#all ISMIR Business Meeting A (Live)
 DTSTART:2020-10-15 14:30:00+00:00
 DTEND:2020-10-15 15:30:00+00:00
 UID:68
-LOCATION:tab|4|ISMIR Business Meeting A (Live)|all_b
+LOCATION:day_4.html#all_b
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:#master Masterclass: Interviews
 DTSTART:2020-10-15 16:30:00+00:00
 DTEND:2020-10-15 17:30:00+00:00
 UID:69
-LOCATION:tab|4|Masterclass: Interviews|master
+LOCATION:day_4.html#master
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:#meet Meetups Misc
@@ -523,15 +515,14 @@ SUMMARY:#meet-spec Special Session 7: How do we - in MIR research - help a
 DTSTART:2020-10-15 19:00:00+00:00
 DTEND:2020-10-15 20:00:00+00:00
 UID:72
-LOCATION:tab|4|Special Session 7: How do we - in MIR research - help artis
- ts? Do we?|meet-spec
+LOCATION:day_4.html#meet-spec
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:#wimir WiMIR meetup 8: Rebecca Fiebrink
 DTSTART:2020-10-15 19:00:00+00:00
 DTEND:2020-10-15 20:00:00+00:00
 UID:73
-LOCATION:tab|4|WiMIR meetup 8: Rebecca Fiebrink|wimir
+LOCATION:day_4.html#wimir
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:#meet Meetups Misc
@@ -559,7 +550,7 @@ SUMMARY:#all ISMIR Business Meeting B (R)
 DTSTART:2020-10-16 03:00:00+00:00
 DTEND:2020-10-16 04:00:00+00:00
 UID:77
-LOCATION:tab|4|ISMIR Business Meeting B (R)|all_b
+LOCATION:day_4.html#all_b
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:#meet Meetups Misc
@@ -573,7 +564,7 @@ SUMMARY:#master Masterclass: Interviews
 DTSTART:2020-10-16 05:00:00+00:00
 DTEND:2020-10-16 06:00:00+00:00
 UID:79
-LOCATION:tab|4|Masterclass: Interviews|master
+LOCATION:day_4.html#master
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:#pos LBD & Ind 8B
@@ -587,15 +578,14 @@ SUMMARY:#meet-spec Special Session 8: Music emotion recognition: Moving on
 DTSTART:2020-10-16 07:30:00+00:00
 DTEND:2020-10-16 08:30:00+00:00
 UID:81
-LOCATION:tab|4|Special Session 8: Music emotion recognition: Moving on|mee
- t-spec
+LOCATION:day_4.html#meet-spec
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:#wimir WiMIR meetup 9: Anja Volk
 DTSTART:2020-10-16 07:30:00+00:00
 DTEND:2020-10-16 08:30:00+00:00
 UID:82
-LOCATION:tab|4|WiMIR meetup 9: Anja Volk|wimir
+LOCATION:day_4.html#wimir
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:#meet Meetups Misc

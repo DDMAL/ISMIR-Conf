@@ -1,0 +1,85 @@
+{% set active_page = "Schedule" %}
+{% set page_title = "Day " + daynum  %}
+{% extends "base.html" %}
+
+{% block tabs %}
+{{ components.navtabs([
+  ("calendar.html", "Calendar", "calendar-html"),
+  ("day_1.html", "Day 1", "day_1-html"),
+  ("day_2.html", "Day 2", "day_2-html"),
+  ("day_3.html", "Day 3", "day_3-html"),
+  ("day_4.html", "Day 4", "day_4-html"),
+  ])
+}}
+{% endblock %}
+
+{% block content %}
+<div id="day">
+  <!-- Speakers -->
+  {% if day.opening %}
+    {{ components.subsection_tag("Opening", "all_b") }}
+    {{ components.tutorialscard(day.opening, tzone) }}
+  {% endif %}
+  {% if day.business %}
+    {{ components.subsection_tag("Business Meeting", "all_b") }}
+    {{ components.tutorialscard(day.business, tzone) }}
+  {% endif %}
+  {% if day.speakers %}
+  {{ components.subsection_tag("Keynote Speaker", "all") }}
+  <div class="day-section">
+    {{ components.speakergroup(day.speakers, tzone) }}
+  </div>
+  {% endif %}
+  {% if day.posters %}
+    {% if day.day == '4' %}
+      {{ components.subsection_tag("LBD and Industry Sessions", "pos") }}
+    {% else %}
+      {{ components.subsection_tag("Poster Sessions", "pos") }}
+    {% endif %}
+  <div class="day-section">
+    {{ components.postercards(day.posters, tzone) }}
+  </div>
+  {% endif %}
+  {% if day.music %}
+    {{ components.subsection_tag("Music Sessions", "mus") }}
+    <div class="day-section">
+      {{ components.postercards(day.music, tzone) }}
+    </div>
+  {% endif %}
+  {% if day.special %}
+  {{ components.subsection_tag("Special Meetups", "meet-spec") }}
+  <div class="day-section">
+    {{ components.daycard(day.special, tzone) }}
+  </div>
+  {% endif %}
+  {% if day.wimir %}
+  {{ components.subsection_tag("WiMIR Meetups", "wimir") }}
+  <div class="day-section">
+    {{ components.daycard(day.wimir, tzone) }}
+  </div>
+  {% endif %}
+  {% if day.master %}
+  {{ components.subsection_tag("Masterclasses", "master") }}
+  <div class="day-section">
+    {{ components.daycard(day.master, tzone) }}
+  </div>
+  {% endif %}
+  <!-- {{ components.section("Highlighted Papers") }}
+  <div class="papers">
+    {{ components.highlightgroup(day.highlighted, 1) }}
+  </div> -->
+</div>
+
+
+
+<script>
+  $('.nav-pills .nav-item .nav-link').each(function() {
+    console.log(window.location.pathname.split('/')[1].split('.')[0])
+    if (window.location.pathname.split('/')[1].replace('.', '-') === $(this).attr('id') ) {
+      $(this).addClass('active');
+    }
+  })
+</script>
+<script src="static/js/anchor_offset.js"></script>
+
+{% endblock %}

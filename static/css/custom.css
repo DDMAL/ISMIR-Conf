@@ -48,25 +48,25 @@ mus: '#3F51B5'
 master: '#BFCB33'
 sat: '#A79B8E' */
 
-.all::after {
+#all::after {
   border-color: #D50201;
 }
-.all_b::after {
+#all_b::after {
   border-color: #D50201;
 }
-.meet-spec::after {
+#meet-spec::after {
   border-color: #34B579;
 }
-.wimir::after {
+#wimir::after {
   border-color: #8F24AA;
 }
-.pos::after {
+#pos::after {
   border-color: #F6BF25;
 }
-.mus::after {
+#mus::after {
   border-color: #3F51B5;
 }
-.master::after {
+#master::after {
   border-color: #BFCB33;
 }
 
