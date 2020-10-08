@@ -56,8 +56,8 @@ calendar:
 # RELEASE CONTROL
 
 music_links: false
-poster_embeds: false
-paper_embeds: false
+poster_embeds: true
+paper_embeds: true
 lbd_embeds: false
 
 browse_paper_buttons: 0 # 0: none, 1: show
