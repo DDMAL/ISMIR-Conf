@@ -13,8 +13,6 @@
 <meta name="citation_inbook_title" content="{{config.proceedings_title}}" />
 <meta name="citation_abstract" content="{{lbd.content.abstract}}" />
 
-<meta name="citation_pdf_url" content="{{lbd.content.pdf_url | default("")}}" />
-
 {% endblock %}
 
 {% block content %}
@@ -41,9 +39,14 @@
       <button class="card-link btn btn-outline-primary" data-toggle="collapse" type="button" data-target="#paper">
         Paper
       </button>
+      <button class="card-link btn btn-outline-primary" data-toggle="collapse" type="button" data-target="#poster">
+        Poster
+      </button>
+      {% if lbd.content.youtube_id or lbd.content.bilibili_id %}
       <button class="card-link btn btn-outline-primary" data-toggle="collapse" type="button" data-target="#video">
         Video
       </button>
+      {% endif %}
     </div>
   </div>
 </div>
@@ -61,17 +64,35 @@
   </div>
   <div id="paper" class="collapse">
     {% if config.lbd_embeds %}
-      <button id="fullscreen-button" class="btn btn-primary mb-3">Fullscreen</button>
-      <iframe id="fullscreen-iframe" width='100%' height='500px' allowfullscreen webkitallowfullscreen></iframe>
+    <button class="fullscreen-button btn btn-primary mb-3">Fullscreen</button>
+    <iframe class="fullscreen-iframe" src="static/lbd/ISMIR2020-LBD-{{lbd.id}}-abstract.pdf#embedded=true" width='100%' height='500px' allowfullscreen webkitallowfullscreen></iframe>
     {% endif %}
   </div>
+  <div id="poster" class="collapse">
+    {% if config.lbd_embeds %}
+      <button class="fullscreen-button btn btn-primary mb-3">Fullscreen</button>
+      <iframe class="fullscreen-iframe" src="static/lbd/ISMIR2020-LBD-{{lbd.id}}-poster{% if lbd.content.poster_type == 'pdf' %}.pdf{% else %}/index.html{% endif %}#embedded=true" width='100%' height='500px' allowfullscreen webkitallowfullscreen></iframe>
+    {% endif %}
+  </div>
+  {% if lbd.content.youtube_id or lbd.content.bilibili_id %}
   <div id="video" class="collapse">
     <!-- {{ components.section("Video Stream") }} -->
 
-    <!-- <div class="aspect-ratio">
-      <iframe class="video-stream" src="//player.bilibili.com/player.html?aid=712007829&bvid=BV1mD4y1d7iM&cid=235970292&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="550" height="281"> </iframe>
-    </div> -->
+    {% if lbd.content.youtube_id %}
+    <div style="padding:56.25% 0 0 0;position:relative;">
+      <iframe src="https://www.youtube.com/embed/{{lbd.content.youtube_id}}" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen></iframe>
+    </div>
+    <br/>
+    {% endif %}
+
+    {% if lbd.content.bilibili_id %}
+    <div style="padding:56.25% 0 0 0;position:relative;">
+      <iframe src="//player.bilibili.com/player.html?bvid={{lbd.content.bilibili_id}}&page=1" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" allowfullscreen> </iframe>
+    </div>
+    {% endif %}
+
   </div>
+  {% endif %}
 </div>
 
 <script src="static/js/lbd.js"></script>

@@ -43,14 +43,14 @@ const updateCards = (lbds) => {
       .on('click', function (d) {
           const iid = d.id;
           all_mounted_cards.filter(d => d.id === iid)
-            .select(".checkbox-demo").classed('selected', function () {
+            .select(".checkbox-paper").classed('selected', function () {
               const new_value = true;//!d3.select(this).classed('not-selected');
               readCard(iid, new_value);
               return new_value;
           })
       })
 
-    all_mounted_cards.select(".checkbox-demo")
+    all_mounted_cards.select(".checkbox-paper")
       .on('click', function (d) {
           const iid = d.id;
           const new_value = !d3.select(this).classed('selected');
@@ -284,7 +284,7 @@ const card_cal = (openreview, i) => `<a class="text-muted" href="webcal://iclr.g
 const card_html = openreview => `
         <a href="lbd_${openreview.id}.html"><div class="pp-card pp-mode-` + render_mode + ` ">
             <div class="pp-card-header">
-            <div class="checkbox-demo ${openreview.content.read ? 'selected' : ''}" style="display: block;position: absolute; bottom:35px;left: 35px;">✓</div>
+            <div class="checkbox-paper ${openreview.content.read ? 'selected' : ''}" style="display: block;position: absolute; bottom:35px;left: 35px;">✓</div>
             <h5 class="card-title text-muted" align="center"> ${openreview.content.title} </h5>
             <h6 class="card-subtitle text-muted" align="center">
                         ${openreview.content.authors.join(', ')}
