@@ -1,3 +1,24 @@
+# RELEASE CONTROL
+
+music_links: false
+poster_embeds: true
+paper_embeds: true
+paper_videos: true
+
+lbd_embeds: true
+
+browse_paper_buttons: 0 # 0: none, 1: show
+
+# Set to the current conference day
+
+paper_day_release: 0
+
+# CHANNEL METADATA
+
+music_program_channel: '#music-program'
+music_program_url: https://ismir2020.slack.com/archives/C01C4K3S0SU
+
+
 name: ISMIR 2020
 tagline: ISMIR 2020 <br> VIRTUAL <br> CONFERENCE
 date: 11-16 October 2020
@@ -52,18 +73,3 @@ calendar:
     master: '#BFCB33'
     sat: '#A79B8E'
   sunday_saturday: false  #  Include Sunday and Saturday
-
-# RELEASE CONTROL
-
-music_links: false
-poster_embeds: true
-paper_embeds: true
-paper_videos: true
-
-lbd_embeds: true
-
-browse_paper_buttons: 0 # 0: none, 1: show
-
-# Set to the current conference day
-
-paper_day_release: 0

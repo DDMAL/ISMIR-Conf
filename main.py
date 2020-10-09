@@ -302,7 +302,8 @@ def format_music(v):
             "bio": v["bio"],
             "web_link": v["web_link"],
             "session": v["session"],
-            "yt_link": v["yt_link"],
+            "yt_id": v["yt_id"],
+            "bb_id": v["bb_id"],
         }
     }
 

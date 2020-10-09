@@ -7,7 +7,7 @@ affils_list = []
 keywords_list = []
 session_list = []
 # with open('../pre_parse_ISMIR2020_papers.csv', 'r') as f:
-orig_csv = pd.read_csv('../static/csv/pre_parse_music.csv')
+orig_csv = pd.read_csv('../static/csv/ISMIR music program _ Streaming ready submission (Responses) - Form Responses 1 for site.csv')
 
 # Rework authors, affiliations, subject areas
 
@@ -25,11 +25,11 @@ new_csv = pd.DataFrame(
     "bio": orig_csv["Short bio (100-200 words)"],
     "web_link": orig_csv["Link to your website (optional)"],
     "session": orig_csv["Session Number"],
-    "yt_link": orig_csv["YouTube link"],
-    "bb_link": orig_csv["Bilibili link"],
+    "yt_id": [link.split('/')[-1] if isinstance(link, str) else link for link in orig_csv["YouTube link"]],
+    "bb_id": [link.split('/')[-1] if isinstance(link, str) else link for link in orig_csv["Bilibili link"]],
     "db_link": orig_csv["Dropbox link"],
     "still_image": orig_csv["Still image (for audio-only submissions). "],
-    
+
 })
 
 print(new_csv)
