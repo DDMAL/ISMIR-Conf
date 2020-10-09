@@ -46,33 +46,33 @@
       >{{ "," if not loop.last }}
       {% endfor %}
     </p>
-    {% if paper.content.channel_url and config.paper_day_release >= paper.content.day | int %}
-      <a href="{{paper.content.channel_url}}" class="btn btn-primary mr-3">{% include 'slack_svg.html' %} {{paper.content.channel_name}}</a>
-    {% endif %}
   </div>
 </div>
-<div class="row">
-  <div class="col-12 text-center">
-    <div class="poster-buttons btn-group btn-group-toggle mb-3" data-toggle="buttons">
-      <button class="card-link btn btn-outline-primary" data-toggle="collapse" type="button" data-target="#details">
-        Abstract
-      </button>
-      <button class="card-link btn btn-outline-primary" data-toggle="collapse" type="button" data-target="#paper">
-        Paper
-      </button>
-      <button class="card-link btn btn-outline-primary" data-toggle="collapse" type="button" data-target="#poster">
-        Poster
-      </button>
-      <button class="card-link btn btn-outline-primary" data-toggle="collapse" type="button" data-target="#video">
-        Video
-      </button>
-      <!-- {% if paper.content.code != blank %}
-      <a href="{{paper.content.code}}" target="_blank" class="card-link">
-        Code
-      </a>
-      {% endif %} -->
-    </div>
+<div style="display: flex; justify-content: center;" class="btn-toolbar mt-4" role="toolbar">
+  <div class="poster-buttons btn-group btn-group-toggle mb-3" data-toggle="buttons">
+    <button class="card-link btn btn-outline-primary" data-toggle="collapse" type="button" data-target="#details">
+      Abstract
+    </button>
+    <button class="card-link btn btn-outline-primary" data-toggle="collapse" type="button" data-target="#paper">
+      Paper
+    </button>
+    <button class="card-link btn btn-outline-primary" data-toggle="collapse" type="button" data-target="#poster">
+      Poster
+    </button>
+    <button class="card-link btn btn-outline-primary" data-toggle="collapse" type="button" data-target="#video">
+      Video
+    </button>
+    <!-- {% if paper.content.code != blank %}
+    <a href="{{paper.content.code}}" target="_blank" class="card-link">
+      Code
+    </a>
+    {% endif %} -->
   </div>
+  {% if paper.content.channel_url and config.paper_day_release >= paper.content.day | int %}
+    <div class="btn-group ml-3 mb-3">
+      <a href="{{paper.content.channel_url}}" class="btn btn-primary">{% include 'slack_svg.html' %} {{paper.content.channel_name}}</a>
+    </div>
+  {% endif %}
 </div>
 <div class="poster-content">
   <div id="details" class="pp-card m-3 collapse">
