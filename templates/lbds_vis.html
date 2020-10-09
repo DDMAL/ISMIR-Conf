@@ -1,3 +1,4 @@
+{% set active_page = "LBDs" %}
 {% set page_title = "LBD Explorer" %}
 {% extends "base.html" %}
 {% block head %}
@@ -14,7 +15,7 @@
 
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.4.0/dist/umd/popper.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/tippy.js@6.2.3/dist/tippy-bundle.umd.min.js"></script>
-    
+
 <script src="static/js/typeahead.bundle.js"></script>
 
 <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.15/lodash.min.js"></script>
@@ -126,7 +127,7 @@
                 If you <b>click</b> on a dot, you go to the related lbd page.
               </p>
               <p>
-                You can <b>search</b> for lbds by author, 
+                You can <b>search</b> for lbds by author,
                 <!-- keyword,  -->
                 or title
               </p>
