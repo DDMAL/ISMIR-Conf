@@ -56,6 +56,8 @@ posters_dict = {
 # print(orig_csv['Event number (UTC)'])
 cal = Calendar()
 cal.add('prodid', 'ISMIR 2020 calendar')
+cal.add('version', '2.0')
+cal['dtstart'] = '20201011T000000'
 events_meta = {}
 # cal['dtstart'] = '20050404T080000'
 # cal['summary'] = 'Python meeting about calendaring'
@@ -88,6 +90,7 @@ for index, event in orig_csv.iterrows():
     e_start_time = [int(x) for x in event['Start time (UTC)'].split(':')]
     e_end_time = [int(x) for x in event['End time'].split(':')]
     e_cal['uid'] = int(event['Event number (UTC)'])
+    e_cal.add('dtstamp', datetime(2020,10,1,0,0,0,tzinfo=pytz.utc))
     if event['Event number (UTC)'] == opening_ref_a:
         e_cal['description'] = 'openingA'
     elif event['Event number (UTC)'] == opening_ref_b:
@@ -122,15 +125,16 @@ for index, event in orig_csv.iterrows():
     #     e_cal['location'] = event['Channel URL']
 
 
-    e_cal['summary'] = "#" + color_dict[event['Category']] + ' ' + event['Title']
-    e_cal['dtstart'] = datetime(e_date[0], e_date[1], e_date[2],
-        e_start_time[0], e_start_time[1], 0, tzinfo=pytz.utc)
+    e_cal.add('summary', "#" + color_dict[event['Category']] + ' ' + event['Title'])
+    e_cal.add('dtstart', datetime(e_date[0], e_date[1], e_date[2],
+        e_start_time[0], e_start_time[1], 0, tzinfo=pytz.utc))
     if e_end_time[0] < e_start_time[0]:
-        e_cal['dtend'] = datetime(e_date[0], e_date[1], e_date[2] + 1,
-            e_end_time[0], e_end_time[1], 0, tzinfo=pytz.utc)
+        e_cal.add('dtend', datetime(e_date[0], e_date[1], e_date[2] + 1,
+            e_end_time[0], e_end_time[1], 0, tzinfo=pytz.utc))
     else:
-        e_cal['dtend'] = datetime(e_date[0], e_date[1], e_date[2],
-            e_end_time[0], e_end_time[1], 0, tzinfo=pytz.utc)
+        e_cal.add('dtend', datetime(e_date[0], e_date[1], e_date[2],
+            e_end_time[0], e_end_time[1], 0, tzinfo=pytz.utc))
+    
     cal.add_component(e_cal)
 
 new_csv = pd.DataFrame(
