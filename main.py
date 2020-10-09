@@ -80,8 +80,8 @@ def main(site_data_path):
             "business": business,
         }
         site_data["days"].append(by_uid["days"][day])
-    print(site_data["papers"][0])
-    print(site_data["days"][0])
+    # print(site_data["papers"][0])
+    # print(site_data["days"][0])
     return extra_files
 
 

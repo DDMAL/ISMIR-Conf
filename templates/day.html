@@ -70,16 +70,7 @@
   </div> -->
 </div>
 
-
-
-<script>
-  $('.nav-pills .nav-item .nav-link').each(function() {
-    console.log(window.location.pathname.split('/')[1].split('.')[0])
-    if (window.location.pathname.split('/')[1].replace('.', '-') === $(this).attr('id') ) {
-      $(this).addClass('active');
-    }
-  })
-</script>
+<script src="static/js/schedule_nav.js"></script>
 <script src="static/js/anchor_offset.js"></script>
 
 {% endblock %}
