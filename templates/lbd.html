@@ -70,7 +70,7 @@
   </div>
   <div id="poster" class="collapse">
     {% if config.lbd_embeds %}
-      <button id="fullscreen-button" class="btn btn-primary mb-3">Fullscreen</button>
+      <button class="fullscreen-button btn btn-primary mb-3">Fullscreen</button>
       <iframe class="fullscreen-iframe" src="static/lbd/ISMIR2020-LBD-{{lbd.id}}-poster{% if lbd.content.poster_type == 'pdf' %}.pdf{% else %}/index.html{% endif %}#embedded=true" width='100%' height='500px' allowfullscreen webkitallowfullscreen></iframe>
     {% endif %}
   </div>
