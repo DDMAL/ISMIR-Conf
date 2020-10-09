@@ -156,6 +156,9 @@ const card_html = openreview => {
       // <h3><a href="music_${openreview.UID}.html">${openreview.title}</a></h3>
       // <h4>${openreview.last_name.substr(openreview.last_name.length - 41)}</h4>
       // </div>`
+    } else if (openreview.authors) {
+      author = openreview.authors.split('; ').join(' | ');
+
     }
     return `
       <div class="music-card m-4">

@@ -304,6 +304,7 @@ def format_music(v):
             "session": v["session"],
             "yt_id": v["yt_id"],
             "bb_id": v["bb_id"],
+            "authors": v["authors"],
         }
     }
 

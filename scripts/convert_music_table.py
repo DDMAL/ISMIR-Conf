@@ -28,6 +28,7 @@ new_csv = pd.DataFrame(
     "yt_id": [link.split('/')[-1] if isinstance(link, str) else link for link in orig_csv["YouTube link"]],
     "bb_id": [link.split('/')[-1] if isinstance(link, str) else link for link in orig_csv["Bilibili link"]],
     "db_link": orig_csv["Dropbox link"],
+    "authors": orig_csv["Authors"],
     "still_image": orig_csv["Still image (for audio-only submissions). "],
 
 })

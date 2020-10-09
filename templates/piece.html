@@ -30,6 +30,8 @@
           <h4>{{music.last_name[12:]}}</h4>
       {% elif music.UID == '393' %}
           <h4>{{music.last_name}}</h4>
+      {% elif music.authors %}
+          <h4>{{music.authors.split('; ') | join(' | ')}}</h4>
       {% else %}
           <h4>{{music.first_name}} {{music.last_name}}</h4>
       {% endif %}
@@ -51,6 +53,11 @@
     <div class="btn-group ml-3 mb-3">
       <a href="{{config.music_program_url}}" class="btn btn-primary">{% include 'slack_svg.html' %} {{config.music_program_channel}}</a>
     </div>
+    {% if music.web_link %}
+    <div class="btn-group ml-3 mb-3">
+      <a href="{{music.web_link}}" class="btn btn-outline-primary">Website</a>
+    </div>
+    {% endif %}
   </div>
   <div class="music-content-wrapper">
     <div id="bio" class="pp-card mt-3 collapse">{{music.bio}}</div>
