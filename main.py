@@ -248,6 +248,8 @@ def format_paper(v):
             "channel_name": v["channel_name"],
             "day": v["day"],
             "slot": v["slot"],
+            "yt_id": v["yt_id"],
+            "bb_id": v["bb_id"]
             # "poster_pdf": v["poster_pdf"],
         },
         "poster_pdf": "GLTR_poster.pdf",

@@ -12,6 +12,8 @@ slack_name_list = []
 day_list = []
 slot_list = []
 poster_code_list = []
+yt_id_list = []
+bb_id_list = []
 
 authors_list_lbds = []
 affils_list_lbds = []
@@ -40,7 +42,7 @@ capital_exceptions = ['DJ', 'LSTM-HSMM', 'SuPP', 'MaPP:', 'POP909:', 'PIANOTREE'
 
 def title_except(s, no_cap_list, unique_cap_list):
     word_list = re.split(' ', s)       # re.split behaves as expected
-    print(word_list)
+    # print(word_list)
     for i, word in enumerate(word_list):
         check = word.lower()
         if check in no_cap_list:
@@ -58,7 +60,7 @@ def title_except(s, no_cap_list, unique_cap_list):
             final.append(word[0] + word[1:].capitalize()) if word[1:] not in unique_cap_list else final.append(word)
         else:
             final.append(word if word in no_cap_list else word.capitalize())
-    print(final)
+    # print(final)
     return " ".join(final)
 
 def extract_author_affil(row, cell_ref):
@@ -97,6 +99,19 @@ for index, row in orig_csv.iterrows():
     slot = schedule_csv[schedule_csv["Paper ID"] == row["Paper ID"]]["Slot"].values[0]
     slack_name = schedule_csv[schedule_csv["Paper ID"] == row["Paper ID"]]["Slack Channel"].values[0]
     poster_code = schedule_csv[schedule_csv["Paper ID"] == row["Paper ID"]]["Poster code"].values[0]
+    yt_link = schedule_csv[schedule_csv["Paper ID"] == row["Paper ID"]]["Youtube"].values[0]
+    bb_link = schedule_csv[schedule_csv["Paper ID"] == row["Paper ID"]]["bilibili"].values[0]
+    print(f'{type(yt_link)} | {type(bb_link)}')
+    if not isinstance(yt_link, str) and math.isnan(yt_link):
+        yt_id = yt_link
+    else:
+        yt_id = yt_link.split('/')[-1]
+    if not isinstance(bb_link, str) and math.isnan(bb_link):
+        bb_id = bb_link
+    else:
+        bb_id = bb_link.split('/')[-2]
+
+    print(f'{yt_link} : {yt_id} | {bb_link} : {bb_id}')
     # session_num = math.ceil(session_num / 2)
     if key_choice == 'm':
         primary_sub = [row['Primary Subject Area'].split(' -> ')[1]]
@@ -121,7 +136,10 @@ for index, row in orig_csv.iterrows():
     day_list.append(day)
     slot_list.append(slot)
     poster_code_list.append(poster_code)
-    print(keywords, '\n')
+    yt_id_list.append(yt_id)
+    bb_id_list.append(bb_id)
+
+    # print(keywords, '\n')
 
 for index, row in orig_csv_lbds.iterrows():
     authors, affils = extract_author_affil(row, 'Authors')
@@ -148,6 +166,8 @@ new_csv = pd.DataFrame(
     "day": day_list,
     "slot": slot_list,
     "pic_id": orig_csv['Paper ID'],
+    "yt_id": yt_id_list,
+    "bb_id": bb_id_list,
     # "poster_code": poster_code_list,
 })
 
@@ -164,7 +184,7 @@ new_csv_lbds = pd.DataFrame(
 })
 # UID   title   authors session	day	abstract	keywords
 # print(orig_csv)
-for i, row in new_csv.iterrows():
-    print(row[["session", "slot"]])
+# for i, row in new_csv.iterrows():
+#     print(row[["session", "slot"]])
 new_csv.to_csv('../sitedata/papers.csv', index=False)
 new_csv_lbds.to_csv('../sitedata/lbds.csv', index=False)
