@@ -80,10 +80,10 @@
               </span>
             </div>
             <div class="m-3 text-left card-subtitle">
-              {{local_date_a[0]}} | {{local_date_a[1]}} (Live)
+              {{local_date_a[0]}} | {{local_date_a[1]}} (Live) ({{ timezone }})
             </div>
             <div class="ml-3 text-left card-subtitle">
-              {{local_date_b[0]}} | {{local_date_b[1]}} (Replay)
+              {{local_date_b[0]}} | {{local_date_b[1]}} (Replay) ({{ timezone }})
             </div>
             <div class="m-3">
               {{speaker.abstract|safe}}
@@ -310,7 +310,7 @@
           {{meet.organiser}}
         </div>
         <div class="m-3 text-left card-subtitle">
-          {{local_date[0]}} | {{local_date[1]}}
+          {{local_date[0]}} | {{local_date[1]}} ({{ timezone }})
         </div>
         <div class="m-3 text-left card-subtitle">
           {{meet.description|markdown}}
@@ -366,7 +366,7 @@
               {{part.title}}
             </h3>
             <div class="m-3 text-left card-subtitle">
-              {{local_date[0]}} | {{local_date[1]}}
+              {{local_date[0]}} | {{local_date[1]}} ({{ timezone }})
             </div>
           {% endfor %}
           </div>
@@ -402,10 +402,10 @@
           {{meet.organiser}}
         </div>
         <div class="m-3 text-left card-subtitle" style="display:flex; align-content: center;">
-          <span class="mr-2 h5">A: </span>{{local_date[0]}} | {{local_date[1]}}
+          <span class="mr-2 h5">A: </span>{{local_date[0]}} | {{local_date[1]}} ({{ timezone }})
         </div>
         <div class="ml-3 mb-3 text-left card-subtitle" style="display:flex; align-content: center;">
-          <span class="mr-2 h5">B: </span>{{local_date_b[0]}} | {{local_date_b[1]}}
+          <span class="mr-2 h5">B: </span>{{local_date_b[0]}} | {{local_date_b[1]}} ({{ timezone }})
         </div>
         <div class="m-3 text-left card-subtitle">
           {{meet.description|markdown}}

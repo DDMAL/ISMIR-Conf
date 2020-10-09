@@ -14,6 +14,11 @@
 {% endblock %}
 
 {% block content %}
+{% if request.args.get('tz') %}
+  {% set tzone = request.args.get('tz') %}
+{% else %}
+  {% set tzone = '' | localcheck %}
+{% endif %}
 <div id="day">
   <!-- Speakers -->
   {% if day.opening %}
