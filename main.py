@@ -268,7 +268,9 @@ def format_lbd(v):
             "authors": list_fields["authors"],
             "abstract": v["abstract"],
             "TLDR": v["abstract"],
-            "pdf_url": v.get("pdf_url", ""),
+            "poster_type": v.get("poster_type", ""),
+            "bilibili_id": v.get("bilibili_id", ""),
+            "youtube_id": v.get("youtube_id", ""),
         },
     }
 

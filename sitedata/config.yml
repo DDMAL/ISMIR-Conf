@@ -58,7 +58,7 @@ calendar:
 music_links: false
 poster_embeds: true
 paper_embeds: true
-lbd_embeds: false
+lbd_embeds: true
 
 browse_paper_buttons: 0 # 0: none, 1: show
 
