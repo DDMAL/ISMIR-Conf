@@ -30,7 +30,6 @@ new_csv = pd.DataFrame(
     "db_link": orig_csv["Dropbox link"],
     "authors": orig_csv["Authors"],
     "still_image": orig_csv["Still image (for audio-only submissions). "],
-
 })
 
 print(new_csv)

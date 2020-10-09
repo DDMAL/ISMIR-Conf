@@ -23,11 +23,11 @@
   <!-- Speakers -->
   {% if day.opening %}
     {{ components.subsection_tag("Opening", "all_b") }}
-    {{ components.tutorialscard(day.opening, tzone) }}
+    {{ components.meetingcard(day.opening, tzone) }}
   {% endif %}
   {% if day.business %}
     {{ components.subsection_tag("Business Meeting", "all_b") }}
-    {{ components.tutorialscard(day.business, tzone) }}
+    {{ components.meetingcard(day.business, tzone) }}
   {% endif %}
   {% if day.speakers %}
   {{ components.subsection_tag("Keynote Speaker", "all") }}

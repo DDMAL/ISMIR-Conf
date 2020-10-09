@@ -182,6 +182,9 @@ def schedule():
 def tutorials():
     data = _data()
     data["tutorials"] = [t for t in site_data["tutorials_all"] if t['category'] == "Tutorials"]
+    data["tut_md"] = {}
+    for t in ['1', '2', '3', '4', '5']:
+        data["tut_md"][t] = open(f"static/tutorials/tut_{t}.md").read()
     return render_template("tutorials.html", **data)
 
 @app.route("/music.html")

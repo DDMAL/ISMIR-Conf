@@ -378,7 +378,7 @@
 
 {%- endmacro %}
 
-{% macro tutorialscard(type, timezone) -%}
+{% macro meetingcard(type, timezone) -%}
 <div class="cards row p-4">
   {% for meet in type %}
   {% set local_date = meet.start_date | localizetime(meet.start_time, timezone) %}
@@ -407,15 +407,63 @@
         <div class="ml-3 mb-3 text-left card-subtitle" style="display:flex; align-content: center;">
           <span class="mr-2 h5">B: </span>{{local_date_b[0]}} | {{local_date_b[1]}} ({{ timezone }})
         </div>
-        <div class="m-3 text-left card-subtitle">
-          {{meet.description|markdown}}
+        <div class="mt-3 ml-3 mr-3 mb-4 text-left card-subtitle">
+          {{meet.description | markdown}}
         </div>
         <div class="m-3 text-left">
         {% if meet.channel_url %}
           <a href="{{meet.channel_url}}" class="btn btn-primary mr-3">{% include 'slack_svg.html' %} {{meet.slack_channel}}</a>
         {% endif %}
-        {% if meet.web_link %}
-          <a href="{{meet.web_link}}" class="btn btn-secondary">Info</a>
+        </div>
+        {% if meet.category == "All Meeting" %}
+          <div class="ml-3 mr-3 mt-4 mb-3 h5 text-left text-muted">
+            Zoom links will be shared on Slack.
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+
+{%- endmacro %}
+
+{% macro tutorialscard(type, timezone, tut_md) -%}
+<div class="cards row p-4">
+  {% for meet in type %}
+  {% set str_index = loop.index | string %}
+  {% set local_date = meet.start_date | localizetime(meet.start_time, timezone) %}
+  {% set local_date_b = meet.start_date_b | localizetime(meet.start_time_b, timezone) %}
+  <div class="col-12 p-3" style="box-sizing: border-box;">
+    <div class="card" style="display: block; overflow: hidden; width: 100%;">
+      <div
+        class="card-header text-center"
+        style="min-height: 200px; width: 100%;"
+      >
+        {% if meet.channel_url %}
+          <a id="{{ meet.title[:2]}}" href="{{meet.channel_url}}">
+            <h3 class="card-title main-title m-3 text-left">{{meet.title}}</h3>
+          </a>
+        {% else %}
+          <a id="{{ meet.title[:2] }}" href="#">
+            <h3 class="card-title main-title m-3 text-left">{{meet.title}}</h3>
+          </a>
+        {% endif %}
+        <div class="m-3 text-left card-subtitle text-muted">
+          {{meet.organiser}}
+        </div>
+        <div class="m-3 text-left card-subtitle" style="display:flex; align-content: center;">
+          <span class="mr-2 h5">A: </span>{{local_date[0]}} | {{local_date[1]}} ({{ timezone }})
+        </div>
+        <div class="ml-3 mb-3 text-left card-subtitle" style="display:flex; align-content: center;">
+          <span class="mr-2 h5">B: </span>{{local_date_b[0]}} | {{local_date_b[1]}} ({{ timezone }})
+        </div>
+        <div class="mt-3 ml-3 mr-3 mb-4 text-left card-subtitle">
+          {{tut_md[str_index] | markdown}}
+        </div>
+        <div class="m-3 text-left">
+        {% if meet.channel_url %}
+          <a href="{{meet.channel_url}}" class="btn btn-primary mr-3">{% include 'slack_svg.html' %} {{meet.slack_channel}}</a>
         {% endif %}
         </div>
         {% if meet.category == "All Meeting" %}
