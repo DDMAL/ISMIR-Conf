@@ -16,10 +16,11 @@ from slack.errors import SlackApiError
 # https://api.slack.com/apps?new_app=1
 # Setup authentication with the following list of scopes to obtain your OAuth Access Token "xoxp-...":
 # - admin
-# - channels:write
 # - channels:read
-# - users:read
+# - channels:write
+# - chat:write
 # - search:read
+# - users:read
 # https://api.slack.com/legacy/oauth-scopes
 # 2) Install your Slack app to your Slack workspace.
 # 3) Run this script in a terminal with: 
