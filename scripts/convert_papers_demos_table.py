@@ -19,7 +19,7 @@ authors_list_lbds = []
 affils_list_lbds = []
 emails_list_lbds = []
 
-orig_csv = pd.read_csv('../static/csv/pre_parse_ISMIR2020_papers.csv')
+orig_csv = pd.read_csv('../static/csv/ISMIR2020 papers - pre_parse_ISMIR2020_papers.csv')
 schedule_csv = pd.read_csv('../static/csv/Schedule - Paper (Preliminary) - Schedule - Paper (Preliminary).csv')
 
 orig_csv_lbds = pd.read_csv('../static/csv/2020-ISMIR-LBD-Submissions - Sheet1.csv')

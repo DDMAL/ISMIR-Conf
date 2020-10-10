@@ -1,6 +1,6 @@
 # RELEASE CONTROL
 
-music_links: false
+music_links: true
 poster_embeds: true
 paper_embeds: true
 paper_videos: true
