@@ -263,9 +263,10 @@ def format_lbd(v):
     list_fields = {}
     for key in list_keys:
         list_fields[key] = extract_list_field(v, key)
-    channel_name = ""
-    channel_url = ""
-    if len(list_fields["session"]) > 0:
+    channel_name = v.get("channel_name", "")
+    channel_url = v.get("channel_url", "")
+    if channel_name == "" and channel_url == "" and len(list_fields["session"]) > 0:
+        print('Re-creating channel name')
         primary_author_names = v["primary_author"].split(" ")
         primary_author_name = primary_author_names[len(primary_author_names)-1].lower()
         channel_name = "lbd-"+list_fields["session"][0]+"-"+v["UID"]+"-"+primary_author_name
