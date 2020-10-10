@@ -93,7 +93,7 @@ for index, event in orig_csv.iterrows():
     e_date = [int(x) for x in event['Date (UTC)'].split('-')]
     e_start_time = [int(x) for x in event['Start time (UTC)'].split(':')]
     e_end_time = [int(x) for x in event['End time'].split(':')]
-    e_cal.add('uid', int(event['Event number (UTC)']))
+    e_cal.add('uid', int(event['Event number (UTC)']) + 10)
     e_cal.add('dtstamp', datetime(2020,10,1,0,0,0,tzinfo=pytz.utc))
     if event['Event number (UTC)'] == opening_ref_a:
         e_cal['description'] = 'openingA'
