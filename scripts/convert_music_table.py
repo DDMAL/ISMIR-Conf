@@ -30,6 +30,7 @@ new_csv = pd.DataFrame(
     "db_link": orig_csv["Dropbox link"],
     "authors": orig_csv["Authors"],
     "still_image": orig_csv["Still image (for audio-only submissions). "],
+    "release_consent": [1 if isinstance(x, str) else 0 for x in orig_csv["Consent"]],
 })
 
 print(new_csv)
