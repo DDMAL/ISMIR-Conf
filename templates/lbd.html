@@ -21,7 +21,7 @@
 <div class="pp-card m-3" style="">
   <div class="card-header">
     <h2 class="card-title main-title text-center" style="">
-      {{lbd.content.title}}
+      {{lbd.content.session  | join("")}}-{{lbd.id}} - {{lbd.content.title}}
     </h2>
     <h3 class="card-subtitle mb-2 text-muted text-center">
       {% for author in lbd.content.authors %}
