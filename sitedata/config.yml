@@ -1,6 +1,6 @@
 # RELEASE CONTROL
 
-music_links: false
+music_links: true
 poster_embeds: true
 paper_embeds: true
 paper_videos: true
@@ -44,7 +44,7 @@ default_presentation_id: 38922815
 default_poster_pdf: /static/images/GLTR_poster.pdf
 
 
-opening_ref_title_1: Opening Plenary (Live) A
+opening_ref_title_1: Opening Plenary A
 opening_ref_title_2: Opening Plenary B (R)
 
 # Configuration for auth
