@@ -285,7 +285,7 @@ const card_html = openreview => `
         <a href="lbd_${openreview.id}.html"><div class="pp-card pp-mode-` + render_mode + ` ">
             <div class="pp-card-header">
             <div class="checkbox-paper ${openreview.content.read ? 'selected' : ''}" style="display: block;position: absolute; bottom:35px;left: 35px;">✓</div>
-            <h5 class="card-title text-muted" align="center"> ${openreview.content.title} </h5>
+            <h5 class="card-title text-muted" align="center">  ${openreview.content.session}-${openreview.id} - ${openreview.content.title} </h5>
             <h6 class="card-subtitle text-muted" align="center">
                         ${openreview.content.authors.join(', ')}
                 </h6>
