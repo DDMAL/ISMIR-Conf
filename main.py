@@ -259,7 +259,7 @@ def format_paper(v):
     }
 
 def format_lbd(v):
-    list_keys = ["authors"]
+    list_keys = ["authors", "session"]
     list_fields = {}
     for key in list_keys:
         list_fields[key] = extract_list_field(v, key)
@@ -267,12 +267,12 @@ def format_lbd(v):
     return {
         "id": v["UID"],
         "forum": v["UID"],
-        "session": v["session"],
         "content": {
             "title": v["title"],
             "authors": list_fields["authors"],
             "abstract": v["abstract"],
             "TLDR": v["abstract"],
+            "session": list_fields["session"],
             "poster_type": v.get("poster_type", ""),
             "bilibili_id": v.get("bilibili_id", ""),
             "youtube_id": v.get("youtube_id", ""),

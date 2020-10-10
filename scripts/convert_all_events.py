@@ -39,18 +39,10 @@ tutorials_list = [
 ]
 
 posters_dict = {
-    "1A": 1,
-    "2A": 2,
-    "3A": 3,
-    "4A": 4,
-    "5A": 5,
-    "6A": 6,
-    "1B": 1,
-    "2B": 2,
-    "3B": 3,
-    "4B": 4,
-    "5B": 5,
-    "6B": 6,
+    "7A": 7,
+    "7A": 8,
+    "8B": 7,
+    "8B": 8,
 }
 
 # print(orig_csv['Event number (UTC)'])
@@ -97,12 +89,8 @@ for index, event in orig_csv.iterrows():
         e_cal['description'] = 'openingB'
 
     if event['Category'] == "Poster session":
-        if 'LBD' not in event['Title']:
-            session_num = posters_dict[event['Title'].split(" ")[-1]]
-            e_cal['location'] = f'papers.html?filter=title&session={session_num}'
-        else:
-            # session_num = posters_dict[event['Title'].split(" ")[-1]]
-            e_cal['location'] = f'lbds.html?session='
+        session_num = posters_dict[event['Title'].split(" ")[-1]]
+        e_cal['location'] = f'lbds.html?session={session_num}'
 
     elif event['Category'] == "Tutorials":
         e_cal['location'] = f'tutorials.html#{event["Title"][:2]}'
