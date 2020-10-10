@@ -48,6 +48,11 @@
       </button>
       {% endif %}
     </div>
+    {% if lbd.content.channel_url and config.lbd_day_release >= lbd.content.day | int %}
+    <div class="btn-group ml-3 mb-3">
+      <a href="{{lbd.content.channel_url}}" class="btn btn-primary">{% include 'slack_svg.html' %} {{lbd.content.channel_name}}</a>
+    </div>
+  {% endif %}
   </div>
 </div>
 <div class="poster-content">
