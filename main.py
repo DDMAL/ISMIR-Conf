@@ -444,8 +444,6 @@ def generator():
         yield "poster", {"poster": str(paper["UID"])}
     for speaker in site_data["speakers"]:
         yield "speaker", {"speaker": str(speaker["UID"])}
-    for workshop in site_data["workshops"]:
-        yield "workshop", {"workshop": str(workshop["UID"])}
     for music in site_data["music"]:
         yield "music", {"music": str(music["UID"])}
     for lbd in site_data["lbds"]:
