@@ -148,32 +148,31 @@ if __name__ == "__main__":
                     # You will get a SlackApiError if "ok" is False
                     assert e.response["error"]  # str like 'invalid_auth', 'channel_not_found'
 
-            # Get channel messages
-            try:
-                response = client.search_messages(
-                    # query="in:"+channel_name,
-                    query="in:"+channel_name+" set the channel topic",
-                )
-            except SlackApiError as e:
-                # You will get a SlackApiError if "ok" is False
-                assert e.response["error"]  # str like 'invalid_auth', 'channel_not_found'
-            # print("response",response)
+                # Get channel messages
+                try:
+                    response = client.search_messages(
+                        # query="in:"+channel_name,
+                        query="in:"+channel_name+" set the channel topic",
+                    )
+                except SlackApiError as e:
+                    # You will get a SlackApiError if "ok" is False
+                    assert e.response["error"]  # str like 'invalid_auth', 'channel_not_found'
+                # print("response",response)
 
-            messages = response['messages']['matches']
-            #username == christian.frisson
+                messages = response['messages']['matches']
 
-            # Remove channel change topic messages
-            for m in messages:
-                if m["channel"]["id"] == channel_id and  m["username"] == "christian.frisson":
-                    try:
-                        response = client.chat_delete(
-                            channel=channel_id,
-                            ts=m["ts"]
-                        )
-                    except SlackApiError as e:
-                        # You will get a SlackApiError if "ok" is False
-                        assert e.response["error"]  # str like 'invalid_auth', 'channel_not_found'
-                    #print("response",response)
+                # Remove channel change topic messages
+                for m in messages:
+                    if m["channel"]["id"] == channel_id:
+                        try:
+                            response = client.chat_delete(
+                                channel=channel_id,
+                                ts=m["ts"]
+                            )
+                        except SlackApiError as e:
+                            # You will get a SlackApiError if "ok" is False
+                            assert e.response["error"]  # str like 'invalid_auth', 'channel_not_found'
+                        #print("response",response)
 
 
 
