@@ -63,15 +63,12 @@
     <div id="bio" class="pp-card mt-3 collapse">{{music.bio}}</div>
     <div id="abstract" class="pp-card mt-3 collapse">{{music.abstract}}</div>
     <div id="video" class="mt-3 collapse">
-      {% if music.release_consent == 1 %}
+      {% if music.release_consent == '1' %}
       <div class="video-container mt-3 mb-3">
       </div>
       {% else %}
       The piece will be available the day of the music program stream.
       {% endif %}
-    </div>
-    <div id="links" class="pp-card mt-3 collapse">
-      Placeholder for links
     </div>
   </div>
 
