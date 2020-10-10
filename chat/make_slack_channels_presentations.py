@@ -12,44 +12,35 @@ import os
 from slack import WebClient
 from slack.errors import SlackApiError
 
+# 1) First create a Slack App:
+# https://api.slack.com/apps?new_app=1
+# Setup authentication with the following list of scopes to obtain your OAuth Access Token "xoxp-...":
+# - admin
+# - channels:write
+# - channels:read
+# - users:read
+# - search:read
+# https://api.slack.com/legacy/oauth-scopes
+# 2) Install your Slack app to your Slack workspace.
+# 3) Run this script in a terminal with: 
+# SLACK_OAUTH_TOKEN="xoxp-..." python make_slack_channels_presentations.py
+
 channels_url = "https://ismir2020.slack.com/archives/"
 
-slack_token = os.environ["SLACK_BOT_TOKEN"]
+slack_token = os.environ["SLACK_OAUTH_TOKEN"]
 client = WebClient(token=slack_token)
+
 
 def parse_arguments():
     parser = argparse.ArgumentParser(description="MiniConf Portal Command Line")
-    # parser.add_argument("--config", default="config.yml", help="Configuration yaml")
     # parser.add_argument("--list", default="../sitedata/papers.csv", help="Papers or LBDs CSV")
     parser.add_argument("--list", default="../sitedata/lbds.csv", help="Papers or LBDS CSV")
     parser.add_argument("--test", action="store_true")
     return parser.parse_args()
 
-def read_contributions(fname):
-    _name, typ = fname.split("/")[-1].split(".")
-    if typ in {"csv", "tsv"}:
-        csvfile = csv.DictReader(open(fname))
-        fieldnames = csvfile.fieldnames
-        print('fieldnames',fieldnames)
-        res = list(csvfile);
-    else:
-        raise ValueError("file not supported: " + fname)
-    return res
-
-def save_contributions(fname):
-    _name, typ = fname.split("/")[-1].split(".")
-    # if typ in {"csv", "tsv"}:
-    #     res = csv.DictWriter(open(fname, 'w', newline=''),fieldnames=fieldnames)
-    # else:
-    #     raise ValueError("file not supported: " + fname)
-    # return res
-
-
 if __name__ == "__main__":
     args = parse_arguments()
 
-    # config = yaml.load(open(args.config))
-    # contributions = read_contributions(args.list)
     csvfile = csv.DictReader(open(args.list))
     fieldnames = csvfile.fieldnames;
     print('fieldnames',fieldnames)
@@ -122,12 +113,12 @@ if __name__ == "__main__":
             else:
                 channel_topic = presentation + " " + contribution["UID"]
             channel_topic += " \"" + contribution["title"] + " \""    
-            channel_topic += " by " + contribution["authors"].replace('|',', ') + " " + "https://program.ismir2020.net/";
+            channel_topic += " by " + contribution["authors"].replace('|',', ') + " " + "<https://program.ismir2020.net/";
             if presentation == 'lbd':
                 channel_topic += presentation + "_" + contribution["UID"]
             else:
                 channel_topic += presentation + "_" + contribution["UID"]
-            channel_topic += ".html"
+            channel_topic += ".html>"
             print(channel_topic)
 
             # Check if channel exists
