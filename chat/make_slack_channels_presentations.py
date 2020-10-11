@@ -109,17 +109,18 @@ if __name__ == "__main__":
                 print(channel_id)
 
             channel_topic = ''
-            if presentation == 'lbd':
-                channel_topic = "LBD" + " " + contribution["UID"] + " session " + contribution["session"]
-            else:
-                channel_topic = presentation + " " + contribution["UID"]
-            channel_topic += " \"" + contribution["title"] + " \""    
-            channel_topic += " by " + contribution["authors"].replace('|',', ') + " " + "<https://program.ismir2020.net/";
+            # if presentation == 'lbd':
+            #     channel_topic = "LBD" + " " + contribution["UID"] + " session " + contribution["session"]
+            # else:
+            #     channel_topic = presentation + " " + contribution["UID"]
+            channel_topic += "<https://program.ismir2020.net/";
             if presentation == 'lbd':
                 channel_topic += presentation + "_" + contribution["UID"]
             else:
                 channel_topic += presentation + "_" + contribution["UID"]
             channel_topic += ".html>"
+            channel_topic += " \"" + contribution["title"] + " \""    
+            channel_topic += " by " + contribution["authors"].replace('|',', ')
             print(channel_topic)
 
             # Check if channel exists
