@@ -11,7 +11,7 @@ browse_paper_buttons: 0  # 0: none, 1: show
 
 # Set to the current conference day
 
-paper_day_release: 0
+paper_day_release: 3
 lbd_day_release: 0 # 0: none, 4: show
 
 # CHANNEL METADATA
