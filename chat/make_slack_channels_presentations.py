@@ -51,6 +51,25 @@ if __name__ == "__main__":
     if args.list.find('lbd') > 0:
         presentation = 'lbd'
 
+
+    # List workspace members
+    try:
+        response = client.users_list()
+    except SlackApiError as e:
+        # You will get a SlackApiError if "ok" is False
+        assert e.response["error"]  # str like 'invalid_auth', 'channel_not_found'
+    users = response["members"]
+    print(len(users))
+    # for u in users: 
+    #     email = ''
+    #     if 'email' in u['profile']:
+    #         email = u['profile']['email']
+    #         #u['real_name'],
+    #     print(u['name'],u['profile']['real_name'],u['profile']['real_name_normalized'],email)
+    # u['is_bot']
+
+
+    # List channels
     try:
         response = client.conversations_list(limit=200)
     except SlackApiError as e:
@@ -62,7 +81,7 @@ if __name__ == "__main__":
     # print(response['channels'])
     presentations = [c for c in response['channels'] if c['name'].find(presentation) == 0]
     
-    print(fieldnames)
+    # Check for channel info in csv
     for channel_field in ['channel_name','channel_url']:
         if not channel_field in fieldnames:
             print('Create '+channel_field)
@@ -85,7 +104,7 @@ if __name__ == "__main__":
                 channel_name = presentation + "-" + contribution["session"] + "-" + contribution["UID"] + "-" + primary_author_name
             else:
                 channel_name = presentation + "-" + contribution["UID"] + "-" + primary_author_name
-            print(channel_name,contribution["channel_name"])
+            # print(channel_name,contribution["channel_name"])
             contribution['channel_name']=channel_name
 
             channel_id = ''
@@ -99,15 +118,47 @@ if __name__ == "__main__":
                 except SlackApiError as e:
                     # You will get a SlackApiError if "ok" is False
                     assert e.response["error"]  # str like 'invalid_auth', 'channel_not_found'
-                print(response)
+                # print(response)
                 channel_id = response["channel"]["id"]
                 channel_url = channels_url + channel_id
                 contribution['channel_url']=channel_url
             else:
                 channel_url = contribution['channel_url']
-                channel_id = channel_url.strip(channels_url)
-                print(channel_id)
+                channel_id = channel_url.replace(channels_url,'')
+                # print(channel_id)
 
+            # Check if channel exists
+            channel = [c for c in presentations if c['id'] == channel_id ]
+
+            # Find authors
+            authors = []
+            def find_author(u,names,first_initial):
+                found = True
+                if first_initial == True:
+                    names[0] = names[0][0]
+                for name in names:
+                    name = name.replace('.','')
+                    # print(u['profile']['real_name'],name)
+                    if len(name) > 1:
+                        found = found and u['profile']['real_name'].lower().find(name.lower()) > -1
+                return found
+    
+            contributors = contribution["authors"].split('|');
+            for contributor in contributors:
+                names = contributor.split(' ')
+                # user = [u for u in users if u['profile']['real_name'].lower().find(names[0].lower()) > -1 and u['profile']['real_name'].lower().find(names[1].lower()) > -1]
+                user = [u for u in users if find_author(u,names,False) == True]
+                # print(len(user))
+                if len(user) != 1:
+                    user = [u for u in users if find_author(u,names,True) == True]
+                # print(len(user))
+                if len(user) == 1:
+                    # print(user)
+                    authors.append("<@"+user[0]['id']+">")
+                else:
+                    authors.append(contributor)
+
+            # Define topic
             channel_topic = ''
             # if presentation == 'lbd':
             #     channel_topic = "LBD" + " " + contribution["UID"] + " session " + contribution["session"]
@@ -120,17 +171,14 @@ if __name__ == "__main__":
                 channel_topic += presentation + "_" + contribution["UID"]
             channel_topic += ".html>"
             channel_topic += " \"" + contribution["title"] + " \""    
-            channel_topic += " by " + contribution["authors"].replace('|',', ')
-            print(channel_topic)
-
-            # Check if channel exists
-            channel = [c for c in presentations if c['id'] == channel_id ]
+            channel_topic += " by " + ", ".join(authors)
+            # print(channel_topic)
 
             # Change topic
             topic = ''
             if len(channel) == 1:
                 topic = channel[0]['topic']['value']
-            print(topic,channel_topic)
+            # print(topic,channel_topic)
             if topic != channel_topic: 
                 try:
                     response = client.conversations_setTopic(
@@ -168,8 +216,8 @@ if __name__ == "__main__":
                         #print("response",response)
 
 
-
-    res = csv.DictWriter(open(args.list, 'w', newline=''),fieldnames=fieldnames)
-    res.writeheader()
-    res.writerows(contributions)
+    # print("Saving CSV")
+    # res = csv.DictWriter(open(args.list, 'w', newline=''),fieldnames=fieldnames)
+    # res.writeheader()
+    # res.writerows(contributions)
 
