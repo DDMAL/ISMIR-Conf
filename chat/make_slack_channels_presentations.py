@@ -132,10 +132,8 @@ if __name__ == "__main__":
 
             # Find authors
             authors = []
-            def find_author(u,names,first_initial):
+            def find_author(u,names):
                 found = True
-                if first_initial == True:
-                    names[0] = names[0][0]
                 for name in names:
                     name = name.replace('.','')
                     # print(u['profile']['real_name'],name)
@@ -147,12 +145,13 @@ if __name__ == "__main__":
             for contributor in contributors:
                 names = contributor.split(' ')
                 # user = [u for u in users if u['profile']['real_name'].lower().find(names[0].lower()) > -1 and u['profile']['real_name'].lower().find(names[1].lower()) > -1]
-                user = [u for u in users if find_author(u,names,False) == True]
+                user = [u for u in users if find_author(u,names) == True]
                 # print(len(user))
                 if len(user) != 1:
-                    user = [u for u in users if find_author(u,[names[0]],False) == True]
-                if len(user) != 1:
-                    user = [u for u in users if find_author(u,names,True) == True]
+                    first_initial = names.copy()
+                    first_initial[0] = first_initial[0][0]
+                    user = [u for u in users if find_author(u,first_initial) == True]
+
                 # print(len(user))
                 if len(user) == 1:
                     # print(user)
