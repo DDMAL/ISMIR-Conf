@@ -21,7 +21,7 @@ from slack.errors import SlackApiError
 # - chat:write
 # - search:read
 # - users:read
-# https://api.slack.com/legacy/oauth-scopes
+# https://api.slack.com/authentication/basics
 # 2) Install your Slack app to your Slack workspace.
 # 3) Run this script in a terminal with: 
 # SLACK_OAUTH_TOKEN="xoxp-..." python make_slack_channels_presentations.py
