@@ -150,6 +150,8 @@ if __name__ == "__main__":
                 user = [u for u in users if find_author(u,names,False) == True]
                 # print(len(user))
                 if len(user) != 1:
+                    user = [u for u in users if find_author(u,[names[0]],False) == True]
+                if len(user) != 1:
                     user = [u for u in users if find_author(u,names,True) == True]
                 # print(len(user))
                 if len(user) == 1:
