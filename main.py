@@ -23,6 +23,9 @@ by_uid = {}
 def paper_check(row):
     return "paper" in row['type']
 
+def industry_check(row):
+    return "industry" in row['type']
+
 def music_check(row):
     return "music" in row['type']
 
@@ -48,7 +51,7 @@ def main(site_data_path):
                 site_data[name] = list(csv.DictReader(open(f)))
         elif typ == "yml":
             site_data[name] = yaml.load(open(f).read(), Loader=yaml.SafeLoader)
-    for typ in ["papers", "speakers", "music", "lbds", "events"]:
+    for typ in ["papers", "speakers", "industry", "music", "lbds", "events"]:
         by_uid[typ] = {}
         for p in site_data[typ]:
             by_uid[typ][p["UID"]] = p
@@ -59,6 +62,7 @@ def main(site_data_path):
         speakers = [s for s in site_data["speakers"] if s["day"] == day]
         posters = [p for p in site_data["events"] if p["day"] == day and p["category"] == "Poster session"]
         music = [m for m in site_data["events"] if m["day"] == day and m["category"] == "Music concert"]
+        industry = [m for m in site_data["events"] if m["day"] == day and m["category"] == "Industry"]
         meetup = [m for m in site_data["events"] if m["day"] == day and m["category"] == "Meetup"]
         master = [m for m in site_data["events"] if m["day"] == day and m["category"] == "Masterclass"]
         wimir = [w for w in site_data["events"] if w["day"] == day and w["category"] == "WiMIR Meetup"]
@@ -75,6 +79,7 @@ def main(site_data_path):
             "wimir": wimir,
             "posters": posters,
             "music": music,
+            "industry": industry,
             "day": day,
             "opening": opening,
             "business": business,
@@ -147,6 +152,7 @@ def schedule():
         speakers = [s for s in site_data["speakers"] if s["day"] == day]
         posters = [p for p in site_data["events"] if p["day"] == day and p["category"] == "Poster session"]
         music = [m for m in site_data["events"] if m["day"] == day and m["category"] == "Music concert"]
+        industry = [m for m in site_data["events"] if m["day"] == day and m["category"] == "Industry"]
         meetup = [m for m in site_data["events"] if m["day"] == day and m["category"] == "Meetup"]
         master = [m for m in site_data["events"] if m["day"] == day and m["category"] == "Masterclass"]
         wimir = [w for w in site_data["events"] if w["day"] == day and w["category"] == "WiMIR Meetup"]
@@ -163,6 +169,7 @@ def schedule():
             "wimir": wimir,
             "posters": posters,
             "music": music,
+            "industry": industry,
             "day": day,
             "opening": opening,
             "business": business,
@@ -194,6 +201,14 @@ def musics():
     data["music_top"] = open("music_top.md").read()
     data["music_bottom"] = open("music_bottom.md").read()
     return render_template("music.html", **data)
+
+@app.route("/industry.html")
+def industries():
+    data = _data()
+    data["industry"] = site_data["industry"]
+    data["industry_top"] = open("industry_top.md").read()
+    data["industry_bottom"] = open("industry_bottom.md").read()
+    return render_template("industry.html", **data)
 
 @app.route("/lbds.html")
 def lbds():
@@ -322,6 +337,18 @@ def format_music(v):
         }
     }
 
+def format_industry(v):
+    return {
+        "id": v["UID"],
+        "content": {
+            "title": v["title"],
+            "session": v["session"],
+            "channel_name": v["channel_name"],
+            "channel_url": v["channel_url"],
+            "company": v["company"],
+        }
+    }
+
 @app.template_filter('localcheck')
 def datetimelocalcheck(s):
     return tzlocal.get_localzone()
@@ -382,6 +409,14 @@ def music(music):
     data["music"] = v
     return render_template("piece.html", **data)
 
+@app.route("/industry_<industry>.html")
+def industry(industry):
+    uid = industry
+    v = by_uid["industry"][uid]
+    data = _data()
+    data["industry"] = v
+    return render_template("company.html", **data)
+
 @app.route("/lbd_<lbd>.html")
 def lbd(lbd):
     uid = lbd
@@ -411,6 +446,13 @@ def paper_json():
 def music_json():
     json = []
     for v in site_data["music"]:
+        json.append(v)
+    return jsonify(json)
+
+@app.route("/industry.json")
+def industry_json():
+    json = []
+    for v in site_data["industry"]:
         json.append(v)
     return jsonify(json)
 
@@ -447,6 +489,8 @@ def generator():
         yield "speaker", {"speaker": str(speaker["UID"])}
     for music in site_data["music"]:
         yield "music", {"music": str(music["UID"])}
+    for industry in site_data["industry"]:
+        yield "industry", {"industry": str(industry["UID"])}
     for lbd in site_data["lbds"]:
         yield "lbd", {"lbd": str(lbd["UID"])}
     for day in site_data["days"]:
