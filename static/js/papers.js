@@ -345,7 +345,7 @@ fetch('https://youtube.com', {mode: 'no-cors'}).then(r=>{
     'https://www.youtube.com/playlist?list=PL3uOsOHTT-9evUhcquatvlMM72YNv_OKY',
     'https://www.youtube.com/playlist?list=PL3uOsOHTT-9c0_5H8QJRerpb-nV6Rec2J'];
 
-  $('.video-day-buttons a').each(function(i) {
+  $('.video-day-buttons .vid-link').each(function(i) {
     $(this).attr('href', yt_links[i]);
   })
   })
@@ -357,7 +357,7 @@ fetch('https://youtube.com', {mode: 'no-cors'}).then(r=>{
       'https://space.bilibili.com/690281118/channel/detail?cid=152509',
       'https://space.bilibili.com/690281118/channel/detail?cid=152510'];
 
-    $('.video-day-buttons a').each(function(i) {
+    $('.video-day-buttons .vid-link').each(function(i) {
       $(this).attr('href', bb_links[i]);
     })
     });
