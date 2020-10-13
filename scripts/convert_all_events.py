@@ -105,7 +105,7 @@ for index, event in orig_csv.iterrows():
         if any(e in event["Title"] for e in ['LBD']):
             e_cal['location'] = f'lbds.html?session={session_num}'
         else:
-            e_cal['location'] = f'posters.html?session={session_num}'
+            e_cal['location'] = f'papers.html?session={session_num}'
 
 
     elif event['Category'] == "Tutorials":
