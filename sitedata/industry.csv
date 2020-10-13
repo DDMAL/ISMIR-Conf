@@ -1,4 +1,4 @@
-UID,title,abstract,primary_author,primary_email,session,company,affiliations,author_emails,bilibili_id,youtube_id,poster_type,channel_name,channel_url
-dolby,Waveform-based deep learning research at Dolby,,Jordi Pons,,8,Dolby,"Applied AI Team, Dolby",,,,pdf,industry-8-dolby,https://ismir2020.slack.com/archives/C01CGP0AGR0
-sony,Sony x AI: Audio Source Separation & Sony CSL Music Team,,Sony,,8,Sony,,,,,pdf,industry-8-sony,https://ismir2020.slack.com/archives/C01CGP1DG9Y
-steinberg,Virtual Studio Technology,,Steinberg,,7,Steinberg,,,,,pdf,industry-7-steinberg,https://ismir2020.slack.com/archives/C01CVC1MJQ1
+UID,title,session,company,channel_name,channel_url
+dolby,Waveform-based deep learning research at Dolby,8,Dolby,industry-8-dolby,https://ismir2020.slack.com/archives/C01CGP0AGR0
+sony,Sony x AI: Audio Source Separation & Sony CSL Music Team,8,Sony,industry-8-sony,https://ismir2020.slack.com/archives/C01CGP1DG9Y
+steinberg,Virtual Studio Technology,7,Steinberg,industry-7-steinberg,https://ismir2020.slack.com/archives/C01CVC1MJQ1
