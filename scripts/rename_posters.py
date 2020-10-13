@@ -17,6 +17,8 @@ if not os.path.isdir(posters_save_path):
     os.mkdir(posters_save_path)
 
 for poster in os.listdir(posters_hold_path):
+    if '.DS_Store' in poster:
+        continue
     poster_list.append(int(poster.split(' - ')[-1].split("_")[0]))
     # print(poster.split(' - ')[-1].split("_")[0])
 
