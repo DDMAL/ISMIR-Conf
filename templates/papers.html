@@ -156,13 +156,23 @@
     <span>Session: </span>
     <select id="session-select" onchange="sessionSearch()">
       <option value="">All</option>
-      <!-- <option value="volvo">Volvo</option>
-      <option value="saab">Saab</option>
-      <option value="vw">VW</option>
-      <option value="audi" selected>Audi</option> -->
+
     </select>
   </div>
+  <div class="video-day-buttons mb-3 col-lg-8 text-right">
+    <a href="" class="card-link btn btn-primary mr-2">
+      {% include 'video_icon.html' %} Day 1
+    </a>
+    <a href="" class="btn btn-primary mr-2">
+      {% include 'video_icon.html' %} Day 2
+    </a>
+    <a href="" class="card-link btn btn-primary">
+      {% include 'video_icon.html' %} Day 3
+    </a>
+  </div>
+
 </div>
+
 
 <!-- Cards -->
 <div class="cards row papers-cards"></div>
