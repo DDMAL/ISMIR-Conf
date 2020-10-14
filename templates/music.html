@@ -7,7 +7,7 @@
 <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".music-info-modal">Large modal</button> -->
 
 <div style="display: flex; justify-content: center;" class="btn-toolbar" role="toolbar">
-  <div class="btn-group btn-group-toggle filter_option">
+  <div class="btn-group btn-group-toggle filter_option mb-3">
     <label
       class="btn btn-outline-secondary"
       data-tippy-content="Search for papers titles"
@@ -47,8 +47,19 @@
       X
     </label>
   </div>
-  <div class="btn-group ml-3">
+  <div class="btn-group ml-3 mb-3">
     <a href="{{config.music_program_url}}" class="btn btn-primary mr-3">{% include 'slack_svg.html' %} {{config.music_program_channel}}</a>
+  </div>
+  <div class="video-day-buttons">
+    <a href="" class="vid-link btn btn-primary mr-2">
+      {% include 'video_icon.html' %} Day 1
+    </a>
+    <a href="" class="vid-link btn btn-primary mr-2">
+      {% include 'video_icon.html' %} Day 2
+    </a>
+    <a href="" class="vid-link btn btn-primary">
+      {% include 'video_icon.html' %} Day 3
+    </a>
   </div>
 </div>
 
