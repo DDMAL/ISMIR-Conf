@@ -137,7 +137,8 @@ d3.selectAll('.filter_option input').on('click', function () {
 const card_html = openreview => {
     return `
       <div class="industry-card m-4 text-center">
-      <a href="industry_${openreview.UID}.html" class="image-wrapper mb-3">
+      <a href="industry_${openreview.UID}.html" class="image-wrapper mb-3" style="display: flex; align-items: center; height: 70px">
+        <img style="max-width: 100%;" src="static/images/${openreview.logo_name}" />
       </a>
       <h3><a href="industry_${openreview.UID}.html">${openreview.title}</a></h3>
       <h4>${openreview.company}</h4>
@@ -206,4 +207,3 @@ function fullscreenChange() {
 
 
 $("#fullscreen-iframe button#presentationMode").css('display', 'none !important');
-
