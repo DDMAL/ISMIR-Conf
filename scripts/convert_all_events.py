@@ -104,6 +104,8 @@ for index, event in orig_csv.iterrows():
         session_num = posters_dict[event['Title'].split(" ")[-1]]
         if any(e in event["Title"] for e in ['LBD']):
             e_cal['location'] = f'lbds.html?session={session_num}'
+        elif any(e in event["Title"] for e in ['Ind']):
+            e_cal['location'] = f'industry.html?session={session_num}'
         else:
             e_cal['location'] = f'papers.html?session={session_num}'
 
