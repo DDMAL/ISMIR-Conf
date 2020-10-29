@@ -17,7 +17,7 @@ orig_csv = pd.read_csv('../static/csv/ISMIR music program _ Streaming ready subm
 new_csv = pd.DataFrame(
     {"UID": orig_csv['Submission number '],
     # "type": orig_csv['Content Type'],
-    "title": orig_csv["Title of the piece"],
+    "title": [ "".join((title, ': The Voice of Santur with Audience Participation')) if 'Sunrise' in title else title for title in orig_csv["Title of the piece"]],
     "abstract": orig_csv["Abstract of the piece. This abstract is going to be displayed on the ISMIR music program page. (150-250 words)"],
     "first_name": orig_csv["Given name"],
     "last_name": orig_csv["Family name"],
