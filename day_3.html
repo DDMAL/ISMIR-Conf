@@ -1,0 +1,852 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <link rel="icon" type="image/png" sizes="32x32" href="static/images/ismir_tab_icon.png">
+
+    <link rel="stylesheet" href="static/css/main.css" />
+    <link rel="stylesheet" href="static/css/custom.css" />
+    <link rel="stylesheet" href="static/css/lazy_load.css" />
+    <link rel="stylesheet" href="static/css/typeahead.css" />
+    <link rel="stylesheet" href="static/css/poster.css" />
+    <link rel="stylesheet" href="static/css/music.css" />
+    <link rel="stylesheet" href="static/css/piece.css" />
+
+
+    <!-- <link rel="stylesheet" href="https://gitcdn.xyz/repo/wingkwong/jquery-chameleon/master/src/chameleon.min.css"> -->
+
+    <!-- External Javascript libs  -->
+    <script src="https://cdn.jsdelivr.net/npm/d3@5/dist/d3.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/handlebars@4.7.3/dist/handlebars.min.js" integrity="sha256-/PJBs6QWvXijOFIX04kZpLb6ZtSQckdOIavLWKKOgXU=" crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha256-WqU1JavFxSAMcLP2WIOI+GB2zWmShMI82mTpLDcqFUg=" crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/moment@2.24.0/min/moment.min.js" integrity="sha256-4iQZ6BVL4qNKlQ27TExEhBN1HFPvAvAMbFavKKosSWQ=" crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/moment-timezone@0.5.28/builds/moment-timezone-with-data.min.js" integrity="sha256-IWYg4uIC8/erItNXYvLtyYHioRi2zT1TFva8qaAU/ww=" crossorigin="anonymous"></script>
+    <!-- <script src="static/js/chameleon.js"></script> -->
+
+
+    <!-- Library libs -->
+    <script src="static/js/typeahead.bundle.js"></script>
+
+    
+
+    <!-- External CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha256-YLGeXaapI0/5IgZopewRJcFXomhRMlYYjugPLSyNjTY=" crossorigin="anonymous">
+
+    <!-- External Fonts (no google for china) -->
+    <link
+      href="static/css/Lato.css"
+      rel="stylesheet"
+    />
+    <link href="static/css/Exo.css" rel="stylesheet" />
+    <link
+      href="static/css/Cuprum.css"
+      rel="stylesheet"
+    />
+    <link
+      href="static/css/Ambiant.css"
+      rel="stylesheet"
+    />
+    <!-- <link href="static/css/chameleon.css" rel="stylesheet"/> -->
+    <title>ISMIR 2020: Day 3</title>
+    
+  </head>
+
+  <body>
+    <!-- NAV -->
+    
+    <!--
+    ('index.html, 'Home'),
+    ('special_meetings.html', 'Special Meetings'),
+    -->
+
+    <nav
+      class="navbar sticky-top navbar-expand-lg navbar-light mr-auto"
+      id="main-nav"
+    >
+      <div class="container">
+        <a class="navbar-brand" href="https://ismir2020.net/">
+          <img
+             class="logo" src="static/images/ISMIR-logo_Horizontal - Acronym only_RGB.jpg"
+             height="auto"
+             width="200px"
+          />
+        </a>
+        
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div
+          class="collapse navbar-collapse text-right flex-grow-1"
+          id="navbarNav"
+        >
+          <ul class="navbar-nav ml-auto">
+            
+            <li class="nav-item active">
+              <a class="nav-link" href="calendar.html">Schedule</a>
+            </li>
+            
+            <li class="nav-item ">
+              <a class="nav-link" href="papers.html">Papers</a>
+            </li>
+            
+            <li class="nav-item ">
+              <a class="nav-link" href="music.html">Music</a>
+            </li>
+            
+            <li class="nav-item ">
+              <a class="nav-link" href="lbds.html">LBDs</a>
+            </li>
+            
+            <li class="nav-item ">
+              <a class="nav-link" href="industry.html">Industry</a>
+            </li>
+            
+            <li class="nav-item ">
+              <a class="nav-link" href="tutorials.html">Tutorials</a>
+            </li>
+            
+          </ul>
+        </div>
+      </div>
+    </nav>
+    
+
+    
+    <!-- User Overrides -->
+     
+
+    <div class="container">
+      <!-- Tabs -->
+      <div class="tabs">
+        
+<ul class="nav nav-pills justify-content-center">
+  
+  <li class="nav-item">
+    <a
+      id="calendar-html"
+      class="nav-link text-muted"
+      href="calendar.html"
+      aria-controls="nav-home"
+      aria-selected="true"
+      >Calendar
+    </a>
+  </li>
+  
+  <li class="nav-item">
+    <a
+      id="day_1-html"
+      class="nav-link text-muted"
+      href="day_1.html"
+      aria-controls="nav-home"
+      aria-selected="true"
+      >Day 1
+    </a>
+  </li>
+  
+  <li class="nav-item">
+    <a
+      id="day_2-html"
+      class="nav-link text-muted"
+      href="day_2.html"
+      aria-controls="nav-home"
+      aria-selected="true"
+      >Day 2
+    </a>
+  </li>
+  
+  <li class="nav-item">
+    <a
+      id="day_3-html"
+      class="nav-link text-muted"
+      href="day_3.html"
+      aria-controls="nav-home"
+      aria-selected="true"
+      >Day 3
+    </a>
+  </li>
+  
+  <li class="nav-item">
+    <a
+      id="day_4-html"
+      class="nav-link text-muted"
+      href="day_4.html"
+      aria-controls="nav-home"
+      aria-selected="true"
+      >Day 4
+    </a>
+  </li>
+  
+</ul>
+
+      </div>
+      <!-- Content -->
+      <div class="content">
+        
+
+  
+
+<div id="day">
+  <!-- Speakers -->
+  
+  
+  
+  
+    
+      <h2 class="day-title" id=pos>Poster Sessions</h2>
+    
+  <div class="day-section">
+    <div class="cards row p-4">
+  
+  
+  
+    
+  
+    
+  
+  
+    
+  
+    
+  
+    
+  
+    
+  
+
+  
+    <div class="col-md-6 col-sm-12 p-3" style="box-sizing: border-box;">
+
+      
+
+      
+
+      
+      
+
+      <a class="full-card-link" href="papers.html?session=5">
+        <div class="card" style="display: block; overflow: hidden; width: 100%;">
+          <div
+            class="card-header text-center"
+            style="width: 100%;"
+          >
+          
+            
+            <h3 class="m-3 card-title main-title text-left">
+              Posters 5A
+            </h3>
+            <div class="m-3 text-left card-subtitle">
+              2020-10-14 | 09:05 (America/New_York)
+            </div>
+          
+            
+            <h3 class="m-3 card-title main-title text-left">
+              Posters 5B
+            </h3>
+            <div class="m-3 text-left card-subtitle">
+              2020-10-14 | 21:35 (America/New_York)
+            </div>
+          
+          </div>
+        </div>
+      </a>
+    </div>
+  
+    <div class="col-md-6 col-sm-12 p-3" style="box-sizing: border-box;">
+
+      
+
+      
+
+      
+      
+
+      <a class="full-card-link" href="papers.html?session=6">
+        <div class="card" style="display: block; overflow: hidden; width: 100%;">
+          <div
+            class="card-header text-center"
+            style="width: 100%;"
+          >
+          
+            
+            <h3 class="m-3 card-title main-title text-left">
+              Posters 6A
+            </h3>
+            <div class="m-3 text-left card-subtitle">
+              2020-10-14 | 13:35 (America/New_York)
+            </div>
+          
+            
+            <h3 class="m-3 card-title main-title text-left">
+              Posters 6B
+            </h3>
+            <div class="m-3 text-left card-subtitle">
+              2020-10-15 | 02:05 (America/New_York)
+            </div>
+          
+          </div>
+        </div>
+      </a>
+    </div>
+  
+</div>
+  </div>
+  
+  
+    <h2 class="day-title" id=mus>Music Sessions</h2>
+    <div class="day-section">
+      <div class="cards row p-4">
+  
+  
+  
+    
+  
+  
+    
+  
+    
+  
+
+  
+    <div class="col-md-6 col-sm-12 p-3" style="box-sizing: border-box;">
+
+      
+
+      
+
+      
+      
+
+      <a class="full-card-link" href="music.html?session=2">
+        <div class="card" style="display: block; overflow: hidden; width: 100%;">
+          <div
+            class="card-header text-center"
+            style="width: 100%;"
+          >
+          
+            
+            <h3 class="m-3 card-title main-title text-left">
+              Music Program 2A
+            </h3>
+            <div class="m-3 text-left card-subtitle">
+              2020-10-14 | 12:30 (America/New_York)
+            </div>
+          
+            
+            <h3 class="m-3 card-title main-title text-left">
+              Music Program 2B
+            </h3>
+            <div class="m-3 text-left card-subtitle">
+              2020-10-15 | 01:00 (America/New_York)
+            </div>
+          
+          </div>
+        </div>
+      </a>
+    </div>
+  
+</div>
+    </div>
+  
+  
+  <h2 class="day-title" id=meet-spec>Special Meetups</h2>
+  <div class="day-section">
+    <div class="cards row p-4">
+  
+  
+  <div class="col-md-6 col-sm-12 p-3" style="box-sizing: border-box;">
+    <div class="card" style="display: block; overflow: hidden; width: 100%;">
+      <div
+        class="card-header text-center"
+        style="min-height: 200px; width: 100%;"
+      >
+        
+          <a id="Special_Session_5:_Do_we_really_care_about_the_validity_of_MIR_research?" href="https://ismir2020.slack.com/archives/C01CFP56G49">
+            <h3 class="card-title main-title m-3 text-left">Special Session 5: Do we really care about the validity of MIR research?</h3>
+          </a>
+        
+        <div class="m-3 text-left card-subtitle text-muted">
+          Arthur Flexer, Bob Sturm, and Julian Urbano 
+        </div>
+        <div class="m-3 text-left card-subtitle">
+          2020-10-14 | 08:00 (America/New_York)
+        </div>
+        <div class="m-3 text-left card-subtitle">
+          <p>Recent MIR research has shown some curious results: low generalization to out-of-sample data; lack of inter-rater agreement; adversarial attacks that drastically reduce performance. Do these results point to real problems in our research practice or are they just some marginal phenomena that can be dismissed? Come discuss with session chairs Arthur Flexer, Bob Sturm, and Julian Urbano.</p>
+        </div>
+        <div class="m-3 text-left">
+        
+          <a href="https://ismir2020.slack.com/archives/C01CFP56G49" class="btn btn-primary mr-3"><svg style="display: inline-block; width: 23px;" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="75 75 150 150" style="enable-background:new 0 0 270 270;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#FFFFFF;}
+</style>
+<g>
+	<g>
+		<path class="st0" d="M99.4,151.2c0,7.1-5.8,12.9-12.9,12.9s-12.9-5.8-12.9-12.9c0-7.1,5.8-12.9,12.9-12.9h12.9V151.2z"/>
+		<path class="st0" d="M105.9,151.2c0-7.1,5.8-12.9,12.9-12.9s12.9,5.8,12.9,12.9v32.3c0,7.1-5.8,12.9-12.9,12.9
+			s-12.9-5.8-12.9-12.9C105.9,183.5,105.9,151.2,105.9,151.2z"/>
+	</g>
+	<g>
+		<path class="st0" d="M118.8,99.4c-7.1,0-12.9-5.8-12.9-12.9s5.8-12.9,12.9-12.9s12.9,5.8,12.9,12.9v12.9H118.8z"/>
+		<path class="st0" d="M118.8,105.9c7.1,0,12.9,5.8,12.9,12.9s-5.8,12.9-12.9,12.9H86.5c-7.1,0-12.9-5.8-12.9-12.9
+			s5.8-12.9,12.9-12.9C86.5,105.9,118.8,105.9,118.8,105.9z"/>
+	</g>
+	<g>
+		<path class="st0" d="M170.6,118.8c0-7.1,5.8-12.9,12.9-12.9c7.1,0,12.9,5.8,12.9,12.9s-5.8,12.9-12.9,12.9h-12.9V118.8z"/>
+		<path class="st0" d="M164.1,118.8c0,7.1-5.8,12.9-12.9,12.9c-7.1,0-12.9-5.8-12.9-12.9V86.5c0-7.1,5.8-12.9,12.9-12.9
+			c7.1,0,12.9,5.8,12.9,12.9V118.8z"/>
+	</g>
+	<g>
+		<path class="st0" d="M151.2,170.6c7.1,0,12.9,5.8,12.9,12.9c0,7.1-5.8,12.9-12.9,12.9c-7.1,0-12.9-5.8-12.9-12.9v-12.9H151.2z"/>
+		<path class="st0" d="M151.2,164.1c-7.1,0-12.9-5.8-12.9-12.9c0-7.1,5.8-12.9,12.9-12.9h32.3c7.1,0,12.9,5.8,12.9,12.9
+			c0,7.1-5.8,12.9-12.9,12.9H151.2z"/>
+	</g>
+</g>
+</svg> #meetup-special-sessions</a>
+        
+        
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+  <div class="col-md-6 col-sm-12 p-3" style="box-sizing: border-box;">
+    <div class="card" style="display: block; overflow: hidden; width: 100%;">
+      <div
+        class="card-header text-center"
+        style="min-height: 200px; width: 100%;"
+      >
+        
+          <a id="Industry_Meetup_A" href="#">
+            <h3 class="card-title main-title m-3 text-left">Industry Meetup A</h3>
+          </a>
+        
+        <div class="m-3 text-left card-subtitle text-muted">
+          All ISMIR attendees
+        </div>
+        <div class="m-3 text-left card-subtitle">
+          2020-10-14 | 10:30 (America/New_York)
+        </div>
+        <div class="m-3 text-left card-subtitle">
+          <p>Look up these sponsor's channels for links to their respective meet-up zoom meetings #sponsor-spotify, #sponsor-sony, #sponsor-bytedance, #sponsor-adobe, or join our Silver and Bronze sponsors at the zoom announced on Slack.</p>
+        </div>
+        <div class="m-3 text-left">
+        
+        
+          <a href="https://www.ismir2020.net/sponsors/" class="btn btn-secondary">Info</a>
+        
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+  <div class="col-md-6 col-sm-12 p-3" style="box-sizing: border-box;">
+    <div class="card" style="display: block; overflow: hidden; width: 100%;">
+      <div
+        class="card-header text-center"
+        style="min-height: 200px; width: 100%;"
+      >
+        
+          <a id="Special_Session_6:_Music_and_learning" href="https://ismir2020.slack.com/archives/C01CFP56G49">
+            <h3 class="card-title main-title m-3 text-left">Special Session 6: Music and learning</h3>
+          </a>
+        
+        <div class="m-3 text-left card-subtitle text-muted">
+          Xiao Hu
+        </div>
+        <div class="m-3 text-left card-subtitle">
+          2020-10-14 | 23:00 (America/New_York)
+        </div>
+        <div class="m-3 text-left card-subtitle">
+          <p>Many people listen to music when they are learning or working. How to retrieve, recommend or generate music that could be beneficial for learning? This is an open question and calls for interdisciplinary methods and approaches. Let's find out what the most recent progress are and how we can approach this problem from perspectives spanning MIR, information science, psychology, education, cognitive science, and computing science. Come discuss with session chair Xiao Hu.</p>
+        </div>
+        <div class="m-3 text-left">
+        
+          <a href="https://ismir2020.slack.com/archives/C01CFP56G49" class="btn btn-primary mr-3"><svg style="display: inline-block; width: 23px;" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="75 75 150 150" style="enable-background:new 0 0 270 270;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#FFFFFF;}
+</style>
+<g>
+	<g>
+		<path class="st0" d="M99.4,151.2c0,7.1-5.8,12.9-12.9,12.9s-12.9-5.8-12.9-12.9c0-7.1,5.8-12.9,12.9-12.9h12.9V151.2z"/>
+		<path class="st0" d="M105.9,151.2c0-7.1,5.8-12.9,12.9-12.9s12.9,5.8,12.9,12.9v32.3c0,7.1-5.8,12.9-12.9,12.9
+			s-12.9-5.8-12.9-12.9C105.9,183.5,105.9,151.2,105.9,151.2z"/>
+	</g>
+	<g>
+		<path class="st0" d="M118.8,99.4c-7.1,0-12.9-5.8-12.9-12.9s5.8-12.9,12.9-12.9s12.9,5.8,12.9,12.9v12.9H118.8z"/>
+		<path class="st0" d="M118.8,105.9c7.1,0,12.9,5.8,12.9,12.9s-5.8,12.9-12.9,12.9H86.5c-7.1,0-12.9-5.8-12.9-12.9
+			s5.8-12.9,12.9-12.9C86.5,105.9,118.8,105.9,118.8,105.9z"/>
+	</g>
+	<g>
+		<path class="st0" d="M170.6,118.8c0-7.1,5.8-12.9,12.9-12.9c7.1,0,12.9,5.8,12.9,12.9s-5.8,12.9-12.9,12.9h-12.9V118.8z"/>
+		<path class="st0" d="M164.1,118.8c0,7.1-5.8,12.9-12.9,12.9c-7.1,0-12.9-5.8-12.9-12.9V86.5c0-7.1,5.8-12.9,12.9-12.9
+			c7.1,0,12.9,5.8,12.9,12.9V118.8z"/>
+	</g>
+	<g>
+		<path class="st0" d="M151.2,170.6c7.1,0,12.9,5.8,12.9,12.9c0,7.1-5.8,12.9-12.9,12.9c-7.1,0-12.9-5.8-12.9-12.9v-12.9H151.2z"/>
+		<path class="st0" d="M151.2,164.1c-7.1,0-12.9-5.8-12.9-12.9c0-7.1,5.8-12.9,12.9-12.9h32.3c7.1,0,12.9,5.8,12.9,12.9
+			c0,7.1-5.8,12.9-12.9,12.9H151.2z"/>
+	</g>
+</g>
+</svg> #meetup-special-sessions</a>
+        
+        
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+  <div class="col-md-6 col-sm-12 p-3" style="box-sizing: border-box;">
+    <div class="card" style="display: block; overflow: hidden; width: 100%;">
+      <div
+        class="card-header text-center"
+        style="min-height: 200px; width: 100%;"
+      >
+        
+          <a id="Industry_Meetup_B" href="#">
+            <h3 class="card-title main-title m-3 text-left">Industry Meetup B</h3>
+          </a>
+        
+        <div class="m-3 text-left card-subtitle text-muted">
+          All ISMIR attendees
+        </div>
+        <div class="m-3 text-left card-subtitle">
+          2020-10-14 | 23:00 (America/New_York)
+        </div>
+        <div class="m-3 text-left card-subtitle">
+          <p>Look up these sponsor's channels for links to their respective meet-up zoom meetings #sponsor-spotify, #sponsor-sony, #sponsor-bytedance, #sponsor-adobe, or join our Silver and Bronze sponsors at the zoom announced on Slack.</p>
+        </div>
+        <div class="m-3 text-left">
+        
+        
+          <a href="https://www.ismir2020.net/sponsors/" class="btn btn-secondary">Info</a>
+        
+        </div>
+      </div>
+    </div>
+  </div>
+  
+</div>
+  </div>
+  
+  
+  <h2 class="day-title" id=wimir>WiMIR Meetups</h2>
+  <div class="day-section">
+    <div class="cards row p-4">
+  
+  
+  <div class="col-md-6 col-sm-12 p-3" style="box-sizing: border-box;">
+    <div class="card" style="display: block; overflow: hidden; width: 100%;">
+      <div
+        class="card-header text-center"
+        style="min-height: 200px; width: 100%;"
+      >
+        
+          <a id="WiMIR_meetup_6:_Elaine_Chew" href="https://ismir2020.slack.com/archives/C01BLUK6YBE">
+            <h3 class="card-title main-title m-3 text-left">WiMIR meetup 6: Elaine Chew</h3>
+          </a>
+        
+        <div class="m-3 text-left card-subtitle text-muted">
+          WiMIR
+        </div>
+        <div class="m-3 text-left card-subtitle">
+          2020-10-14 | 08:00 (America/New_York)
+        </div>
+        <div class="m-3 text-left card-subtitle">
+          <p>Each WiMIR Meet-up Session will be an informal Q&amp;A-type drop-in event akin to an “office hour”. In these sessions, participants will have the opportunity to talk with a notable woman in the field.</p>
+        </div>
+        <div class="m-3 text-left">
+        
+          <a href="https://ismir2020.slack.com/archives/C01BLUK6YBE" class="btn btn-primary mr-3"><svg style="display: inline-block; width: 23px;" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="75 75 150 150" style="enable-background:new 0 0 270 270;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#FFFFFF;}
+</style>
+<g>
+	<g>
+		<path class="st0" d="M99.4,151.2c0,7.1-5.8,12.9-12.9,12.9s-12.9-5.8-12.9-12.9c0-7.1,5.8-12.9,12.9-12.9h12.9V151.2z"/>
+		<path class="st0" d="M105.9,151.2c0-7.1,5.8-12.9,12.9-12.9s12.9,5.8,12.9,12.9v32.3c0,7.1-5.8,12.9-12.9,12.9
+			s-12.9-5.8-12.9-12.9C105.9,183.5,105.9,151.2,105.9,151.2z"/>
+	</g>
+	<g>
+		<path class="st0" d="M118.8,99.4c-7.1,0-12.9-5.8-12.9-12.9s5.8-12.9,12.9-12.9s12.9,5.8,12.9,12.9v12.9H118.8z"/>
+		<path class="st0" d="M118.8,105.9c7.1,0,12.9,5.8,12.9,12.9s-5.8,12.9-12.9,12.9H86.5c-7.1,0-12.9-5.8-12.9-12.9
+			s5.8-12.9,12.9-12.9C86.5,105.9,118.8,105.9,118.8,105.9z"/>
+	</g>
+	<g>
+		<path class="st0" d="M170.6,118.8c0-7.1,5.8-12.9,12.9-12.9c7.1,0,12.9,5.8,12.9,12.9s-5.8,12.9-12.9,12.9h-12.9V118.8z"/>
+		<path class="st0" d="M164.1,118.8c0,7.1-5.8,12.9-12.9,12.9c-7.1,0-12.9-5.8-12.9-12.9V86.5c0-7.1,5.8-12.9,12.9-12.9
+			c7.1,0,12.9,5.8,12.9,12.9V118.8z"/>
+	</g>
+	<g>
+		<path class="st0" d="M151.2,170.6c7.1,0,12.9,5.8,12.9,12.9c0,7.1-5.8,12.9-12.9,12.9c-7.1,0-12.9-5.8-12.9-12.9v-12.9H151.2z"/>
+		<path class="st0" d="M151.2,164.1c-7.1,0-12.9-5.8-12.9-12.9c0-7.1,5.8-12.9,12.9-12.9h32.3c7.1,0,12.9,5.8,12.9,12.9
+			c0,7.1-5.8,12.9-12.9,12.9H151.2z"/>
+	</g>
+</g>
+</svg> #wimir-at-ismir</a>
+        
+        
+          <a href="https://ismir.github.io/ISMIR2020/WiMIR/" class="btn btn-secondary">Info</a>
+        
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+  <div class="col-md-6 col-sm-12 p-3" style="box-sizing: border-box;">
+    <div class="card" style="display: block; overflow: hidden; width: 100%;">
+      <div
+        class="card-header text-center"
+        style="min-height: 200px; width: 100%;"
+      >
+        
+          <a id="WiMIR_meetup_7:_Estefanía_Cano" href="https://ismir2020.slack.com/archives/C01BLUK6YBE">
+            <h3 class="card-title main-title m-3 text-left">WiMIR meetup 7: Estefanía Cano</h3>
+          </a>
+        
+        <div class="m-3 text-left card-subtitle text-muted">
+          WiMIR
+        </div>
+        <div class="m-3 text-left card-subtitle">
+          2020-10-14 | 20:30 (America/New_York)
+        </div>
+        <div class="m-3 text-left card-subtitle">
+          <p>Each WiMIR Meet-up Session will be an informal Q&amp;A-type drop-in event akin to an “office hour”. In these sessions, participants will have the opportunity to talk with a notable woman in the field.</p>
+        </div>
+        <div class="m-3 text-left">
+        
+          <a href="https://ismir2020.slack.com/archives/C01BLUK6YBE" class="btn btn-primary mr-3"><svg style="display: inline-block; width: 23px;" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="75 75 150 150" style="enable-background:new 0 0 270 270;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#FFFFFF;}
+</style>
+<g>
+	<g>
+		<path class="st0" d="M99.4,151.2c0,7.1-5.8,12.9-12.9,12.9s-12.9-5.8-12.9-12.9c0-7.1,5.8-12.9,12.9-12.9h12.9V151.2z"/>
+		<path class="st0" d="M105.9,151.2c0-7.1,5.8-12.9,12.9-12.9s12.9,5.8,12.9,12.9v32.3c0,7.1-5.8,12.9-12.9,12.9
+			s-12.9-5.8-12.9-12.9C105.9,183.5,105.9,151.2,105.9,151.2z"/>
+	</g>
+	<g>
+		<path class="st0" d="M118.8,99.4c-7.1,0-12.9-5.8-12.9-12.9s5.8-12.9,12.9-12.9s12.9,5.8,12.9,12.9v12.9H118.8z"/>
+		<path class="st0" d="M118.8,105.9c7.1,0,12.9,5.8,12.9,12.9s-5.8,12.9-12.9,12.9H86.5c-7.1,0-12.9-5.8-12.9-12.9
+			s5.8-12.9,12.9-12.9C86.5,105.9,118.8,105.9,118.8,105.9z"/>
+	</g>
+	<g>
+		<path class="st0" d="M170.6,118.8c0-7.1,5.8-12.9,12.9-12.9c7.1,0,12.9,5.8,12.9,12.9s-5.8,12.9-12.9,12.9h-12.9V118.8z"/>
+		<path class="st0" d="M164.1,118.8c0,7.1-5.8,12.9-12.9,12.9c-7.1,0-12.9-5.8-12.9-12.9V86.5c0-7.1,5.8-12.9,12.9-12.9
+			c7.1,0,12.9,5.8,12.9,12.9V118.8z"/>
+	</g>
+	<g>
+		<path class="st0" d="M151.2,170.6c7.1,0,12.9,5.8,12.9,12.9c0,7.1-5.8,12.9-12.9,12.9c-7.1,0-12.9-5.8-12.9-12.9v-12.9H151.2z"/>
+		<path class="st0" d="M151.2,164.1c-7.1,0-12.9-5.8-12.9-12.9c0-7.1,5.8-12.9,12.9-12.9h32.3c7.1,0,12.9,5.8,12.9,12.9
+			c0,7.1-5.8,12.9-12.9,12.9H151.2z"/>
+	</g>
+</g>
+</svg> #wimir-at-ismir</a>
+        
+        
+          <a href="https://ismir.github.io/ISMIR2020/WiMIR/" class="btn btn-secondary">Info</a>
+        
+        </div>
+      </div>
+    </div>
+  </div>
+  
+</div>
+  </div>
+  
+  
+  <h2 class="day-title" id=master>Masterclasses</h2>
+  <div class="day-section">
+    <div class="cards row p-4">
+  
+  
+  <div class="col-md-6 col-sm-12 p-3" style="box-sizing: border-box;">
+    <div class="card" style="display: block; overflow: hidden; width: 100%;">
+      <div
+        class="card-header text-center"
+        style="min-height: 200px; width: 100%;"
+      >
+        
+          <a id="Masterclass:_Code_Review_A" href="#">
+            <h3 class="card-title main-title m-3 text-left">Masterclass: Code Review A</h3>
+          </a>
+        
+        <div class="m-3 text-left card-subtitle text-muted">
+          Industry Chairs
+        </div>
+        <div class="m-3 text-left card-subtitle">
+          2020-10-14 | 15:00 (America/New_York)
+        </div>
+        <div class="m-3 text-left card-subtitle">
+          <p>Observe a masterclass on good coding practices from an industry standpoint - experienced developers will live-review volunteer submitted repositories, along with a live Q&amp;A.</p>
+        </div>
+        <div class="m-3 text-left">
+        
+        
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+  <div class="col-md-6 col-sm-12 p-3" style="box-sizing: border-box;">
+    <div class="card" style="display: block; overflow: hidden; width: 100%;">
+      <div
+        class="card-header text-center"
+        style="min-height: 200px; width: 100%;"
+      >
+        
+          <a id="Masterclass:_Code_Review_B" href="#">
+            <h3 class="card-title main-title m-3 text-left">Masterclass: Code Review B</h3>
+          </a>
+        
+        <div class="m-3 text-left card-subtitle text-muted">
+          Industry Chairs
+        </div>
+        <div class="m-3 text-left card-subtitle">
+          2020-10-15 | 03:30 (America/New_York)
+        </div>
+        <div class="m-3 text-left card-subtitle">
+          <p>Observe a masterclass on good coding practices from an industry standpoint - experienced developers will live-review volunteer submitted repositories, along with a live Q&amp;A.</p>
+        </div>
+        <div class="m-3 text-left">
+        
+        
+        </div>
+      </div>
+    </div>
+  </div>
+  
+</div>
+  </div>
+  
+  <!-- <div class="border-top my-3"></div>
+<div class="row p-4" id="faq">
+  <div class="col-12 bd-content">
+    <h2 class="text-center">Highlighted Papers</h2>
+  </div>
+</div>
+  <div class="papers">
+    <div class="row my-auto mx-auto">
+  <div
+    id="carouselExample1"
+    class="carousel slide d-none d-md-block"
+    data-interval="false"
+  >
+    <div class="carousel-inner cards" role="listbox">
+      
+    </div>
+    <a
+      class="carousel-control-prev"
+      href="#carouselExample1"
+      role="button"
+      data-slide="prev"
+    >
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a
+      class="carousel-control-next"
+      href="#carouselExample1"
+      role="button"
+      data-slide="next"
+    >
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+</div>
+  </div> -->
+</div>
+
+<script src="static/js/schedule_nav.js"></script>
+<script src="static/js/anchor_offset.js"></script>
+
+
+      </div>
+    </div>
+    
+    
+
+    <!-- Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "UA-");
+    </script>
+
+    <!-- Footer -->
+    <footer class="footer bg-light p-4">
+      <div class="container">
+        <p class="float-right"><a href="#">Back to Top</a></p>
+        <p class="text-center">© 2020 ISMIR Organization Committee</p>
+      </div>
+    </footer>
+
+    <!-- Code for hash tags -->
+    <script type="text/javascript">
+      $(document).ready(function () {
+        if (location.hash !== "") {
+          $('a[href="' + location.hash + '"]').tab("show");
+        }
+
+        $("a[data-toggle='tab']").on("shown.bs.tab", function (e) {
+          var hash = $(e.target).attr("href");
+          if (hash.substr(0, 1) == "#") {
+            var position = $(window).scrollTop();
+            location.replace("#" + hash.substr(1));
+            $(window).scrollTop(position);
+          }
+        });
+      });
+    </script>
+    <script src="static/js/lazy_load.js"></script>
+    
+  </body>
+</html>

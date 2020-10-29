@@ -1,6 +1,0 @@
-flask
-frozen-flask
-Flask-Markdown
-tqdm
-PyYAML
-tzlocal
