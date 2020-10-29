@@ -1,1 +1,0 @@
-print('Lint test')

@@ -1,0 +1,375 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <link rel="icon" type="image/png" sizes="32x32" href="static/images/ismir_tab_icon.png">
+
+    <link rel="stylesheet" href="static/css/main.css" />
+    <link rel="stylesheet" href="static/css/custom.css" />
+    <link rel="stylesheet" href="static/css/lazy_load.css" />
+    <link rel="stylesheet" href="static/css/typeahead.css" />
+    <link rel="stylesheet" href="static/css/poster.css" />
+    <link rel="stylesheet" href="static/css/music.css" />
+    <link rel="stylesheet" href="static/css/piece.css" />
+
+
+    <!-- <link rel="stylesheet" href="https://gitcdn.xyz/repo/wingkwong/jquery-chameleon/master/src/chameleon.min.css"> -->
+
+    <!-- External Javascript libs  -->
+    <script src="https://cdn.jsdelivr.net/npm/d3@5/dist/d3.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/handlebars@4.7.3/dist/handlebars.min.js" integrity="sha256-/PJBs6QWvXijOFIX04kZpLb6ZtSQckdOIavLWKKOgXU=" crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha256-WqU1JavFxSAMcLP2WIOI+GB2zWmShMI82mTpLDcqFUg=" crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/moment@2.24.0/min/moment.min.js" integrity="sha256-4iQZ6BVL4qNKlQ27TExEhBN1HFPvAvAMbFavKKosSWQ=" crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/moment-timezone@0.5.28/builds/moment-timezone-with-data.min.js" integrity="sha256-IWYg4uIC8/erItNXYvLtyYHioRi2zT1TFva8qaAU/ww=" crossorigin="anonymous"></script>
+    <!-- <script src="static/js/chameleon.js"></script> -->
+
+
+    <!-- Library libs -->
+    <script src="static/js/typeahead.bundle.js"></script>
+
+    
+
+    <!-- External CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha256-YLGeXaapI0/5IgZopewRJcFXomhRMlYYjugPLSyNjTY=" crossorigin="anonymous">
+
+    <!-- External Fonts (no google for china) -->
+    <link
+      href="static/css/Lato.css"
+      rel="stylesheet"
+    />
+    <link href="static/css/Exo.css" rel="stylesheet" />
+    <link
+      href="static/css/Cuprum.css"
+      rel="stylesheet"
+    />
+    <link
+      href="static/css/Ambiant.css"
+      rel="stylesheet"
+    />
+    <!-- <link href="static/css/chameleon.css" rel="stylesheet"/> -->
+    <title>ISMIR 2020: A Neural Approach for Full-page Optical Music Recognition of Mensural Documents</title>
+    
+<meta name="citation_title" content="A Neural Approach for Full-page Optical Music Recognition of Mensural Documents" />
+
+<meta name="citation_author" content="Francisco J. Castellanos" />
+
+<meta name="citation_author" content="Jorge Calvo-Zaragoza" />
+
+<meta name="citation_author" content="Jose M. Inesta" />
+
+<meta name="citation_publication_date" content="11-16 October 2020" />
+<meta name="citation_conference_title" content="Ismir 2020 Virtual Conference" />
+<meta name="citation_inbook_title" content="Proceedings of the First MiniCon Conference" />
+<meta name="citation_abstract" content="The digitization of the content within musical manuscripts allows the possibility of preserving, disseminating, and exploiting that cultural heritage. The automation of this process has been object of study for a long time in the field of Optical Music Recognition (OMR), with a wide variety of proposed solutions. Currently, there is a tendency to use machine learning strategies based on neural networks because of their high performance and flexibility to adapt to different scenarios by changing only the training data. However, most of the recent literature addresses only specific parts of the traditional OMR workflow such as music object detection or symbol classification. In this paper, we progress one step further by proposing a full-page OMR system for Mensural notation scores that consists of simply two processes, which are enough to extract the symbolic music information from a full page. More precisely, our pipeline uses Selectional Auto-Encoders to extract single staff regions, combined with end-to-end staff-level recognition based on Convolutional Recurrent Neural Networks for retrieving the music notation. The results confirm the adequacy of our method, reporting a successful behavior on two Mensural collections (Capitan and Seils datasets) with a straightforward implementation." />
+
+<meta name="citation_keywords" content="MIR tasks" />
+
+<meta name="citation_keywords" content="Optical Music Recognition (OMR)" />
+
+<meta name="citation_keywords" content="Applications" />
+
+<meta name="citation_keywords" content="Music retrieval systems" />
+
+<meta name="citation_pdf_url" content="" />
+<meta id="yt-id" data-name=3wGvBVDZYHQ />
+<meta id="bb-id" data-name=BV1jZ4y1L7ND />
+
+
+  </head>
+
+  <body>
+    <!-- NAV -->
+    
+    <!--
+    ('index.html, 'Home'),
+    ('special_meetings.html', 'Special Meetings'),
+    -->
+
+    <nav
+      class="navbar sticky-top navbar-expand-lg navbar-light mr-auto"
+      id="main-nav"
+    >
+      <div class="container">
+        <a class="navbar-brand" href="https://ismir2020.net/">
+          <img
+             class="logo" src="static/images/ISMIR-logo_Horizontal - Acronym only_RGB.jpg"
+             height="auto"
+             width="200px"
+          />
+        </a>
+        
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div
+          class="collapse navbar-collapse text-right flex-grow-1"
+          id="navbarNav"
+        >
+          <ul class="navbar-nav ml-auto">
+            
+            <li class="nav-item ">
+              <a class="nav-link" href="calendar.html">Schedule</a>
+            </li>
+            
+            <li class="nav-item ">
+              <a class="nav-link" href="papers.html">Papers</a>
+            </li>
+            
+            <li class="nav-item ">
+              <a class="nav-link" href="music.html">Music</a>
+            </li>
+            
+            <li class="nav-item ">
+              <a class="nav-link" href="lbds.html">LBDs</a>
+            </li>
+            
+            <li class="nav-item ">
+              <a class="nav-link" href="industry.html">Industry</a>
+            </li>
+            
+            <li class="nav-item ">
+              <a class="nav-link" href="tutorials.html">Tutorials</a>
+            </li>
+            
+          </ul>
+        </div>
+      </div>
+    </nav>
+    
+
+    
+    <!-- User Overrides -->
+     
+
+    <div class="container">
+      <!-- Tabs -->
+      <div class="tabs">
+         
+      </div>
+      <!-- Content -->
+      <div class="content">
+        
+
+<!-- Title -->
+<div class="pp-card m-3" style="">
+  <div class="card-header">
+    <h2 class="card-title main-title text-center" style="">
+      4-12 - A Neural Approach for Full-page Optical Music Recognition of Mensural Documents
+    </h2>
+    <h3 class="card-subtitle mb-2 text-muted text-center">
+      
+      <a href="papers.html?filter=authors&search=Francisco J. Castellanos" class="text-muted"
+        >Francisco J. Castellanos</a
+      >,
+      
+      <a href="papers.html?filter=authors&search=Jorge Calvo-Zaragoza" class="text-muted"
+        >Jorge Calvo-Zaragoza</a
+      >,
+      
+      <a href="papers.html?filter=authors&search=Jose M. Inesta" class="text-muted"
+        >Jose M. Inesta</a
+      >
+      
+    </h3>
+    <p class="card-text text-center">
+      <span class="">Keywords:</span>
+      
+      <a
+        href="papers.html?filter=keywords&search=MIR tasks"
+        class="text-secondary text-decoration-none"
+        >MIR tasks</a
+      >,
+      
+      <a
+        href="papers.html?filter=keywords&search=Optical Music Recognition (OMR)"
+        class="text-secondary text-decoration-none"
+        >Optical Music Recognition (OMR)</a
+      >,
+      
+      <a
+        href="papers.html?filter=keywords&search=Applications"
+        class="text-secondary text-decoration-none"
+        >Applications</a
+      >,
+      
+      <a
+        href="papers.html?filter=keywords&search=Music retrieval systems"
+        class="text-secondary text-decoration-none"
+        >Music retrieval systems</a
+      >
+      
+    </p>
+  </div>
+</div>
+<div style="display: flex; justify-content: center;" class="btn-toolbar mt-4" role="toolbar">
+  <div class="poster-buttons btn-group btn-group-toggle mb-3" data-toggle="buttons">
+    <button class="card-link btn btn-outline-primary" data-toggle="collapse" type="button" data-target="#details">
+      Abstract
+    </button>
+    <button class="card-link btn btn-outline-primary" data-toggle="collapse" type="button" data-target="#paper">
+      Paper
+    </button>
+    <button class="card-link btn btn-outline-primary" data-toggle="collapse" type="button" data-target="#poster">
+      Poster
+    </button>
+    <button class="card-link btn btn-outline-primary" data-toggle="collapse" type="button" data-target="#video">
+      Video
+    </button>
+    <!--  -->
+  </div>
+  
+    <div class="btn-group ml-3 mb-3">
+      <a href="https://ismir2020.slack.com/archives/C01C668PEBD" class="btn btn-primary"><svg style="display: inline-block; width: 23px;" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="75 75 150 150" style="enable-background:new 0 0 270 270;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#FFFFFF;}
+</style>
+<g>
+	<g>
+		<path class="st0" d="M99.4,151.2c0,7.1-5.8,12.9-12.9,12.9s-12.9-5.8-12.9-12.9c0-7.1,5.8-12.9,12.9-12.9h12.9V151.2z"/>
+		<path class="st0" d="M105.9,151.2c0-7.1,5.8-12.9,12.9-12.9s12.9,5.8,12.9,12.9v32.3c0,7.1-5.8,12.9-12.9,12.9
+			s-12.9-5.8-12.9-12.9C105.9,183.5,105.9,151.2,105.9,151.2z"/>
+	</g>
+	<g>
+		<path class="st0" d="M118.8,99.4c-7.1,0-12.9-5.8-12.9-12.9s5.8-12.9,12.9-12.9s12.9,5.8,12.9,12.9v12.9H118.8z"/>
+		<path class="st0" d="M118.8,105.9c7.1,0,12.9,5.8,12.9,12.9s-5.8,12.9-12.9,12.9H86.5c-7.1,0-12.9-5.8-12.9-12.9
+			s5.8-12.9,12.9-12.9C86.5,105.9,118.8,105.9,118.8,105.9z"/>
+	</g>
+	<g>
+		<path class="st0" d="M170.6,118.8c0-7.1,5.8-12.9,12.9-12.9c7.1,0,12.9,5.8,12.9,12.9s-5.8,12.9-12.9,12.9h-12.9V118.8z"/>
+		<path class="st0" d="M164.1,118.8c0,7.1-5.8,12.9-12.9,12.9c-7.1,0-12.9-5.8-12.9-12.9V86.5c0-7.1,5.8-12.9,12.9-12.9
+			c7.1,0,12.9,5.8,12.9,12.9V118.8z"/>
+	</g>
+	<g>
+		<path class="st0" d="M151.2,170.6c7.1,0,12.9,5.8,12.9,12.9c0,7.1-5.8,12.9-12.9,12.9c-7.1,0-12.9-5.8-12.9-12.9v-12.9H151.2z"/>
+		<path class="st0" d="M151.2,164.1c-7.1,0-12.9-5.8-12.9-12.9c0-7.1,5.8-12.9,12.9-12.9h32.3c7.1,0,12.9,5.8,12.9,12.9
+			c0,7.1-5.8,12.9-12.9,12.9H151.2z"/>
+	</g>
+</g>
+</svg> poster-4-12-castellanos</a>
+    </div>
+  
+</div>
+<div class="poster-content">
+  <div id="details" class="pp-card m-3 collapse">
+    <div class="card-body">
+      <div class="card-text">
+        <div id="abstractExample">
+          <span class="font-weight-bold">Abstract:</span>
+          The digitization of the content within musical manuscripts allows the possibility of preserving, disseminating, and exploiting that cultural heritage. The automation of this process has been object of study for a long time in the field of Optical Music Recognition (OMR), with a wide variety of proposed solutions. Currently, there is a tendency to use machine learning strategies based on neural networks because of their high performance and flexibility to adapt to different scenarios by changing only the training data. However, most of the recent literature addresses only specific parts of the traditional OMR workflow such as music object detection or symbol classification. In this paper, we progress one step further by proposing a full-page OMR system for Mensural notation scores that consists of simply two processes, which are enough to extract the symbolic music information from a full page. More precisely, our pipeline uses Selectional Auto-Encoders to extract single staff regions, combined with end-to-end staff-level recognition based on Convolutional Recurrent Neural Networks for retrieving the music notation. The results confirm the adequacy of our method, reporting a successful behavior on two Mensural collections (Capitan and Seils datasets) with a straightforward implementation.
+        </div>
+      </div>
+      <p></p>
+    </div>
+  </div>
+  <div id="paper" class="collapse">
+    
+    <button class="fullscreen-button btn btn-primary mb-3">Fullscreen</button>
+    <iframe class="fullscreen-iframe" src = "static/final_papers/207.pdf#embedded=true" width='100%' height='500px' allowfullscreen webkitallowfullscreen></iframe>
+    
+  </div>
+  <div id="poster" class="collapse">
+    
+    <button class="fullscreen-button btn btn-primary mb-3">Fullscreen</button>
+    <iframe class="fullscreen-iframe" src = "static/posters/207.pdf#embedded=true" width='100%' height='500px' allowfullscreen webkitallowfullscreen></iframe>
+    
+  </div>
+  <div id="video" class="collapse">
+    <!-- <div class="border-top my-3"></div>
+<div class="row p-4" id="faq">
+  <div class="col-12 bd-content">
+    <h2 class="text-center">Video Stream</h2>
+  </div>
+</div> -->
+    
+    <div class="video-container mt-3 mb-3">
+    </div>
+    
+  </div>
+</div>
+
+
+<script src="static/js/poster.js"></script>
+<script src="static/js/video_selection.js"></script>
+
+      </div>
+    </div>
+    
+    
+
+    <!-- Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "UA-");
+    </script>
+
+    <!-- Footer -->
+    <footer class="footer bg-light p-4">
+      <div class="container">
+        <p class="float-right"><a href="#">Back to Top</a></p>
+        <p class="text-center">© 2020 ISMIR Organization Committee</p>
+      </div>
+    </footer>
+
+    <!-- Code for hash tags -->
+    <script type="text/javascript">
+      $(document).ready(function () {
+        if (location.hash !== "") {
+          $('a[href="' + location.hash + '"]').tab("show");
+        }
+
+        $("a[data-toggle='tab']").on("shown.bs.tab", function (e) {
+          var hash = $(e.target).attr("href");
+          if (hash.substr(0, 1) == "#") {
+            var position = $(window).scrollTop();
+            location.replace("#" + hash.substr(1));
+            $(window).scrollTop(position);
+          }
+        });
+      });
+    </script>
+    <script src="static/js/lazy_load.js"></script>
+    
+  </body>
+</html>
